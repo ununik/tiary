@@ -1,0 +1,234 @@
+*{
+  font-family: 'Play', sans-serif;
+  margin: 0px;
+}
+.comments_box_all{
+  margin: 50px 0px 0px 0px;
+}
+.content{
+  width: 60%;
+}
+.checkboxInput_div{
+  vertical-align: middle;
+  margin: 10px 0px 15px 50px;
+}
+.checkboxInput_div input{
+  width: 25px;
+  height: 25px;
+  border: 1px solid #8C1914;
+  outline: none;
+}
+#content{
+  margin: 20px;
+}
+#contentbox{
+  display: block;
+  float: left;
+  width: 80%;
+}
+.entries_view_all{
+  display: block;
+  margin: 5px 0px 25px 0px;
+  text-decoration: none;
+  color: black;
+}
+.entry_text h1{
+  border: none;
+  font-size: 1.45em;
+  margin: 10px 0px 15px 0px;
+  text-decoration: none;
+}
+.entry_text h2{
+  border: none;
+  font-size: 1.35em;
+  margin: 8px 0px 10px 10px;
+  text-decoration: none;
+}
+.entry_text h3{
+  border: none;
+  font-size: 1.20em;
+  margin: 5px 0px 5px 10px;
+  text-decoration: none;
+}
+.entry_text h4{
+  border: none;
+  font-size: 1.1em;
+  margin: 5px 0px 0px 10px;
+  text-decoration: none;
+}
+.entry_text iframe{
+  border: none;
+}
+#errors{
+  background-color: #860D0A;
+  border: 2px solid #8C1914;
+  width: 60%;
+  color: white;
+  margin: 10px 0px 20px 0px;
+}
+#errors span{
+  display: block;
+  font-weight: bold;
+  margin: 5px 7px;
+}
+h1{
+  pading: 25px 10px 13px 10px;
+  margin: 0px 0px 10px 0px;
+  border-bottom: 3px solid #8C1914;
+}
+h2{
+  pading: 25px 10px 13px 10px;
+  margin: 0px 0px 10px 0px;
+  border-bottom: 2px solid #8C1914;
+  width:60%;
+}
+h3{
+  margin: 2px 5px 13px 5px;
+  text-decoration: underline;
+}
+#header{
+  background-color: red;
+  height: 70px;
+  width: 70%;
+  display: block;
+  -webkit-transition: width 0.5s;
+  -moz-transition: width 0.5s;
+  -ms-transition: width 0.5s;
+  -o-transition: width 0.5s;
+  transition: width 0.5s;
+}
+#header:hover{
+  width: 100%;
+}
+nav{
+  width: 20%;
+  float: left;
+}
+nav a{
+  text-align: right;
+  padding: 8px 15px;
+  background-color: #8C1914;
+  display: block;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  -webkit-transition: padding 0.2s;
+  -moz-transition: padding 0.2s;
+  -ms-transition: padding 0.2s;
+  -o-transition: padding 0.2s;
+  transition: padding 0.2s;
+}
+nav a:hover{
+  padding: 8px 10px 8px 15px;
+  background-color: #860D0A;
+}
+#navHeadline{
+  display: none;
+}
+.popis_profil{
+  margin: 10px 0px 15px 0px;
+}
+.profil_table td{
+  vertical-align: top;
+}
+.selectInput_div select{
+  width: 60%;
+  height: 35px;
+  outline: none;
+  border: 1px solid #860D0A;
+  padding: 5px 7px;
+}
+.selectInput_div select:focus{
+  background-color: rgba(134,13,10,0.1);
+}
+.selectInput_div_option{
+  line-height: 30px;
+  background-color: rgba(134,13,10,0.1);
+}
+#sport_insteadOfSelect{
+  display:none;
+  margin-top: 5px;
+  width: 60%;
+  height: 35px;
+  outline: none;
+  border: 1px solid #860D0A;
+  padding: 5px 7px;
+}
+#sport_insteadOfSelect:focus {
+  background-color: rgba(134,13,10,0.1);
+}
+.submit{
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #8C1914;
+  padding: 8px 10px;
+  width: 150px;
+  margin: 10px 0px 30px 50px;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+}
+.submit:hover{
+  background-color: #860D0A;
+}
+.textInput_div{
+  margin: 7px 0px 15px 0px;
+}
+.textInput_div input{
+  width: 60%;
+  height: 35px;
+  outline: none;
+  border: 1px solid #860D0A;
+  padding: 5px 7px;
+}
+.textInput_div input:focus{
+  background-color: rgba(134,13,10,0.1);
+
+}
+.textInput_div .submit{
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #8C1914;
+  padding: 8px 10px;
+  width: 150px;
+  margin: 10px 0px 30px 0px;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  position:relative;
+  left: -150px;
+  top: 4px;
+}
+.textareaInput_div{
+  margin: 7px 0px 15px 0px;
+}
+.textareaInput_div textarea{
+  width: 60%;
+  height: 75px;
+  outline: none;
+  border: 1px solid #860D0A;
+  padding: 5px 7px;
+  resize: none;
+}
+.textareaInput_div textarea[name=entry]{
+  width: 60%;
+  height: 60%;
+  outline: none;
+  border: 1px solid #860D0A;
+  padding: 5px 7px;
+  resize: none;
+}
+.textareaInput_div textarea:focus{
+  background-color: rgba(134,13,10,0.1);
+}
+#textareaInput_div_area{
+  width:60%;
+}
+#underLine{
+  border-top: 1px dotted #860D0A;
+  margin: 20px 0px 10px 0px;
+  font-size: 0.8em;
+  padding: 5px 0px;
+}
