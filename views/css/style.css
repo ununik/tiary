@@ -87,10 +87,16 @@ h3{
   text-decoration: underline;
 }
 #header{
-  background-color: red;
+  background-color: #5f110e;
   height: 70px;
   width: 100%;
   display: block;
+  color: white;
+  -webkit-box-shadow: 0px 2px 3px black;
+  -moz-box-shadow: 0px 2px 3px black;
+  box-shadow: 0px 2px 3px black;
+  position:relative;
+  z-index: 300;
 }
 #header .headerName{
   float: right;
