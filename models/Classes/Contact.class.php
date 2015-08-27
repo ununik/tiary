@@ -38,7 +38,11 @@ class Contact extends Connection
         $relationship = $result->fetch();
         if(isset($relationship['id'])){
             if($relationship['friends'] != 1){
-                return "waiting";
+                if($relationship['user1'] == $me){
+                    return "waiting";
+                }else{
+                    return "check";
+                }
             }else{
                 return true;
             }
@@ -51,5 +55,15 @@ class Contact extends Connection
         $timestamp = time();
         $result = $db->prepare("INSERT INTO `relationship`(`user1`, `user2`, `timestamp`, `friends`) VALUES (?, ?, ?, ?)");
         $result->execute(array($me, $user2, $timestamp, 0));
+    }
+    public function confirmRelationship($me, $user2){
+        $db = parent::connect();
+        $result = $db->prepare("UPDATE `relationship` SET `friends` = 1 WHERE (user1 = ?  && user2 = ?) || (user1 = ? && user2 = ?)");
+        $result->execute(array($me, $user2, $user2, $me));
+    }
+    public function deleteRelationship($me, $user2){
+        $db = parent::connect();
+        $result = $db->prepare("DELETE FROM `relationship` WHERE (user1 = ?  && user2 = ?) || (user1 = ? && user2 = ?)");
+        $result->execute(array($me, $user2, $user2, $me));
     }
 }

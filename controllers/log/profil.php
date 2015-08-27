@@ -15,6 +15,10 @@ if(isset($_GET['profil']) && $_GET['profil']!=$profil->getId()){
     if(isset($_POST['friends'])){
         if($_POST['friends'] == "new"){
             $relationship->setNewRelationship($me, $profil->getId());
+        }elseif($_POST['friends'] == "check"){
+            $relationship->confirmRelationship($me, $profil->getId());
+        }elseif($_POST['friends'] == "delete"){
+            $relationship->deleteRelationship($me, $profil->getId());
         }
     }
     $relationship = $relationship->isRelationship($me, $profil->getId());
@@ -22,8 +26,10 @@ if(isset($_GET['profil']) && $_GET['profil']!=$profil->getId()){
         $relationships = "S tímto sportovcem se znáš. <form action='' method='post'><button name='friends' value='delete'>Zrušit přátelství</button></form>";
     }elseif($relationship === false){
         $relationships = "Zatím se neznáte. <form action='' method='post'><button name='friends' value='new'>Odeslat žádost</button></form>";
-    }else{
+    }elseif($relationship == "waiting"){
         $relationships = "Čeká se na potvrzení od druhého sportovce.";
+    }elseif($relationship == "check"){
+        $relationships = "Tento sportovec se chce s tebou seznámit. <form action='' method='post'><button name='friends' value='check'>Potvrdit žádost</button></form>";
     }
 }
 $clubs = $profil->getClubList();
