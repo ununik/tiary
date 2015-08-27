@@ -203,9 +203,9 @@ nav a:hover{
 }
 .textareaInput_div{
   margin: 7px 0px 15px 0px;
+  width: 60%;
 }
 .textareaInput_div textarea{
-  width: 60%;
   height: 75px;
   outline: none;
   border: 1px solid #860D0A;

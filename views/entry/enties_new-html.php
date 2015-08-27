@@ -35,7 +35,7 @@ $container .= "<div class='textareaInput_div'>Článek:<br>
                     selector: 'textarea',
                     mode : \"textareas\",
                     theme: 'modern',
-                    width: '60%',
+                    width: '100%',
                     image_advtab: true,
                     fontsize_formats: \"10pt 12pt 14pt 16pt 18pt 24pt 36pt\",
                     plugins: 'image table link autolink textcolor media fullscreen textpattern charmap lists',
