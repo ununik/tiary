@@ -6,7 +6,6 @@
  * Time: 15:24
  */
 
-$profil = new Profil(0, $_SESSION['tiary']['login'], $_SESSION['tiary']['password']);
 $me = $profil->getId();
 $relationships = "";
 if(isset($_GET['profil']) && $_GET['profil']!=$profil->getId()){

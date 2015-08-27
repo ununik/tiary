@@ -20,7 +20,9 @@ header('Content-type: text/html; charset=utf-8');
 if(!isset($_SESSION['tiary']['log']) || $_SESSION['tiary']['log'] !== true) {
     $navigation = include_once("controllers/unlog/navigation.php");
     $contetnt = include_once("controllers/unlog/$page.php");
+    $header = "";
 }else{
+    $header = include_once("controllers/log/header/header.php");
     $navigation = include_once("controllers/log/navigation.php");
     $contetnt = include_once("controllers/log/$page.php");
 }

@@ -5,7 +5,6 @@
  * Date: 25.08.2015
  * Time: 14:40
  */
-$profil = new Profil(0, $_SESSION['tiary']['login'], $_SESSION['tiary']['password']);
 $entryDB = new Entry();
 $entry = $entryDB->showEntry($_GET['id']);
 $date = date('j. n. Y', $entry['timestamp']);

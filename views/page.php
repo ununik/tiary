@@ -14,7 +14,7 @@ return "
         </style>
     </head>
     <body>
-    <div id='header'></div>
+    <div id='header'>$header</div>
     <nav>$navigation</nav>
     <div id='contentbox'>
         <div id='content'>

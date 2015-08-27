@@ -89,16 +89,13 @@ h3{
 #header{
   background-color: red;
   height: 70px;
-  width: 70%;
-  display: block;
-  -webkit-transition: width 0.5s;
-  -moz-transition: width 0.5s;
-  -ms-transition: width 0.5s;
-  -o-transition: width 0.5s;
-  transition: width 0.5s;
-}
-#header:hover{
   width: 100%;
+  display: block;
+}
+#header .headerName{
+  float: right;
+  margin: 17px 15px 0px 10px;
+  font-size: 25px;
 }
 nav{
   width: 20%;
@@ -225,6 +222,9 @@ nav a:hover{
 }
 #textareaInput_div_area{
   width:60%;
+}
+.textareaInput_div .textarea{
+  width: 100%
 }
 #underLine{
   border-top: 1px dotted #860D0A;

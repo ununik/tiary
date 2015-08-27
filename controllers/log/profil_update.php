@@ -6,7 +6,6 @@
  * Time: 16:38
  */
 $err = array();
-$profil = new Profil(0, $_SESSION['tiary']['login'], $_SESSION['tiary']['password']);
 $firstname = $profil->firstname;
 $middlename = $profil->middlename;
 $lastname = $profil->lastname;

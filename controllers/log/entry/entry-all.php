@@ -5,7 +5,6 @@
  * Date: 25.08.2015
  * Time: 11:20
  */
-$profil = new Profil(0, $_SESSION['tiary']['login'], $_SESSION['tiary']['password']);
 $content = "";
 $entries = new Entry();
 $entries = $entries->showAdminEntries($profil->getId());

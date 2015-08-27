@@ -5,7 +5,6 @@
  * Date: 25.08.2015
  * Time: 13:59
  */
-$profil = new Profil(0, $_SESSION['tiary']['login'], $_SESSION['tiary']['password']);
 $entryDB = new Entry();
 $entryData = $entryDB->showAdminEntry($_GET['entry'], $profil->getId());
 $err = array();

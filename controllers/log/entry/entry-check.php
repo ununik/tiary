@@ -5,7 +5,6 @@
  * Date: 24.08.2015
  * Time: 14:44
  */
-$profil = new Profil(0, $_SESSION['tiary']['login'], $_SESSION['tiary']['password']);
 $err = array();
 $title = "";
 $headline = 'Nový článek';
