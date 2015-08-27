@@ -7,8 +7,24 @@
  */
 
 $profil = new Profil(0, $_SESSION['tiary']['login'], $_SESSION['tiary']['password']);
+$me = $profil->getId();
+$relationships = "";
 if(isset($_GET['profil']) && $_GET['profil']!=$profil->getId()){
     $profil = new Profil($_GET['profil']);
+    $relationship = new Contact();
+    if(isset($_POST['friends'])){
+        if($_POST['friends'] == "new"){
+            $relationship->setNewRelationship($me, $profil->getId());
+        }
+    }
+    $relationship = $relationship->isRelationship($me, $profil->getId());
+    if($relationship === true){
+        $relationships = "S tímto sportovcem se znáš. <form action='' method='post'><button name='friends' value='delete'>Zrušit přátelství</button></form>";
+    }elseif($relationship === false){
+        $relationships = "Zatím se neznáte. <form action='' method='post'><button name='friends' value='new'>Odeslat žádost</button></form>";
+    }else{
+        $relationships = "Čeká se na potvrzení od druhého sportovce.";
+    }
 }
 $clubs = $profil->getClubList();
 $club = "<ul>";

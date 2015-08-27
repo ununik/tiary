@@ -11,6 +11,11 @@
 $container = "<h1>{$profil->getName()}</h1>";
 
 /**
+ * Vztah
+ */
+    $container .= "<div>$relationships</div>";
+
+/**
  * Mail
  */
 if($profil->getEmail() != false) {
