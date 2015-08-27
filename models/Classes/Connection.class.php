@@ -14,6 +14,5 @@ class Connection
         }else{
             return new PDO('mysql:host=localhost;dbname=tiary.wz.cz7069', 'tiary.wz.cz7069', 'VqOziuR');
         }
-
     }
 }
