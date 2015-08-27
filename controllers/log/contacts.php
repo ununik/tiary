@@ -12,8 +12,7 @@ if(isset($_GET['search'])){
     $search = $_GET['search'];
     $users = $contact->getAllWithoutMeSearch($search, $profil->getId());
 }else{
-    $users = $contact->getAllWithoutMe($profil->getId());
+    $users = $contact->getAllfriends($profil->getId());
 }
-
 
 return include_once("views/contacts/contact-home.php");

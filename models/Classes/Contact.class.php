@@ -15,6 +15,25 @@ class Contact extends Connection
         $user = $result->fetchAll();
         return $user;
     }
+    public function getAllfriends($me){
+        $db = parent::connect();
+        $result = $db->prepare("SELECT * FROM `relationship` WHERE  (user1 = ? || user2 = ?) && friends = 1");
+        $result->execute(array($me, $me));
+        $users = $result->fetchAll();
+        $friends = array();
+        foreach($users as $user){
+
+            if($user['user1'] == $me){
+                $userid = $user['user2'];
+            }else{
+                $userid = $user['user1'];
+            }
+            $result = $db->prepare("SELECT * FROM `user` WHERE id = ? ");
+            $result->execute(array($userid));
+            $friends[] = $result->fetch();
+        }
+        return $friends;
+    }
     public function getAllWithoutMe($me){
         $db = parent::connect();
         $result = $db->prepare("SELECT * FROM `user` WHERE id != ? && validate = 1 ORDER BY firstname ");
