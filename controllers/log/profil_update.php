@@ -11,6 +11,8 @@ $middlename = $profil->middlename;
 $lastname = $profil->lastname;
 $email = $profil->getEmail();
 $changeEmail = $profil->getEmailAdmin();
+$tel = $profil->getAdminTel();
+$showTel = $profil->getShowTel();
 if($email == false) {
   $showMail = 0;
 } else{
@@ -61,6 +63,15 @@ if(isset($_POST['firstname'])){
     $showMail = 0;
   }
 
+  //change tel
+  $tel = $_POST['tel'];
+  //show mail
+  if(isset($_POST['showTel']) && $_POST['showTel'] == 1){
+    $showTel = 1;
+  }else{
+    $showTel = 0;
+  }
+
 
   $club = $_POST['club'];
   $clubUpdate = "";
@@ -72,7 +83,7 @@ if(isset($_POST['firstname'])){
   }
 
   if(empty($err)){
-    $profil->updateProfil($_POST['firstname'], $_POST['middlename'], $_POST['lastname'], $clubUpdate, $email, $showMail );
+    $profil->updateProfil($_POST['firstname'], $_POST['middlename'], $_POST['lastname'], $clubUpdate, $email, $showMail, $tel, $showTel );
     $err[] = "Změny byly úspěšně uloženy!";
   }
 }

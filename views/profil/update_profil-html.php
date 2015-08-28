@@ -31,9 +31,19 @@ $container .= "<div  class='checkboxInput_div'>
             }
 $container .= ">Ukazovat email na profilu</div>";
 
+$container .= "<div class='textInput_div'>Telefon:<br>
+         <input type='text' name='tel' value='{$tel}'></div>";
+
+
+$container .= "<div  class='checkboxInput_div'>
+         <input type='checkbox' name='showTel' value='1' ";
+if($showTel == 1){
+    $container .= "checked";
+}
+$container .= ">Ukazovat telefon na profilu</div>";
 
 $container .= "<div class='textareaInput_div'>Klub(y):<br>
-         <textarea name='club'>{$club}</textarea></div>";
+         <textarea name='club'  class='textarea'>{$club}</textarea></div>";
 
 $container .= "<input type='submit' value='Uložit'  class='submit'></form>";
 

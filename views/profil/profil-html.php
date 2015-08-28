@@ -23,6 +23,13 @@ if($profil->getEmail() != false) {
 }
 
 /**
+ * Tel
+ */
+if($profil->getTel() != false) {
+    $container .= "<div><strong>Telefon: </strong>{$profil->getTel()}</div>";
+}
+
+/**
  * Kluby
  */
 if($club != "" && $club != '<ul><li></li></ul>') {
