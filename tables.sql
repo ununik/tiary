@@ -59,9 +59,10 @@ CREATE TABLE IF NOT EXISTS `user` (
   `lastname` varchar(255) NOT NULL,
   `club` text NOT NULL,
   `showMail` tinyint(1) NOT NULL,
+  `tel` int(20) NOT NULL,
+  `showTel` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
 )
-
 
 CREATE TABLE IF NOT EXISTS `notice` (
   `id` int(20) NOT NULL AUTO_INCREMENT,
