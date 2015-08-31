@@ -90,4 +90,6 @@ if(isset($_POST['firstname'])){
     $err[] = "Změny byly úspěšně uloženy!";
   }
 }
+
+$title = $profil->getName().' | Úprava profilu | Tiary';
 return include_once("views/profil/update_profil-html.php");

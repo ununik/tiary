@@ -26,5 +26,5 @@ switch($entry){
         $sports = include("controllers/log/entry/entries-sports-select.php");
         $cont .= include_once("views/entry/enties_new-html.php");
 }
-
+$title = 'Články | Tiary';
 return $cont;

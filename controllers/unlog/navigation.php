@@ -7,6 +7,7 @@
  */
 return "<div id='navHeadline'  onclick='showANDhideMenu(this)'>MENU</div>
         <a href='index.php?page=home'>Domů</a>
+        <a href='index.php?page=calendar'>Kalendář</a>
         <a href='index.php?page=registration'>Registrace</a>
         <a href='index.php?page=login'>Login</a>
         <a href='index.php?page=conditions'>Podmínky</a>

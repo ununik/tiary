@@ -14,6 +14,8 @@ if($author->getId() == $profil->getId()){
 }else{
     $update = "";
 }
+
+$title = $entry['title'].' | Tiary';
 $like = include_once("controllers/log/entry/entry-like.php");
 $comment = include_once("controllers/log/entry/entry-comment.php");
 return include_once("views/entry/entry-html.php");

@@ -11,6 +11,7 @@ $relationships = "";
 if(isset($_GET['profil']) && $_GET['profil']!=$profil->getId()){
     $profil = new Profil($_GET['profil']);
 
+
     $relationship = new Contact();
     if(isset($_POST['friends'])){
         if($_POST['friends'] == "new"){
@@ -52,4 +53,8 @@ foreach($allEntries as $oneEntry){
     $entries .= "<a href='index.php?page=entry&id={$oneEntry['id']}'>{$oneEntry['title']} ($date)</a><br>
                  <div>Počet komentářů: $numComments</div>";
 }
+
+
+
+$title = 'Tiary';
 return include_once("views/profil/profil-html.php");

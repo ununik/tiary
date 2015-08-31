@@ -10,7 +10,7 @@ function __autoload($name){
     include_once("models/Classes/$name.class.php");
 }
 header('Content-type: text/html; charset=utf-8');
-
+$title = 'Tiary';
     include_once("models/function.php");
     if (isset($_GET['page'])) {
         $page = $_GET['page'];

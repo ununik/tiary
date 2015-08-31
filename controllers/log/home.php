@@ -13,4 +13,5 @@ foreach($authorsAll as $author){
 }
 $allEntries = new Entry();
 $allEntries = $allEntries->showAllFriendsEntries($authors);
+$title = 'Domů | Tiary';
 return include_once("views/homepage/log.php");
