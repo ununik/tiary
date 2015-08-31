@@ -10,6 +10,7 @@ return "
         <link rel='stylesheet' href='views/css/style.css' type='text/css' media='screen'/>
         <link rel='stylesheet' href='views/css/style_mobil.css' type='text/css' media='handheld, only screen and (max-device-width: 1023px)'/>
         <script src='js/basicPage.js'></script>
+        <script src='js/ajax.js'></script>
         <style>
         </style>
     </head>

@@ -18,3 +18,14 @@ function issetSport(select){
         document.getElementById("sport_insteadOfSelect").style.display = "none";
     }
 }
+
+function getUnseenNotices(){
+    if(document.getElementById('notice').style.display == "none"){
+    ajaxCall('controllers/log/header/ajaxNotice.php', function(xhr) {
+        document.getElementById('notice').innerHTML = xhr.responseText;
+        document.getElementById('notice').style.display = "block";
+    })
+    } else{
+        document.getElementById('notice').style.display = "none";
+    }
+}
