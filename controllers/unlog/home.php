@@ -5,4 +5,4 @@
  * Date: 19.08.2015
  * Time: 13:42
  */
-return "Welcome my friends";
+return include_once('views/homepage/unlog.php');
