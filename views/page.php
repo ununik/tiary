@@ -16,6 +16,7 @@ return "
     </head>
     <body>
     <div id='header'>$header</div>
+    <div id='notice'></div>
     <nav>$navigation</nav>
     <div id='contentbox'>
         <div id='content'>

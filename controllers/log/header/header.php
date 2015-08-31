@@ -11,7 +11,7 @@ $notices = new Notice();
 $notices = $notices->getNumNotice($profil->getId());
 $headerNotice = "";
 if($notices > 0){
-    $headerNotice = "<div id='notice'></div>!";
+    $headerNotice = "!";
     if($notices > 1){
         $headerNotice .= '<span class="headerNoticeNum">'.$notices."</span>";
     };

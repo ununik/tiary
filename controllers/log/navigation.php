@@ -5,7 +5,7 @@
  * Date: 19.08.2015
  * Time: 14:04
  */
-return "<div id='navHeadline' onclick='showANDhideMenu(this)'>MENU $headerName<span class='headerNotice'>$headerNotice</span></div>
+return "<div id='navHeadline' onclick='showANDhideMenu(this)'>MENU $headerName<span class='headerNotice'  onclick='getUnseenNotices()'>$headerNotice</span></div>
         <a href='index.php?page=home'>Domů</a>
         <a href='index.php?page=profil'>Profil</a>
         <a href='index.php?page=entries'>Mé články</a>
