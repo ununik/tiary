@@ -7,7 +7,19 @@
  */
 $profil = new Profil(0, $_SESSION['tiary']['login'], $_SESSION['tiary']['password']);
 $head = "";
+$notices = new Notice();
+$notices = $notices->getNotice($profil->getId());
+$headerNotice = "";
+if(!empty($notices)){
+    $headerNotice = "!";
+    if(count($notices) > 1){
+        $headerNotice .= '<span class="headerNoticeNum">'.count($notices)."</span>";
+    };
+}
+
 $headerName = "<span class='headerName'>{$profil->getName()}</span>";
+
 $head .= $headerName;
+$head .= '<span class="headerNotice">'.$headerNotice.'</span>';
 
 return $head;

@@ -13,9 +13,10 @@ class CommentsEntry extends Connection
         $timestamp = time();
         $result = $db->prepare("INSERT INTO `comment_entry`(`entry`, `timestamp`, `author`, `text`) VALUES (?, ?, ?, ?)");
         $result->execute(array($entry, $timestamp, $author, $text));
-
-        $result = $db->prepare("INSERT INTO `notice`(`title`, `timestamp`, `user`) VALUES (?, ?, ?)");
-        $result->execute(array($notice, $timestamp, $entryAuthor));
+        if($author != $entryAuthor) {
+            $result = $db->prepare("INSERT INTO `notice`(`title`, `timestamp`, `user`) VALUES (?, ?, ?)");
+            $result->execute(array($notice, $timestamp, $entryAuthor));
+        }
     }
 
     public function allComments($entry){

@@ -103,6 +103,15 @@ h3{
   margin: 17px 15px 0px 10px;
   font-size: 25px;
 }
+#header .headerNotice{
+  float: right;
+  margin: 17px 15px 0px 10px;
+  font-size: 25px;
+}
+#header .headerNotice .headerNoticeNum {
+  vertical-align: bottom;
+  font-size: 15px;
+}
 nav{
   width: 20%;
   float: left;
