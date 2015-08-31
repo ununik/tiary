@@ -18,7 +18,15 @@ function issetSport(select){
         document.getElementById("sport_insteadOfSelect").style.display = "none";
     }
 }
+function organisator(checkbox){
+    var organisator = document.getElementById("eventOrganisator");
 
+    if(checkbox.checked == 1){
+        organisator.style.display = "none";
+    }else{
+        organisator.style.display = "block";
+    }
+}
 function getUnseenNotices(){
     if(document.getElementById('notice').style.display == "none"){
     ajaxCall('controllers/log/header/ajaxNotice.php', function(xhr) {
