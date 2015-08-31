@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `lastname` varchar(255) NOT NULL,
   `club` text NOT NULL,
   `showMail` tinyint(1) NOT NULL,
-  `tel` int(20) NOT NULL,
+  `tel` varchar(25) NOT NULL,
   `showTel` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
 )

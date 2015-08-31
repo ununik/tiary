@@ -10,6 +10,7 @@ $me = $profil->getId();
 $relationships = "";
 if(isset($_GET['profil']) && $_GET['profil']!=$profil->getId()){
     $profil = new Profil($_GET['profil']);
+
     $relationship = new Contact();
     if(isset($_POST['friends'])){
         if($_POST['friends'] == "new"){
@@ -30,6 +31,9 @@ if(isset($_GET['profil']) && $_GET['profil']!=$profil->getId()){
     }elseif($relationship == "check"){
         $relationships = "Tento sportovec se chce s tebou seznámit. <form action='' method='post'><button name='friends' value='check'>Potvrdit žádost</button></form>";
     }
+
+
+    $relationships .= "<form action='index.php?page=message' method='post'><button name='id' value='{$profil->getId()}'>Odeslat zprávu</button></form>";
 }
 $clubs = $profil->getClubList();
 $club = "<ul>";

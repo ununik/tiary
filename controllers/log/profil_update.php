@@ -65,6 +65,9 @@ if(isset($_POST['firstname'])){
 
   //change tel
   $tel = $_POST['tel'];
+  if(strlen($tel) > 25){
+    $err[] = "Příliš dlouhé telefonní číslo!";
+  }
   //show mail
   if(isset($_POST['showTel']) && $_POST['showTel'] == 1){
     $showTel = 1;
