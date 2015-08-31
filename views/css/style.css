@@ -138,12 +138,15 @@ nav a:hover{
   display: none;
 }
 #notice{
-  position:absolute;
-  top:75px;
-  right: 0px;
-  font-size: 15px;
-  background-color: blue;
-  display:none;
+   position:absolute;
+   top:75px;
+   right: 0px;
+   font-size: 15px;
+   background-color: blue;
+   display:none;
+ }
+p{
+  margin: 7px 0px;
 }
 .popis_profil{
   margin: 10px 0px 15px 0px;

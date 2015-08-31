@@ -54,4 +54,12 @@ class Entry extends Connection
 
         return $entry;
     }
+
+    public function showAllFriendsEntries($authors){
+        $db = parent::connect();
+        $result = $db->prepare("SELECT * FROM `entry` WHERE `author` IN (?) ORDER BY `timestamp` DESC");
+        $result->execute(array(implode (", ",$authors)));
+        $entry = $result->fetchAll();
+        return $entry;
+    }
 }
