@@ -19,4 +19,12 @@ class Notice extends Connection
         }
         return $notices;
     }
+    public function getNumNotice($user){
+        $db = parent::connect();
+        $result = $db->prepare("SELECT * FROM `notice` WHERE user = ? && seen = 0");
+        $result->execute(array($user));
+        $notices = $result->rowCount();
+        return $notices;
+    }
 }
+

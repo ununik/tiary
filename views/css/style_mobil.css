@@ -22,6 +22,19 @@ h2{
     text-decoration: none;
     font-size: 1.05em;
 }
+.headerNotice{
+    float: right;
+    padding: 2px 15px 0px 0px;
+    background-color: #8C1914;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.05em;
+}
+.headerNotice .headerNoticeNum {
+    vertical-align: bottom;
+    font-size: 75%;
+}
 nav{
     width: 100%;
 }

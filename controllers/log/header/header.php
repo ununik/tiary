@@ -8,12 +8,12 @@
 $profil = new Profil(0, $_SESSION['tiary']['login'], $_SESSION['tiary']['password']);
 $head = "";
 $notices = new Notice();
-$notices = $notices->getNotice($profil->getId());
+$notices = $notices->getNumNotice($profil->getId());
 $headerNotice = "";
-if(!empty($notices)){
+if($notices > 0){
     $headerNotice = "!";
-    if(count($notices) > 1){
-        $headerNotice .= '<span class="headerNoticeNum">'.count($notices)."</span>";
+    if($notices > 1){
+        $headerNotice .= '<span class="headerNoticeNum">'.$notices."</span>";
     };
 }
 
