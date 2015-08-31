@@ -29,3 +29,8 @@ function getUnseenNotices(){
         document.getElementById('notice').style.display = "none";
     }
 }
+function seenNotice(id){
+    ajaxCall('controllers/log/header/seenNotice.php?id=' + id, function(xhr) {
+
+    })
+}
