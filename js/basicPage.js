@@ -1,3 +1,6 @@
+function onload(){
+    organisator(document.getElementById("eventOrganisatorCheckbox"));
+}
 function showANDhideMenu(div){
     var parent = div.parentNode;
     var link = parent.getElementsByTagName("a")

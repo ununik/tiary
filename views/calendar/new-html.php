@@ -19,8 +19,8 @@ $container .= "<div class='textInput_div'>Nadpis:<br>
 
 
 $container .= "<div class='textInput_div'>Pořadatel:<br>";
-$container .= "<input type='text' name='firstname' value='{$organisator}' id='eventOrganisator'></div>";
-$container .= "<div  class='checkboxInput_div'><input type='checkbox' name='meOrganisator' value='1' onclick='organisator(this)'";
+$container .= "<input type='text' name='organisator' value='{$organisator}' id='eventOrganisator'></div>";
+$container .= "<div  class='checkboxInput_div'><input type='checkbox' name='meOrganisator' value='1' id='eventOrganisatorCheckbox' onclick='organisator(this)'";
 if($meOrganisator == 1){
     $container .= "checked";
 }

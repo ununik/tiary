@@ -15,7 +15,7 @@ return "
         <style>
         </style>
     </head>
-    <body>
+    <body onload='onload()'>
     <div id='header'>$header</div>
     <div id='notice'></div>
     <nav>$navigation</nav>
