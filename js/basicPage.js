@@ -1,5 +1,5 @@
 function onload(){
-    organisator(document.getElementById("eventOrganisatorCheckbox"));
+    organisator();
 }
 function showANDhideMenu(div){
     var parent = div.parentNode;
@@ -21,11 +21,16 @@ function issetSport(select){
         document.getElementById("sport_insteadOfSelect").style.display = "none";
     }
 }
-function organisator(checkbox){
+function organisatorFCE(){
+    organisator();
+}
+function organisator(){
+    var checkbox = document.getElementById("eventOrganisatorCheckbox")
     var organisator = document.getElementById("eventOrganisator");
 
     if(checkbox.checked == 1){
         organisator.style.display = "none";
+        organisator.value = "";
     }else{
         organisator.style.display = "block";
     }
