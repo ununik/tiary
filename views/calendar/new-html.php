@@ -27,6 +27,8 @@ if($meOrganisator == 1){
 $container .= "> Já jsem pořadatel<br></div>";
 $container .= "<div class='textareaInput_div'>Popis:<br>
          <textarea class='textarea' name='subsciption'>$subsciption</textarea></div>";
+$container .= "<div class='textareaInput_div'>Místo:<br>
+         <textarea class='textarea' name='subsciption'>$place</textarea></div>";
 
 
 $container .= "<input type='submit' value='Uložit'  class='submit'></form>";

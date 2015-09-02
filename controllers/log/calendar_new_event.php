@@ -16,6 +16,7 @@ $headlineTitle = "Nová událost";
 $meOrganisator = 1;
 $organisator = "";
 $subsciption = "";
+$place = "";
 if(isset($_POST['title'])){
     $mainTitle = $_POST['title'];
     $headlineTitle = $mainTitle;
@@ -36,5 +37,6 @@ if(isset($_POST['title'])){
     }
 
     $subsciption = $_POST['subsciption'];
+    $place = $_POST['place'];
 }
 return include_once("views/calendar/new-html.php");
