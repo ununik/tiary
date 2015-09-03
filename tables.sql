@@ -72,3 +72,18 @@ CREATE TABLE IF NOT EXISTS `notice` (
   `user` int(15) NOT NULL,
   PRIMARY KEY (`id`)
 )
+
+CREATE TABLE IF NOT EXISTS `event` (
+  `id` int(15) NOT NULL AUTO_INCREMENT,
+  `timestamp1` int(20) NOT NULL,
+  `timestamp2` int(20) NOT NULL,
+  `author` int(15) NOT NULL,
+  `id_organisator` int(15) NOT NULL,
+  `organisator` varchar(255) NOT NULL,
+  `enroll` tinyint(1) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `subscription` text NOT NULL,
+  `place` text NOT NULL,
+  `timestampOfCreation` int(20) NOT NULL,
+  PRIMARY KEY (`id`)
+)

@@ -35,6 +35,9 @@ if(isset($_POST['title'])){
     }else{
         $meOrganisator = 0;
         $organisator = $_POST['organisator'];
+        if(strlen($organisator) > 255) {
+            $err[] = "Příliš dlouhé jméno pořadatele!";
+        }
     }
     if(isset($_POST['enrollSystem'])) {
         $enrollSystem = $_POST['enrollSystem'];
