@@ -10,11 +10,17 @@ $days = array();
 $today = strtotime('today');
 $nextweek = strtotime('+8 days', $today);
 $events = new Event();
-$events->getEvents($today, $nextweek);
+$eventsAll = $events->getEvents($today, $nextweek);
+
 
 for($i=0; $i < 8; $i++){
     $days[$i]['name'] = $daysname[date("w", $today)];
     $days[$i]['date'] = date("j. n. Y", $today);
+    foreach($eventsAll as $event){
+        if($event['timestamp1'] >= $today && $event['timestamp1']<strtotime('+1 day', $today)){
+            $days[$i]['events'][] = "<a href='index.php?page=calendar_event&id={$event['id']}'>{$event['title']}</a>";
+        }
+    }
     $days[$i]['events'][] = "<a href='index.php?page=calendar_new_event&timestamp=$today'>+</a>";
 
     $today = strtotime('+1 day', $today);

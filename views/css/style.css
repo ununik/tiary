@@ -2,6 +2,16 @@
   font-family: 'Play', sans-serif;
   margin: 0px;
 }
+.calendar_week{
+  border-collapse: collapse;
+}
+.calendar_week td{
+  vertical-align: top;
+  padding: 4px;
+}
+.calendar_week tr:hover{
+  background-color: red;
+}
 .comments_box_all{
   margin: 50px 0px 0px 0px;
 }

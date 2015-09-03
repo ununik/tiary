@@ -13,7 +13,7 @@ if(!empty($err)) {
     };
     $container .= "</div>";
 }
-$container .= "<form action='' method='post'>";
+$container .= "<form action='' method='post'><input type='text' hidden name='isSaved' value='$isSaved'>";
 $container .= "<div class='textInput_div'>Nadpis:<br>
          <input type='text' name='title' value='{$mainTitle}'></div>";
 
@@ -37,11 +37,15 @@ $container .= "<div class='textareaInput_div'>Popis:<br>
          <textarea class='textarea' name='subsciption'>$subsciption</textarea></div>";
 $container .= "<div class='textareaInput_div'>Místo:<br>
          <textarea class='textarea' name='place'>$place</textarea></div>";
+$container .= "<h3>Nastavení události</h3>";
 $container .= "<div class='selectInput_div'>Přístup:<br>
                 <select name='access'>$access</select>
+                </div><br>";
+$container .= "<div class='selectInput_div'>Typ události:<br>
+                <select name='eventType'>$eventType</select>
                 </div>";
 
-$container .= "<input type='submit' value='Uložit'  class='submit'></form>";
+$container .= "<input type='submit' value='$save'  class='submit'></form>";
 
 
 return $container;
