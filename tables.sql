@@ -85,5 +85,7 @@ CREATE TABLE IF NOT EXISTS `event` (
   `subscription` text NOT NULL,
   `place` text NOT NULL,
   `timestampOfCreation` int(20) NOT NULL,
+  `access` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 )

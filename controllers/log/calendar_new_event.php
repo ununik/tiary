@@ -57,17 +57,18 @@ if(isset($_POST['title'])){
 
     $accessPost = $_POST['access'];
     $typePost = $_POST['eventType'];
+    if(empty($err)){
+        $database = new Event();
+        if($isSaved == 0) {
+            $isSaved = $database->setEvent($timestamp, 0, $profil->getId(), $meOrganisator, $organisator, $enrollSystem, $mainTitle, $subsciption, $place, $accessPost, $typePost);
+        }else{
+            $database->updateEvent($timestamp, 0, $meOrganisator, $organisator, $enrollSystem, $mainTitle, $subsciption, $place, $accessPost, $typePost, $isSaved);
+        }
+    }
 }
 $access = include("controllers/log/calendar/access_options.php");
 $eventType = include("controllers/log/calendar/event_type.php");
-if(empty($err)){
-    $database = new Event();
-    if($isSaved == 0) {
-        $database->setEvent($timestamp, 0, $profil->getId(), $meOrganisator, $organisator, $enrollSystem, $mainTitle, $subsciption, $place, $accessPost, $typePost);
-    }else{
-        $database->updateEvent($timestamp, 0, $meOrganisator, $organisator, $enrollSystem, $mainTitle, $subsciption, $place, $accessPost, $typePost);
-    }
-}
+
 if($isSaved != 0){
     $save = "Upravit";
 }
