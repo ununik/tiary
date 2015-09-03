@@ -19,6 +19,7 @@ $organisator = "";
 $subsciption = "";
 $place = "";
 $allPeople = 1;
+
 if(isset($_POST['title'])){
     $mainTitle = $_POST['title'];
     $headlineTitle = $mainTitle;
@@ -49,4 +50,5 @@ if(isset($_POST['title'])){
     $subsciption = $_POST['subsciption'];
     $place = $_POST['place'];
 }
+$access = include("controllers/log/calendar/access_options.php");
 return include_once("views/calendar/new-html.php");

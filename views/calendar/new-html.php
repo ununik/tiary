@@ -30,13 +30,16 @@ $container .= "<div  class='checkboxInput_div' id='eventEnrollSystem'><input typ
 if($enrollSystem == 1){
     $container .= "checked";
 }
-$container .= "> Chci Tiary přihlašovací systém (<small>Nastavení proběhne v dalším kroku)</small>)<br></div>";
+$container .= "> Chci Tiary přihlašovací systém (<small>Nastavení proběhne v dalším kroku</small>)<br></div>";
 
 
 $container .= "<div class='textareaInput_div'>Popis:<br>
          <textarea class='textarea' name='subsciption'>$subsciption</textarea></div>";
 $container .= "<div class='textareaInput_div'>Místo:<br>
          <textarea class='textarea' name='place'>$place</textarea></div>";
+$container .= "<div class='selectInput_div'>Přístup:<br>
+                <select name='access'>$access</select>
+                </div>";
 
 $container .= "<input type='submit' value='Uložit'  class='submit'></form>";
 
