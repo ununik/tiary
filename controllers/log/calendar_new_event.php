@@ -14,6 +14,7 @@ $err = array();
 $mainTitle = "";
 $headlineTitle = "Nová událost";
 $meOrganisator = 1;
+$enrollSystem = 0;
 $organisator = "";
 $subsciption = "";
 $place = "";
@@ -34,6 +35,11 @@ if(isset($_POST['title'])){
     }else{
         $meOrganisator = 0;
         $organisator = $_POST['organisator'];
+    }
+    if(isset($_POST['enrollSystem'])) {
+        $enrollSystem = $_POST['enrollSystem'];
+    }else{
+        $enrollSystem = 0;
     }
 
     $subsciption = $_POST['subsciption'];

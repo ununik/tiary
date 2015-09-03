@@ -27,12 +27,17 @@ function organisatorFCE(){
 function organisator(){
     var checkbox = document.getElementById("eventOrganisatorCheckbox")
     var organisator = document.getElementById("eventOrganisator");
+    var eventEnrollSystem = document.getElementById("eventEnrollSystem");
+
 
     if(checkbox.checked == 1){
         organisator.style.display = "none";
+        eventEnrollSystem.style.display = "block";
         organisator.value = "";
     }else{
+        eventEnrollSystem.value = "0";
         organisator.style.display = "block";
+        eventEnrollSystem.style.display = "none";
     }
 }
 function getUnseenNotices(){
