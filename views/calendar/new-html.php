@@ -38,12 +38,6 @@ $container .= "<div class='textareaInput_div'>Popis:<br>
 $container .= "<div class='textareaInput_div'>Místo:<br>
          <textarea class='textarea' name='place'>$place</textarea></div>";
 
-    $container .= "<div  class='checkboxInput_div'><input type='checkbox' name='allPeople' value='1'";
-    if($allPeople == 1){
-        $container .= "checked";
-    }
-    $container .= "> Událost je veřejná (i neregistrovaný uživatel ji může navštívit)<br></div>";
-
 $container .= "<input type='submit' value='Uložit'  class='submit'></form>";
 
 

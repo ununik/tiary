@@ -48,11 +48,5 @@ if(isset($_POST['title'])){
 
     $subsciption = $_POST['subsciption'];
     $place = $_POST['place'];
-
-    if(isset($_POST['allPeople'])){
-        $allPeople = $_POST['allPeople'];
-    }else{
-        $allPeople = 0;
-    }
 }
 return include_once("views/calendar/new-html.php");
