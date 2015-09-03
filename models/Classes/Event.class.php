@@ -15,6 +15,13 @@ class Event extends Connection
         $events = $result->fetchAll();
         return $events;
     }
+    public function getEvent($id){
+        $db = parent::connect();
+        $result = $db->prepare("SELECT * FROM `event` WHERE id = ?");
+        $result->execute(array($id));
+        $event = $result->fetch();
+        return $event;
+    }
 
     public function setEvent($date1, $date2 = 0, $author, $idOrganisator = 0, $organisator = "", $enroll = 0, $title = "", $subscription = "", $place = "", $access = "all", $type = "competition"){
         $db = parent::connect();
