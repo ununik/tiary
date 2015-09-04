@@ -9,9 +9,15 @@ $container = "<h1>$mainTitle</h1>";
 $container .= "<table class='eventTable'>";
 $container .= "<tr><td class='eventTableDescription'>Datum:</td><td>$date</td></tr>";
 $container .= "<tr><td class='eventTableDescription'>Typ události:</td><td>$type</td></tr>";
-$container .= "<tr><td class='eventTableDescription'>Popis:</td><td>$subscription</td></tr>";
-$container .= "<tr><td class='eventTableDescription'>Místo:</td><td>$place</td></tr>";
-$container .= "<tr><td class='eventTableDescription'>Pořadatel:</td><td>$organisator</td></tr>";
+if($subscription != "") {
+    $container .= "<tr><td class='eventTableDescription'>Popis:</td><td>$subscription</td></tr>";
+}
+if($place != "") {
+    $container .= "<tr><td class='eventTableDescription'>Místo:</td><td>$place</td></tr>";
+}
+if($organisator != "") {
+    $container .= "<tr><td class='eventTableDescription'>Pořadatel:</td><td>$organisator</td></tr>";
+}
 
 $container.= "</table>";
 

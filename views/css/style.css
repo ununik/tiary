@@ -4,13 +4,27 @@
 }
 .calendar_week{
   border-collapse: collapse;
+  width: 60%;
 }
 .calendar_week td{
   vertical-align: top;
   padding: 4px;
 }
+.calendar_week tr{
+  border-bottom: 1px solid #860D0A;
+}
 .calendar_week tr:hover{
-  background-color: red;
+  background-color: rgba(134,13,10,0.1);
+}
+.calendar_week_date{
+  width: 100px;
+}
+.calendar_week_dayname{
+  margin-right: 10px;
+  width:auto;
+}
+#calendar_week_header_date{
+  width: auto;
 }
 .comments_box_all{
   margin: 50px 0px 0px 0px;
@@ -130,6 +144,8 @@ h3{
   float: right;
   margin: 17px 15px 0px 10px;
   font-size: 25px;
+  cursor: pointer;
+  padding: 2px 4px;
 }
 #header .headerNotice .headerNoticeNum {
   vertical-align: bottom;
@@ -161,11 +177,12 @@ nav a:hover{
   display: none;
 }
 #notice{
-   position:absolute;
+   position:fixed;
    top:75px;
    right: 0px;
    font-size: 15px;
-   background-color: blue;
+   background-color: black;
+   padding: 20px;
    display:none;
  }
 p{

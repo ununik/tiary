@@ -1,9 +1,12 @@
 <?php
-$options = '
-<option value="competition">Soutěž</option>
-<option value="training">Trénink</option>
-<option value="parttimejob">Brigáda</option>
-<option value="meeting">Setkání</option>
-    ';
-
+$typeOptionsAll = new Event();
+$typeOption = $typeOptionsAll->getTypeOptions();
+$options = "";
+foreach($typeOption as $option){
+    $options .= "<option value='{$option["title"]}'";
+    if($_POST['eventType'] == $option["title"]){
+        $options .= " selected ";
+    }
+    $options .= ">{$option["cz"]}</option>";
+}
 return $options;

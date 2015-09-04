@@ -89,3 +89,29 @@ CREATE TABLE IF NOT EXISTS `event` (
   `type` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 )
+
+CREATE TABLE IF NOT EXISTS `event_type` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) COLLATE utf8_czech_ci NOT NULL,
+  `cz` varchar(255) COLLATE utf8_czech_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ;
+
+
+INSERT INTO `event_type` (`id`, `title`, `cz`) VALUES
+(1, 'competition', 'Soutěž'),
+(2, 'training', 'Trénink'),
+(3, 'parttimejob', 'Brigáda'),
+(4, 'meeting', 'Setkání');
+
+
+CREATE TABLE IF NOT EXISTS `event_access` (
+  `id` int(15) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `cz` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+INSERT INTO `event_access` (`id`, `title`, `cz`) VALUES
+(1, 'all', 'Všichni'),
+(2, 'onlyRegistred', 'Jen registrovaní'),
+(3, 'nobody', 'Nikdo');

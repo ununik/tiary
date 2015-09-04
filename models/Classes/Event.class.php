@@ -37,4 +37,20 @@ class Event extends Connection
         $result = $db->prepare("UPDATE `event` SET `timestamp1`=?,`timestamp2`=?,`id_organisator`=?,`organisator`=?,`enroll`=?,`title`=?,`subscription`=?,`place`=?,`access`=?,`type`=? WHERE id = ?");
         $result->execute(array($date1, $date2, $idOrganisator, $organisator, $enroll, $title, $subscription, $place, $access, $type, $id));
     }
+
+    public function getAccessOptions(){
+        $db = parent::connect();
+        $result = $db->prepare("SELECT * FROM `event_access`");
+        $result->execute(array());
+        $event = $result->fetchAll();
+        return $event;
+    }
+
+    public function getTypeOptions(){
+        $db = parent::connect();
+        $result = $db->prepare("SELECT * FROM `event_type`");
+        $result->execute(array());
+        $event = $result->fetchAll();
+        return $event;
+    }
 }

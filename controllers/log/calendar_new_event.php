@@ -39,6 +39,10 @@ if(isset($_POST['title'])){
 
     if(isset($_POST['meOrganisator'])) {
         $meOrganisator = $_POST['meOrganisator'];
+
+        if(isset($_POST['enrollSystem'])) {
+            $enrollSystem = $_POST['enrollSystem'];
+        }
     }else{
         $meOrganisator = 0;
         $organisator = $_POST['organisator'];
@@ -46,11 +50,7 @@ if(isset($_POST['title'])){
             $err[] = "Příliš dlouhé jméno pořadatele!";
         }
     }
-    if(isset($_POST['enrollSystem'])) {
-        $enrollSystem = $_POST['enrollSystem'];
-    }else{
-        $enrollSystem = 0;
-    }
+
 
     $subsciption = $_POST['subsciption'];
     $place = $_POST['place'];
@@ -63,6 +63,9 @@ if(isset($_POST['title'])){
             $isSaved = $database->setEvent($timestamp, 0, $profil->getId(), $profil->getId(), $organisator, $enrollSystem, $mainTitle, $subsciption, $place, $accessPost, $typePost);
         }else{
             $database->updateEvent($timestamp, 0, $meOrganisator, $organisator, $enrollSystem, $mainTitle, $subsciption, $place, $accessPost, $typePost, $isSaved);
+        }
+        if($enrollSystem == 1){
+            header("location: index.php?page=calendar_new_event_enrollSystemSetting&id=$isSaved");
         }
     }
 }

@@ -5,15 +5,36 @@
  * Date: 31.08.2015
  * Time: 16:05
  */
+if(!isset($_GET['term']) || $_GET['term']==""){
+    $term = "week";
+}else{
+    $term = $_GET['term'];
+}
 $daysname = array("Ne","Po", "Út", "St", "Čt", "Pá", "So", "Ne");
 $days = array();
 $today = strtotime('today');
-$nextweek = strtotime('+8 days', $today);
+
+switch($term){
+    case "week":
+        $plus = "+8 days";
+        $num = 8;
+        break;
+    case "day":
+        $plus = "+1 days";
+        $num = 1;
+        break;
+    default:
+        $plus = "+8 days";
+        $num = 8;
+        break;
+}
+
+$next = strtotime($plus, $today);
 $events = new Event();
-$eventsAll = $events->getEvents($today, $nextweek);
+$eventsAll = $events->getEvents($today, $next);
 
 
-for($i=0; $i < 8; $i++){
+for($i=0; $i < $num; $i++){
     $days[$i]['name'] = $daysname[date("w", $today)];
     $days[$i]['date'] = date("j. n. Y", $today);
     foreach($eventsAll as $event){
@@ -27,4 +48,4 @@ for($i=0; $i < 8; $i++){
 }
 
 
-return include_once("views/calendar/week.php");
+return include_once("views/calendar/$term.php");
