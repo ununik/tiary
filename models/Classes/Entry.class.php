@@ -62,4 +62,5 @@ class Entry extends Connection
         $entry = $result->fetchAll();
         return $entry;
     }
+
 }

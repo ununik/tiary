@@ -115,3 +115,32 @@ INSERT INTO `event_access` (`id`, `title`, `cz`) VALUES
 (1, 'all', 'Všichni'),
 (2, 'onlyRegistred', 'Jen registrovaní'),
 (3, 'nobody', 'Nikdo');
+
+
+CREATE TABLE IF NOT EXISTS `event_category` (
+  `id` int(15) NOT NULL AUTO_INCREMENT,
+  `gender` varchar(15) COLLATE utf8_czech_ci NOT NULL,
+  `cz` varchar(255) COLLATE utf8_czech_ci NOT NULL,
+  `age` int(5) NOT NULL,
+  `sport` varchar(255) COLLATE utf8_czech_ci NOT NULL,
+  PRIMARY KEY (`id`)
+);
+INSERT INTO `event_category` (`id`, `gender`, `cz`, `age`, `sport`) VALUES
+(1, 'm', 'Žáci A', 10, 'biatlon'),
+(2, 'f', 'Žákyně A', 10, 'biatlon'),
+(3, 'm', 'Žáci B', 12, 'biatlon'),
+(4, 'f', 'Žákaně B', 12, 'biatlon'),
+(5, 'm', 'Žáci C', 14, 'biatlon'),
+(6, 'f', 'Žákyně C', 14, 'biatlon'),
+(7, 'm', 'Dorostenci A', 16, 'biatlon'),
+(8, 'f', 'Dorostenky', 16, 'biatlon'),
+(9, 'm', 'Dorostenci B', 18, 'biatlon'),
+(10, 'f', 'Dorostenky B', 18, 'biatlon'),
+(11, 'm', 'Junioři', 20, 'biatlon'),
+(12, 'f', 'Juniorky', 20, 'biatlon'),
+(13, 'm', 'Muži A', 22, 'biatlon'),
+(14, 'f', 'Ženy A', 22, 'biatlon'),
+(15, 'm', 'Muži B', 36, 'biatlon'),
+(16, 'f', 'Ženy B', 31, 'biatlon'),
+(17, 'm', 'Muži C', 46, 'biatlon'),
+(18, 'f', 'Ženy C', 41, 'biatlon');

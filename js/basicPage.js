@@ -1,5 +1,6 @@
 function onload(){
     organisator();
+    categoriesEnroll();
 }
 function showANDhideMenu(div){
     var parent = div.parentNode;
@@ -38,6 +39,16 @@ function organisator(){
         eventEnrollSystem.value = "0";
         organisator.style.display = "block";
         eventEnrollSystem.style.display = "none";
+    }
+}
+function categoriesEnroll(){
+    var checkbox = document.getElementById("eventCategoryCheckbox")
+    var categories = document.getElementById("categories");
+
+    if(checkbox.checked == 1){
+        categories.style.display = "block";
+    }else{
+        categories.style.display = "none";
     }
 }
 function getUnseenNotices(){

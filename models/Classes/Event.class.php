@@ -53,4 +53,21 @@ class Event extends Connection
         $event = $result->fetchAll();
         return $event;
     }
+
+    public function getCategoriesOptions($sport){
+        $db = parent::connect();
+        $result = $db->prepare("SELECT * FROM `event_category` WHERE sport = ? ORDER BY age, gender");
+        $result->execute(array($sport));
+        $event = $result->fetchAll();
+        return $event;
+    }
+
+    public function getType($type){
+        $db = parent::connect();
+        $result = $db->prepare("SELECT * FROM `event_type` WHERE `title` = ?");
+        $result->execute(array($type));
+        $entry = $result->fetch();
+
+        return $entry;
+    }
 }

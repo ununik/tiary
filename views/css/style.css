@@ -2,6 +2,9 @@
   font-family: 'Play', sans-serif;
   margin: 0px;
 }
+#categories{
+  display:none;
+}
 .calendar_week{
   border-collapse: collapse;
   width: 60%;
@@ -37,6 +40,16 @@
   margin: 10px 0px 15px 50px;
 }
 .checkboxInput_div input{
+  width: 25px;
+  height: 25px;
+  border: 1px solid #8C1914;
+  outline: none;
+}
+.checkboxInput_subdiv{
+  vertical-align: middle;
+  margin: 10px 0px 15px 150px;
+}
+.checkboxInput_subdiv input{
   width: 25px;
   height: 25px;
   border: 1px solid #8C1914;
