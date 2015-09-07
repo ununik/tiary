@@ -10,7 +10,7 @@ $event = $eventDB->getEvent($_GET['id']);
 $mainTitle = $event['title'];
 $subscription = $event['subscription'];
 $place = $event['place'];
-
+$update = 0;
 $type = $eventDB->getType($event['type']);
 $type = $type['cz'];
 
@@ -21,8 +21,13 @@ if($event['timestamp1'] == $event['timestamp2'] || $event['timestamp2'] == 0){
 }
 if($event['organisator'] != ""){
     $organisator = $event['organisator'];
+
 }else{
     $organisator = new Profil($event['id_organisator']);
     $organisator = $organisator->getName();
 }
+if($event['author'] == $profil->getId() || $event['id_organisator']==$profil->getId()){
+    $update = 1;
+}
+
 return include_once("views/calendar/login-event.php");

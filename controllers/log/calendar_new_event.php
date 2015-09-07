@@ -24,10 +24,12 @@ $save = "Uložit";
 $accessPost = "";
 $typePost = "";
 $next = "";
+$enrollButton = "";
 if(isset($_POST['title'])){
     $isSaved = $_POST['isSaved'];
     $mainTitle = $_POST['title'];
     $headlineTitle = $mainTitle;
+
 
     if($mainTitle == ""){
         $err[] = "Není vyplněný nadpis!";
