@@ -8,8 +8,8 @@
 $eventDB = new Event();
 $event = $eventDB->getEvent($_GET['id']);
 $mainTitle = $event['title'];
-$subscription = $event['subscription'];
-$place = $event['place'];
+$subscription = nl2br ($event['subscription']);
+$place = nl2br ($event['place']);
 $update = 0;
 $type = $eventDB->getType($event['type']);
 $type = $type['cz'];
