@@ -171,5 +171,6 @@ CREATE TABLE IF NOT EXISTS `enroll` (
   `age` varchar(5) NOT NULL,
   `club` varchar(255) NOT NULL,
   `adress` varchar(255) NOT NULL,
-  `category` text NOT NULL
+  `category` text NOT NULL,
+  `message` text NOT NULL
 );

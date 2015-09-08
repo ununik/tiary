@@ -68,6 +68,9 @@ nav a{
     position: relative;
     top: 0px;
     left:0px;
+} 
+.profil_tables{
+  width: 100%;
 }
 .selectInput_div select{
     width: 100%;

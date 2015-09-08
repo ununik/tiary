@@ -234,6 +234,19 @@ p{
 .profil_table td{
   vertical-align: top;
 }
+.profil_tables{
+  width: 60%;
+  border-collapse: collapse;
+}
+.profil_tables td{
+  vertical-align: top;
+  padding: 4px;
+}
+.profil_tables .profil_headline{
+  font-weight: bold;
+  text-align: right;
+  width: 200px;
+}
 .selectInput_div select{
   width: 60%;
   height: 35px;

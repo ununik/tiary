@@ -35,8 +35,6 @@ if(isset($_POST['enroll'])){
     $email = $_POST['email'];
     if(strlen($email) > 255){
       $err[] = "Příliš dlouhý email!";
-    }elseif(strlen($email) == 0){
-      $err[] = "Není vyplněný email";
     }
   }
   
