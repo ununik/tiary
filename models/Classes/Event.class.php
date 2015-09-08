@@ -41,7 +41,7 @@ class Event extends Connection
     $db = parent::connect();
         $timestamp = time();
         $result = $db->prepare("INSERT INTO `event_enroll`(`author`, `event`, `starttimestamp`, `gender`, `name`, `email`, `age`, `club`, `adress`, `category`) VALUES (?, ?, ?, 1, 1, 1, 1, 1, 0, ?)");
-        $result->execute(array($author, $event, $start, ""));
+        $result->execute(array($author, $event, $timestamp, ""));
     }
     public function updateEnroll($author, $event, $time, $gender, $name, $email, $age, $club, $adress, $category){
     $db = parent::connect();

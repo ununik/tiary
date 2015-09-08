@@ -29,6 +29,11 @@ if($event['organisator'] != ""){
 }
 if($event['author'] == $profil->getId() || $event['id_organisator']==$profil->getId()){
     $update = 1;
+    if($event['enroll'] == 1){
+      $enrollAdmin = 1;
+    }else{
+      $enrollAdmin = 0;
+    }
 }
 
 return include_once("views/calendar/login-event.php");

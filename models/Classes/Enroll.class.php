@@ -16,4 +16,11 @@ class Enroll extends Connection
         $this->lastId = $db->lastInsertId();
         return $this->lastId;
     }
+    public function getEnroll($event){
+        $db = parent::connect();
+        $result = $db->prepare("SELECT * FROM `enroll` WHERE event = ?");
+        $result->execute(array($event));
+        $event = $result->fetchAll();
+        return $event;
+    }
 }

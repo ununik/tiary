@@ -8,4 +8,7 @@ $event = $eventDB->getEvent($_GET['id']);
  
  $mainTitle = $event['title'];
 $enroll = $eventDB->getEnroll($_GET['id'], $event['author']);
+$person = new Enroll();
+$person = $person->getEnroll($_GET['id']);
+include ("views/calendar/enroll-table.php");
 return include_once("views/calendar/enroll_admin-html.php");

@@ -73,13 +73,14 @@ if(isset($_POST['enroll'])){
 
 $gender = "<option value='m'";
 if(isset($_POST['gender']) && $_POST['gender']=="m"){
-$genderValue = $_POST['gender']; 
+  $genderValue = $_POST['gender']; 
   $gender .= " selected ";
 }
 $gender .= ">Muž</option><option value='f'";
 
 
 if(isset($_POST['gender']) && $_POST['gender']=="f"){
+  $genderValue = $_POST['gender']; 
   $gender .= " selected ";
 }
 $gender .= ">Žena</option>";

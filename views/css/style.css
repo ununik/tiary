@@ -63,6 +63,32 @@
   float: left;
   width: 80%;
 }
+.enroll_admin{
+  border-collapse: collapse;
+  width: 60%;
+}
+.enroll_admin th{
+  text-align: left;
+}
+.enroll_admin td{
+  padding:4px;
+}
+.enroll_admin tr{
+  border-bottom: 1px solid #860D0A;
+}
+.enroll_admin tr:hover{
+  background-color: rgba(134,13,10,0.1);
+}
+.enroll_admin_age{
+  width: 40px;
+  text-align:center;
+  padding: 0px 8px;  
+}
+.enroll_admin_gender{
+  width: 40px;
+  text-align:center;
+  padding: 0px 4px;
+}
 .entries_view_all{
   display: block;
   margin: 5px 0px 25px 0px;
