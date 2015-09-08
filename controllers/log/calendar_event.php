@@ -13,6 +13,7 @@ $place = nl2br ($event['place']);
 $update = 0;
 $type = $eventDB->getType($event['type']);
 $type = $type['cz'];
+$enroll = $event['enroll'];
 
 if($event['timestamp1'] == $event['timestamp2'] || $event['timestamp2'] == 0){
     $date = date("j. n. Y", $event['timestamp1']);

@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS `comment_entry` (
   `author` int(12) NOT NULL,
   `text` text NOT NULL,
   PRIMARY KEY (`id`)
-)
+);
 
 CREATE TABLE IF NOT EXISTS `entry` (
   `id` int(9) NOT NULL AUTO_INCREMENT,
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS `entry` (
   `dislikes` int(12) NOT NULL DEFAULT '0',
   `shared` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-)
+) ;
 
 CREATE TABLE IF NOT EXISTS `likesdislikes_entry` (
   `id` int(12) NOT NULL AUTO_INCREMENT,
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `likesdislikes_entry` (
   `likes` tinyint(1) NOT NULL,
   `entry` int(12) NOT NULL,
   PRIMARY KEY (`id`)
-)
+);
 
 
 CREATE TABLE IF NOT EXISTS `relationship` (
@@ -36,14 +36,14 @@ CREATE TABLE IF NOT EXISTS `relationship` (
   `timestamp` int(20) NOT NULL,
   `friends` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-)
+) ;
 
 
 CREATE TABLE IF NOT EXISTS `sport` (
   `id` int(12) NOT NULL AUTO_INCREMENT,
   `cz` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-)
+);
 
 
 CREATE TABLE IF NOT EXISTS `user` (
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `tel` varchar(25) NOT NULL,
   `showTel` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-)
+) ;
 
 CREATE TABLE IF NOT EXISTS `notice` (
   `id` int(20) NOT NULL AUTO_INCREMENT,
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `notice` (
   `timestamp` int(20) NOT NULL,
   `user` int(15) NOT NULL,
   PRIMARY KEY (`id`)
-)
+) ;
 
 CREATE TABLE IF NOT EXISTS `event` (
   `id` int(15) NOT NULL AUTO_INCREMENT,
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `event` (
   `access` varchar(255) NOT NULL,
   `type` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-)
+) ;
 
 CREATE TABLE IF NOT EXISTS `event_type` (
   `id` int(12) NOT NULL AUTO_INCREMENT,

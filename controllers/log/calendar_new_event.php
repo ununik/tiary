@@ -63,6 +63,7 @@ if(isset($_POST['title'])){
         $database = new Event();
         if($isSaved == 0) {
             $isSaved = $database->setEvent($timestamp, 0, $profil->getId(), $profil->getId(), $organisator, $enrollSystem, $mainTitle, $subsciption, $place, $accessPost, $typePost);
+            $database->setEnroll($profil->getId(), $isSaved);
         }else{
             $database->updateEvent($timestamp, 0, $meOrganisator, $organisator, $enrollSystem, $mainTitle, $subsciption, $place, $accessPost, $typePost, $isSaved);
         }
