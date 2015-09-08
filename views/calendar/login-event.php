@@ -8,6 +8,7 @@
 $container = "<h1>$mainTitle</h1>";
 if($update == 1){
     $container .= "<a href='index.php?page=calendar_update_event&id={$event['id']}'>Upravit</a>";
+    $container .= "<a href='index.php?page=calendar_enroll_admin&id={$event['id']}'>Zobrazit přihlášky</a>";
 
 }
 $container .= "<table class='eventTable'>";

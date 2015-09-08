@@ -7,7 +7,6 @@
  */
 $container = "<h1>Nastavení přihlašovacího systému</h1>";
 $container .= "<form action='' method='post'><input type='text' hidden name='form'>";
-$container .= "<h2>$link</h2>";
 $container .= "<h3>Spuštění přihlášek:</h3>";
 $container .= "<div class='textInput_div'>Den:<br>
                 <input type='text' name='title' value='$day' placeholder='DD. MM. RRRR'></div>";
@@ -22,11 +21,7 @@ $container .= "<div  class='checkboxInput_div' id='eventEnrollSystem'><input typ
 $container .= "> Pohlaví<br></div>";
 
 
-$container .= "<div  class='checkboxInput_div' id='eventEnrollSystem'><input type='checkbox' name='name' value='1'";
-if($name == 1){
-    $container .= "checked";
-}
-$container .= "> Jméno a příjmení<br></div>";
+$container .= "<div  class='checkboxInput_div' id='eventEnrollSystem'><input type='checkbox' disabled name='name' value='1' checked > Jméno a příjmení<br></div>";
 
 $container .= "<div  class='checkboxInput_div' id='eventEnrollSystem'><input type='checkbox' name='email' value='1'";
 if($email == 1){
@@ -52,6 +47,7 @@ $container .= "checked";
 }
 $container .= "> Adresa<br></div>";
 
+/*
 $container .= "<div  class='checkboxInput_div' id='eventEnrollSystem'><input type='checkbox' id='eventCategoryCheckbox' name='category' onclick='categoriesEnroll()' value='1'";
 if($category == 1){
 $container .= "checked";
@@ -61,7 +57,7 @@ $container .= "> Výběr kategorie<br></div>";
     $container .= "<div class='checkboxInput_subdiv' id='categories'>";
         $container .= $categories;
     $container .= "</div>";
-
+*/
 $container .= "<input type='submit' value='Uložit'  class='submit'>";
 
 $container .= "</form><script>categoriesEnroll()</script>";

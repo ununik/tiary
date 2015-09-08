@@ -38,11 +38,16 @@ class Event extends Connection
         $result->execute(array($date1, $date2, $idOrganisator, $organisator, $enroll, $title, $subscription, $place, $access, $type, $id));
     }
     public function setEnroll($author, $event){
-    $start = time();
     $db = parent::connect();
         $timestamp = time();
         $result = $db->prepare("INSERT INTO `event_enroll`(`author`, `event`, `starttimestamp`, `gender`, `name`, `email`, `age`, `club`, `adress`, `category`) VALUES (?, ?, ?, 1, 1, 1, 1, 1, 0, ?)");
         $result->execute(array($author, $event, $start, ""));
+    }
+    public function updateEnroll($author, $event, $time, $gender, $name, $email, $age, $club, $adress, $category){
+    $db = parent::connect();
+        $result = $db->prepare("UPDATE `event_enroll` SET `starttimestamp`=?,`gender`=?,`name`=?,`email`=?,`age`=?,`club`=?,`adress`=?,`category`=? WHERE `author`=? &&`event`=?");
+        $result->execute(array($time, $gender, $name, $email, $age, $club, $adress, $category, $author, $event));
+        return "test";
     }
     public function getEnroll($event, $author){
         $db = parent::connect();

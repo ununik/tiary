@@ -147,3 +147,29 @@ INSERT INTO `event_category` (`id`, `gender`, `cz`, `age`, `sport`, `title`) VAL
 (17, 'm', 'Muži C', 46, 'biatlon', 'MC'),
 (18, 'f', 'Ženy C', 41, 'biatlon', 'ZC');
 
+CREATE TABLE IF NOT EXISTS `event_enroll` (
+`id` int(15) NOT NULL,
+  `author` int(15) NOT NULL,
+  `event` int(15) NOT NULL,
+  `starttimestamp` int(20) NOT NULL,
+  `gender` tinyint(1) NOT NULL,
+  `name` tinyint(1) NOT NULL,
+  `email` tinyint(1) NOT NULL,
+  `age` tinyint(1) NOT NULL,
+  `club` tinyint(1) NOT NULL,
+  `adress` tinyint(1) NOT NULL,
+  `category` text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS `enroll` (
+`id` int(15) NOT NULL,
+  `event` int(15) NOT NULL,
+  `timestamp` int(20) NOT NULL,
+  `gender` varchar(1) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `age` varchar(5) NOT NULL,
+  `club` varchar(255) NOT NULL,
+  `adress` varchar(255) NOT NULL,
+  `category` text NOT NULL
+);
