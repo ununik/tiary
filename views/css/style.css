@@ -118,6 +118,7 @@
 .eventTable .eventTableDescription{
   width: 100px;
   text-align: right;
+  vertical-align:top;
   font-weight: bold;
   padding: 5px 15px;
 }

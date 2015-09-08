@@ -45,7 +45,7 @@ $container .= "<div class='selectInput_div'>Typ události:<br>
                 <select name='eventType'>$eventType</select>
                 </div>";
 
-$container .= "<input type='submit' value='$save'  class='submit'>$enrollButton</form>";
+$container .= "<input type='submit' value='$save'  class='submit'></form>$enrollButton";
 
 
 return $container;
