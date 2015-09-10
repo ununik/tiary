@@ -5,6 +5,30 @@
 #categories{
   display:none;
 }
+.calendar_month{
+  border-collapse: collapse;
+  width: 60%;
+  height: 75%;
+}
+.calendar_month th{
+  height: 25px;
+}
+.calendar_month td{
+  vertical-align: top;
+  border: 1px solid #860D0A;
+}
+.calendar_month_dayname{
+  font-weight: bold;
+  height: 25px;
+  text-align: center;
+  border: none;
+}
+.calendar_month_noDay{
+  background-color: #f4f4f4;
+}
+.calendar_month_day_active:hover{
+  background-color: rgba(134,13,10,0.1);
+}
 .calendar_week{
   border-collapse: collapse;
   width: 60%;
