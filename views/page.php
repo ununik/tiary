@@ -16,7 +16,7 @@ return "
         </style>
     </head>
     <body onload='onload()'>
-    <div id='header'>$header</div>
+    <div id='header'><a href='index.php'><img src='images/view/tiary_header.png' id='header_logo'></a>$header</div>
     <div id='notice'></div>
     <nav>$navigation</nav>
     <div id='contentbox'>

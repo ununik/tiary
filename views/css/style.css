@@ -191,6 +191,15 @@ h3{
   vertical-align: bottom;
   font-size: 15px;
 }
+#header_logo{
+  width: 78px;
+  height: 53px;
+  position: absolute;
+  z-index: 250;
+  top:0px;
+  left: 0px;
+  margin: 8px 0px 0px 20px;
+}
 nav{
   width: 20%;
   float: left;

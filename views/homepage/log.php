@@ -5,7 +5,6 @@
  * Date: 31.08.2015
  * Time: 14:50
  */
-
 $container = "<h1>Nejnovější články</h1>";
 foreach($allEntries as $entry){
     $container .= "<a href='index.php?page=entry&id={$entry['id']}' class='entries_view_all'><h2>{$entry['title']}</h2>";
