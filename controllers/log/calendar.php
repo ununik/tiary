@@ -65,7 +65,7 @@ for($i=0; $i < $num; $i++){
             $days[$i]['events'][] = "<a href='index.php?page=calendar_event&id={$event['id']}'>{$event['title']}</a>";
         }
     }
-    $days[$i]['events'][] = "<a href='index.php?page=calendar_new_event&timestamp=$today'>+</a>";
+    $days[$i]['events'][] = "<a href='index.php?page=calendar_new_event&timestamp=$today' class='calendar_add_new'>+</a>";
 
     $today = strtotime('+1 day', $today);
 }

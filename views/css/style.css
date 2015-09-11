@@ -5,6 +5,9 @@
 #categories{
   display:none;
 }
+.calendar_add_new{
+  visibility: hidden;
+}
 .calendar_month{
   border-collapse: collapse;
   width: 60%;
@@ -29,6 +32,9 @@
 .calendar_month_day_active:hover{
   background-color: rgba(134,13,10,0.1);
 }
+.calendar_month_day_active:hover .calendar_add_new{
+  visibility: visible;
+}
 .calendar_week{
   border-collapse: collapse;
   width: 60%;
@@ -42,6 +48,9 @@
 }
 .calendar_week tr:hover{
   background-color: rgba(134,13,10,0.1);
+}
+.calendar_week tr:hover .calendar_add_new{
+  visibility: visible;
 }
 .calendar_week_date{
   width: 100px;
