@@ -10,7 +10,7 @@ $navContainer = "<div id='navHeadline' onclick='showANDhideMenu(this)'>MENU $hea
         <a href='index.php?page=profil'>Profil</a>
         <a href='index.php?page=calendar'>Kalendář</a>";
 if($profil->getGender() == "f"){
-      $navContainer .= "<a href='index.php?page=intim_calendar'>Intimní kalendář</a>";
+      $navContainer .= "<a href='index.php?page=intim_calendar'>Intimní deníček</a>";
 }
 
 $navContainer .= "<a href='index.php?page=entries'>Mé články</a>
