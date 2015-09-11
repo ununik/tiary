@@ -4,3 +4,7 @@ function validateEMAIL($EMAIL) {
 
     return (bool)preg_match($v, $EMAIL);
 }
+
+function safeText($text){
+    return htmlspecialchars(addslashes($text));
+}

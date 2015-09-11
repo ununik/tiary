@@ -15,7 +15,7 @@ $shared = 0;
 $num_entry = 0;
 $link = "";
 if(isset($_POST['title'])){
-    $title = $_POST['title'];
+    $title = safeText($_POST['title']);
     if($title == ""){
         $err[] = "Není vyplněný nadpis!";
     }elseif(strlen($title) > 255){
@@ -23,9 +23,9 @@ if(isset($_POST['title'])){
     }else{
         $headline = $title;
     }
-    $sportID = $_POST['sport'];
+    $sportID = safeText($_POST['sport']);
     if($sportID == "other"){
-        $otherSport = $_POST['otherSport'];
+        $otherSport = safeText($_POST['otherSport']);
         if(strlen($title) > 255){
             $err[] = "Příliš dlouhý název sportu!";
         }else{
@@ -40,11 +40,11 @@ if(isset($_POST['title'])){
         }
     }
     if($_POST['num_entry'] != 0){
-        $num_entry = $_POST['num_entry'];
+        $num_entry = safeText($_POST['num_entry']);
     }
     $entry = $_POST['entry'];
     if($_POST['shared'] == 0){
-        $shared = $_POST['submit'];
+        $shared = safeText($_POST['submit']);
     } else{
         $shared = 1;
     }

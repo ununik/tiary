@@ -27,7 +27,7 @@ if($event['organisator'] != ""){
     $organisator = new Profil($event['id_organisator']);
     $organisator = $organisator->getName();
 }
-if($event['author'] == $profil->getId() || $event['id_organisator']==$profil->getId()){
+if($event['author'] == $profil->getId()){
     $update = 1;
     if($event['enroll'] == 1){
       $enrollAdmin = 1;

@@ -9,7 +9,7 @@ $saved = "";
 $newComment = new CommentsEntry();
 $notice = "<a href='index.php?page=entry&id={$entry['id']}' class='notice'>{$profil->getName()} právě okomentoval článek {$entry['title']}</a>";
 if(isset($_POST['comment']) && $_POST['comment'] != ""){
-    $commentSafe = htmlspecialchars($_POST['comment']);
+    $commentSafe = safeText($_POST['comment']);
     $newComment->newComment($_GET['id'], $profil->getId(), $commentSafe, $author->getId(), $notice);
     $saved = "Váš komentář byl přidán.";
 }

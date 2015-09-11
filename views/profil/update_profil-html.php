@@ -20,6 +20,9 @@ $container .= "<div class='textInput_div'>Prostřední jméno:<br>
          <input type='text' name='middlename' value='{$middlename}'></div>";
 $container .= "<div class='textInput_div'>Příjmení:<br>
          <input type='text' name='lastname' value='{$lastname}'></div>";
+$container .= "<div class='selectInput_div'>Pohlaví:<br>
+                <select name='gender'>$gender</select>
+                </div>";
 $container .= "<div class='textInput_div'>Email:<br>
          <input type='text' name='email' value='{$email}'></div>";
 

@@ -18,26 +18,26 @@ if($email == false) {
 } else{
   $showMail = 1;
 }
-
+$gender = include_once('controllers/log/profil/gender.php');
 $email = $changeEmail;
 
 
 $club = $profil->getClub();
 if(isset($_POST['firstname'])){
   //Kontrola krestniho jmena
-  $firstname = $_POST['firstname'];
+  $firstname = safeText($_POST['firstname']);
   if(strlen($firstname) > 255){
     $err[] = "Příliš dlouhé křestní jméno!";
   }
 
   //Kontrola prostredniho jmena
-  $middlename = $_POST['middlename'];
+  $middlename = safeText($_POST['middlename']);
   if(strlen($middlename) > 255){
     $err[] = "Příliš dlouhé prostřední jméno!";
   }
 
   //kontrola prijmeni
-  $lastname = $_POST['lastname'];
+  $lastname = safeText($_POST['lastname']);
   if(strlen($lastname) > 255){
     $err[] = "Příliš dlouhé příjmení!";
   }
@@ -64,7 +64,7 @@ if(isset($_POST['firstname'])){
   }
 
   //change tel
-  $tel = $_POST['tel'];
+  $tel = safeText($_POST['tel']);
   if(strlen($tel) > 25){
     $err[] = "Příliš dlouhé telefonní číslo!";
   }
@@ -79,14 +79,14 @@ if(isset($_POST['firstname'])){
   $club = $_POST['club'];
   $clubUpdate = "";
   if($_POST['club'] != ""){
-    $clubUpdate = nl2br ($_POST['club']);
+    $clubUpdate = nl2br (safeText($_POST['club']));
     $clubUpdate = str_replace(",","_;_",$clubUpdate);
     $clubUpdate = str_replace("<br>","_;_",$clubUpdate);
     $clubUpdate = str_replace("<br />","_;_",$clubUpdate);
   }
 
   if(empty($err)){
-    $profil->updateProfil($_POST['firstname'], $_POST['middlename'], $_POST['lastname'], $clubUpdate, $email, $showMail, $tel, $showTel );
+    $profil->updateProfil($_POST['firstname'], $_POST['middlename'], $_POST['lastname'], $clubUpdate, $email, $showMail, $tel, $showTel, $_POST['gender'] );
     $err[] = "Změny byly úspěšně uloženy!";
   }
 }

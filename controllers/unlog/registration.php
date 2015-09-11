@@ -16,7 +16,7 @@ if(isset($_POST['login'])){
         $err[] = "Není vyplněné přihlašovací jméno!";
     }elseif(strlen($_POST['login']) > 255){
         $err[] = "Přihlašovací jméno je příliš dlouhé!";
-        $login = $_POST['login'];
+        $login = safeText($_POST['login']);
     }else{
         $login = str_replace(' ', '', $_POST['login']);
         if($login != $_POST['login']){
@@ -26,7 +26,7 @@ if(isset($_POST['login'])){
         if(!$checkLogin->checkLogin($_POST['login'])){
             $err[] = "Toto přihlašovací jméno již používá jiný uživatel!";
         }
-        $login = $_POST['login'];
+        $login = safeText($_POST['login']);
     }
 
     /**

@@ -15,7 +15,9 @@ $timestamp = $event['timestamp1'];
 $err = array();
 $mainTitle = $event['title'];
 $headlineTitle = $event['title'];
-$meOrganisator = $event['id_organisator'];
+if($event['id_organisator'] == $profil->getId()){
+    $meOrganisator = 1;
+}
 $enrollSystem = $event['enroll'];
 $organisator = $event['organisator'];
 $subsciption = $event['subscription'];
@@ -28,7 +30,7 @@ $typePost = $event['type'];
 $next = "";
 if(isset($_POST['title'])){
     $isSaved = $_POST['isSaved'];
-    $mainTitle = $_POST['title'];
+    $mainTitle = safeText($_POST['title']);
     $headlineTitle = $mainTitle;
     $enrollSystem = 0;
 
@@ -41,31 +43,33 @@ if(isset($_POST['title'])){
 
 
     if(isset($_POST['meOrganisator'])) {
-        $meOrganisator = $_POST['meOrganisator'];
+        $meOrganisator = safeText($_POST['meOrganisator']);
 
         if(isset($_POST['enrollSystem'])) {
-            $enrollSystem = $_POST['enrollSystem'];
+            $enrollSystem = safeText($_POST['enrollSystem']);
         }
     }else{
         $meOrganisator = 0;
-        $organisator = $_POST['organisator'];
+        $organisator = safeText($_POST['organisator']);
         if(strlen($organisator) > 255) {
             $err[] = "Příliš dlouhé jméno pořadatele!";
         }
     }
 
 
-    $subsciption = $_POST['subsciption'];
-    $place = $_POST['place'];
+    $subsciption = safeText($_POST['subsciption']);
+    $place = safeText($_POST['place']);
 
-    $accessPost = $_POST['access'];
-    $typePost = $_POST['eventType'];
+    $accessPost = safeText($_POST['access']);
+    $typePost = safeText($_POST['eventType']);
     if(empty($err)){
         $database = new Event();
         if($isSaved == 0) {
             $isSaved = $database->setEvent($timestamp, 0, $profil->getId(), $profil->getId(), $organisator, $enrollSystem, $mainTitle, $subsciption, $place, $accessPost, $typePost);
+            $err[] = "Úspěšně vytvořená událost!";
         }else{
             $database->updateEvent($timestamp, 0, $meOrganisator, $organisator, $enrollSystem, $mainTitle, $subsciption, $place, $accessPost, $typePost, $isSaved);
+            $err[] = "Změny uloženy!";
         }
     }
 }

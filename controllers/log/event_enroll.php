@@ -23,7 +23,7 @@ if($event['timestamp1'] == $event['timestamp2'] || $event['timestamp2'] == 0){
 
 if(isset($_POST['enroll'])){
   if(isset($_POST['name'])){
-    $name = $_POST['name'];
+    $name = safeText($_POST['name']);
     if(strlen($name) > 255){
       $err[] = "Příliš dlouhé jméno a příjmení!";
     }elseif(strlen($name) == 0){
@@ -32,21 +32,21 @@ if(isset($_POST['enroll'])){
   }
   
   if(isset($_POST['email'])){
-    $email = $_POST['email'];
+    $email = safeText($_POST['email']);
     if(strlen($email) > 255){
       $err[] = "Příliš dlouhý email!";
     }
   }
   
   if(isset($_POST['age'])){
-    $age = $_POST['age'];
+    $age = safeText($_POST['age']);
     if(!is_numeric($age) || strlen($age) != 4){
       $err[] = "Rok narození musí být ve tvaru RRRR (např. 1999)!";
     }
   }
   
   if(isset($_POST['club'])){
-    $club = $_POST['club'];
+    $club = safeText($_POST['club']);
     if(strlen($club) > 255){
       $err[] = "Příliš dlouhý název klubu!";
     }
@@ -54,16 +54,14 @@ if(isset($_POST['enroll'])){
   
   
   if(isset($_POST['adress'])){
-    $adress = $_POST['adress'];
+    $adress = safeText($_POST['adress']);
     if(strlen($adress) > 255){
       $err[] = "Příliš dlouhá adresa!";
-    }elseif(strlen($adress) == 0){
-      $err[] = "Není vyplněna adresa!";
     }
   }
   
     if(isset($_POST['message'])){
-    $message = $_POST['message'];
+    $message = safeText($_POST['message']);
 
   }
 }

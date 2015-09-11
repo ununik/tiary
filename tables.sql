@@ -61,6 +61,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `showMail` tinyint(1) NOT NULL,
   `tel` varchar(25) NOT NULL,
   `showTel` tinyint(1) NOT NULL,
+  `gender` VARCHAR(1) NOT NULL,
   PRIMARY KEY (`id`)
 ) ;
 

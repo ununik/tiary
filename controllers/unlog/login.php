@@ -9,7 +9,7 @@ $login = "";
 $err = array();
 if(isset($_POST['login'])){
     $checkLogin = new Login();
-    if(!$checkLogin->checkLogin($_POST['login'], $_POST['password'])){
+    if(!$checkLogin->checkLogin(safeText($_POST['login']), safeText($_POST['password']))){
         $err[] = "Špatné jméno nebo heslo!";
     }elseif(!$checkLogin->getValidate()){
         $err[] = "Účet stále nebyl validován pomocí kódu, který Vám přišel emailu!";

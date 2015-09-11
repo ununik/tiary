@@ -8,7 +8,7 @@
 $search = "";
 $contact = new Contact();
 if(isset($_GET['search'])){
-    $search = $_GET['search'];
+    $search = safeText($_GET['search']);
     $users = $contact->getAllWithoutMeSearch($search, $profil->getId());
 }else{
     $users = $contact->getAllfriends($profil->getId());
