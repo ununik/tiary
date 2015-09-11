@@ -181,6 +181,60 @@
   font-weight: bold;
   padding: 5px 15px;
 }
+.intim_form_table{
+  width: 60%;
+  collapse: collapse;
+}
+.intim_form_table_date{
+  width: 20%;
+}
+.intim_form_table_date input{
+  width: 100%;
+  height: 38px;
+  outline: none;
+  border: 1px solid #860D0A;
+  padding: 5px 7px;
+}
+.intim_form_table_date input:focus{
+  background-color: rgba(134,13,10,0.1);
+}
+.intim_form_table_temperatur{
+  width: 17%;
+}
+.intim_form_table_temperatur input{
+  width: 100%;
+  height: 38px;
+  outline: none;
+  border: 1px solid #860D0A;
+  padding: 5px 7px;
+}
+.intim_form_table_temperatur input:focus{
+  background-color: rgba(134,13,10,0.1);
+}
+.intim_form_table_blood{
+  width: 50%;
+}
+.intim_form_table_blood select{
+  width: 100%;
+  height: 38px;
+  outline: none;
+  border: 1px solid #860D0A;
+  padding: 5px 7px;
+}
+.intim_form_table_submit input{
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #8C1914;
+  padding: 8px 10px;
+  width: 150px;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+}
+.intim_form_table_blood select:focus{
+  background-color: rgba(134,13,10,0.1);
+}
 h1{
   pading: 25px 10px 13px 10px;
   margin: 0px 0px 10px 0px;
