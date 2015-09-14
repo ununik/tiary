@@ -7,7 +7,7 @@
  */
 $container = "<h1>Úprava profilu</h1>";
 if(!empty($err)) {
-    $container .= "<div id='errors'><h3>Varování:</h3>";
+    $container .= "<div id='errors'>";
     foreach ($err as $error) {
         $container .= "<span>$error</span>";
     };

@@ -16,8 +16,7 @@ $club = 1;
 $adress = 0;
 $category = 0;
 $link = "";
-$day = date("j. n. Y");
-$hour = date("H:i");
+$date = date("j. n. Y");
 $event = $OptionsAll->getEvent($_GET['id']);
 
 $categories = include_once("controllers/log/calendar/enroll-setting-category.php");
@@ -65,9 +64,24 @@ if(isset($_POST['form'])){
         $category = 0;
     }
 
+    $time = $_POST['date'];
+    $time = str_replace(",", ".", $time);
+    $time = str_replace("-", ".", $time);
+    $time = explode(".", $time);
+    if(!isset($time[0]) || !isset($time[1]) || !isset($time[2])){
+        $err[] =  "Špatný formát datumu (DD. MM. RRRR)!";
+    }else{
+        $time[0] = trim ($time[0]);
+        $time[1] = trim ($time[1]);
+        $time[2] = trim ($time[2]);
+        $date = $time[0] . ". " . $time[1] . ". " .$time[2];
 
-  $time = time();  
-  $OptionsAll->updateEnroll($event['author'], $event['id'], $time, $gender, "1", $email, $year, $club, $adress, $categoriesPOST);
+
+        $timestampEntry = mktime(0, 0, 0, $time[1], $time[0], $time[2]);
+    }
+
+
+  $OptionsAll->updateEnroll($event['author'], $event['id'], $timestampEntry, $gender, "1", $email, $year, $club, $adress, $categoriesPOST);
   
 }
 

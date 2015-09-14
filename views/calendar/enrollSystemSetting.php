@@ -8,10 +8,8 @@
 $container = "<h1>Nastavení přihlašovacího systému</h1>";
 $container .= "<form action='' method='post'><input type='text' hidden name='form'>";
 $container .= "<h3>Spuštění přihlášek:</h3>";
-$container .= "<div class='textInput_div'>Den:<br>
-                <input type='text' name='title' value='$day' placeholder='DD. MM. RRRR'></div>";
-$container .= "<div class='textInput_div'>Čas:<br>
-                <input type='text' name='title' value='$hour' placeholder='HH:MM (24 hod)'></div>";
+$container .= "<div class='textInput_div'>Datum:<br>
+                <input type='text' value='$date' placeholder='DD. MM. RRRR' name='date' id='date' onclick='issetCalendar()'><div id='calendar_js'></div></div>";
 $container .= "<h3>Ze kterých polí se bude skládat přihláška:</h3>";
 
 $container .= "<div  class='checkboxInput_div' id='eventEnrollSystem'><input type='checkbox' name='gender' value='1'";

@@ -25,8 +25,12 @@ if($organisator != "") {
     $container .= "<tr><td class='eventTableDescription'>Pořadatel:</td><td>$organisator</td></tr>";
 }
 
-if($enroll == 1) {
-    $container .= "<tr><td class='eventTableDescription'>Přihášky:</td><td><a href='index.php?page=event_enroll&id={$event['id']}' target='_blank'>Tiary přihlášky</a></td></tr>";
+if($enroll == 1 ) {
+    if($starttimestamp <= $time) {
+        $container .= "<tr><td class='eventTableDescription'>Přihášky:</td><td><a href='index.php?page=event_enroll&id={$event['id']}' target='_blank'>Tiary přihlášky</a></td></tr>";
+    }else{
+        $container .= "<tr><td class='eventTableDescription'>Přihášky:</td><td>zde od $startEnroll</tr>";
+    }
 }
 
 $container.= "</table>";

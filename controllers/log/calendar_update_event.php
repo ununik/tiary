@@ -15,8 +15,10 @@ $timestamp = $event['timestamp1'];
 $err = array();
 $mainTitle = $event['title'];
 $headlineTitle = $event['title'];
-if($event['id_organisator'] == $profil->getId()){
+if($event['id_organisator'] == 1){
     $meOrganisator = 1;
+}else{
+    $meOrganisator = 0;
 }
 $enrollSystem = $event['enroll'];
 $organisator = $event['organisator'];
@@ -28,6 +30,7 @@ $save = "Upravit";
 $accessPost = $event['access'];
 $typePost = $event['type'];
 $next = "";
+$date = date("j. n. Y", $timestamp);
 if(isset($_POST['title'])){
     $isSaved = $_POST['isSaved'];
     $mainTitle = safeText($_POST['title']);
@@ -55,6 +58,21 @@ if(isset($_POST['title'])){
             $err[] = "Příliš dlouhé jméno pořadatele!";
         }
     }
+    $time = $_POST['date'];
+    $time = str_replace(",", ".", $time);
+    $time = str_replace("-", ".", $time);
+    $time = explode(".", $time);
+    if(!isset($time[0]) || !isset($time[1]) || !isset($time[2])){
+        $err[] =  "Špatný formát datumu (DD. MM. RRRR)!";
+    }else{
+        $time[0] = trim ($time[0]);
+        $time[1] = trim ($time[1]);
+        $time[2] = trim ($time[2]);
+        $date = $time[0] . ". " . $time[1] . ". " .$time[2];
+
+
+        $timestampEntry = mktime(0, 0, 0, $time[1], $time[0], $time[2]);
+    }
 
 
     $subsciption = safeText($_POST['subsciption']);
@@ -65,10 +83,10 @@ if(isset($_POST['title'])){
     if(empty($err)){
         $database = new Event();
         if($isSaved == 0) {
-            $isSaved = $database->setEvent($timestamp, 0, $profil->getId(), $profil->getId(), $organisator, $enrollSystem, $mainTitle, $subsciption, $place, $accessPost, $typePost);
+            $isSaved = $database->setEvent($timestampEntry, 0, $profil->getId(), $profil->getId(), $organisator, $enrollSystem, $mainTitle, $subsciption, $place, $accessPost, $typePost);
             $err[] = "Úspěšně vytvořená událost!";
         }else{
-            $database->updateEvent($timestamp, 0, $meOrganisator, $organisator, $enrollSystem, $mainTitle, $subsciption, $place, $accessPost, $typePost, $isSaved);
+            $database->updateEvent($timestampEntry, 0, $meOrganisator, $organisator, $enrollSystem, $mainTitle, $subsciption, $place, $accessPost, $typePost, $isSaved);
             $err[] = "Změny uloženy!";
         }
     }

@@ -7,33 +7,33 @@
  */
 $bloodContainer = "<option value='0'";
 if($blood == 0){
-    $bloodContainer = " selected ";
+    $bloodContainer .= " selected ";
 }
-$bloodContainer .= ">Žádné</option>
+$bloodContainer .= ">Žádné krvácení</option>
                     <option value='1'";
 if($blood == 1){
     $bloodContainer = " selected ";
 }
-$bloodContainer .= ">Velmi slabé</option>
+$bloodContainer .= ">Velmi slabé krvácení</option>
                     <option value='2'";
 if($blood == 2){
-    $bloodContainer = " selected ";
+    $bloodContainer .= " selected ";
 }
-$bloodContainer .= ">Slabé</option>
+$bloodContainer .= ">Slabé krvácení</option>
                     <option value='3'";
 if($blood == 3){
-    $bloodContainer = " selected ";
+    $bloodContainer .= " selected ";
 }
-$bloodContainer .= ">Střední</option>
+$bloodContainer .= ">Střední krvácení</option>
                     <option value='4'";
 if($blood == 4){
-    $bloodContainer = " selected ";
+    $bloodContainer .= " selected ";
 }
-$bloodContainer .= ">Silné</option>
+$bloodContainer .= ">Silné krvácení</option>
                     <option value='5'";
 if($blood == 5){
-    $bloodContainer = " selected ";
+    $bloodContainer .= " selected ";
 }
-$bloodContainer .= ">Velmi silné</option>";
+$bloodContainer .= ">Velmi silné krvácení</option>";
 
 return $bloodContainer;

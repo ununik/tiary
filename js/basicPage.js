@@ -1,6 +1,8 @@
 function onload(){
+
     organisator();
     categoriesEnroll();
+
 }
 function showANDhideMenu(div){
     var parent = div.parentNode;
@@ -20,6 +22,15 @@ function issetSport(select){
         document.getElementById("sport_insteadOfSelect").style.display = "block";
     }else{
         document.getElementById("sport_insteadOfSelect").style.display = "none";
+    }
+}
+function issetTemperatur(){
+    var select = document.getElementById("intim_calendar_temperature");
+    if(select.value == "other"){
+        document.getElementById("intim_calendar_other").style.display = "block";
+    }else{
+        document.getElementById("intim_calendar_other").style.display = "none";
+
     }
 }
 function organisatorFCE(){
@@ -49,6 +60,16 @@ function categoriesEnroll(){
         categories.style.display = "block";
     }else{
         categories.style.display = "none";
+    }
+}
+function intimBlood(){
+    var checkbox = document.getElementById("menstruace")
+    var select = document.getElementById("menstruace_select");
+
+    if(checkbox.checked == 1){
+        menstruace_select.style.display = "block";
+    }else{
+        menstruace_select.style.display = "none";
     }
 }
 function getUnseenNotices(){

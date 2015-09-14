@@ -5,15 +5,17 @@
  * Date: 31.08.2015
  * Time: 16:55
  */
-$container = "<h1>$headlineTitle - (" . date("j. n. Y", $timestamp) . ')</h1>';
+$container = "<h1>$headlineTitle - ($date)</h1>";
 if(!empty($err)) {
-    $container .= "<div id='errors'><h3>Varování:</h3>";
+    $container .= "<div id='errors'>";
     foreach ($err as $error) {
         $container .= "<span>$error</span>";
     };
     $container .= "</div>";
 }
 $container .= "<form action='' method='post'><input type='text' hidden name='isSaved' value='$isSaved'>";
+$container .= "<div class='textInput_div'>Datum:<br>
+                <input type='text' value='$date' placeholder='DD. MM. RRRR' name='date' id='date' onclick='issetCalendar()'><div id='calendar_js'></div></div>";
 $container .= "<div class='textInput_div'>Nadpis:<br>
          <input type='text' name='title' value='{$mainTitle}'></div>";
 

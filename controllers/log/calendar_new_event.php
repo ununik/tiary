@@ -24,6 +24,8 @@ $save = "Uložit";
 $accessPost = "";
 $typePost = "";
 $next = "";
+$typePost = "";
+$date = date("j. n. Y", $timestamp);
 $enrollButton = "";
 if(isset($_POST['title'])){
     $isSaved = $_POST['isSaved'];
@@ -52,7 +54,21 @@ if(isset($_POST['title'])){
             $err[] = "Příliš dlouhé jméno pořadatele!";
         }
     }
+    $time = $_POST['date'];
+    $time = str_replace(",", ".", $time);
+    $time = str_replace("-", ".", $time);
+    $time = explode(".", $time);
+    if(!isset($time[0]) || !isset($time[1]) || !isset($time[2])){
+        $err[] =  "Špatný formát datumu (DD. MM. RRRR)!";
+    }else{
+        $time[0] = trim ($time[0]);
+        $time[1] = trim ($time[1]);
+        $time[2] = trim ($time[2]);
+        $date = $time[0] . ". " . $time[1] . ". " .$time[2];
 
+
+        $timestampEntry = mktime(0, 0, 0, $time[1], $time[0], $time[2]);
+    }
 
     $subsciption = safeText($_POST['subsciption']);
     $place = safeText($_POST['place']);
@@ -62,11 +78,11 @@ if(isset($_POST['title'])){
     if(empty($err)){
         $database = new Event();
         if($isSaved == 0) {
-            $isSaved = $database->setEvent($timestamp, 0, $profil->getId(), $profil->getId(), $organisator, $enrollSystem, $mainTitle, $subsciption, $place, $accessPost, $typePost);
+            $isSaved = $database->setEvent($timestampEntry, 0, $profil->getId(), $profil->getId(), $organisator, $enrollSystem, $mainTitle, $subsciption, $place, $accessPost, $typePost);
             $database->setEnroll($profil->getId(), $isSaved);
             $err[] = "Úspěšně vytvořená událost!";
         }else{
-            $database->updateEvent($timestamp, 0, $meOrganisator, $organisator, $enrollSystem, $mainTitle, $subsciption, $place, $accessPost, $typePost, $isSaved);
+            $database->updateEvent($timestampEntry, 0, $meOrganisator, $organisator, $enrollSystem, $mainTitle, $subsciption, $place, $accessPost, $typePost, $isSaved);
             $err[] = "Změny uloženy!";
         }
         if($enrollSystem == 1){

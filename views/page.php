@@ -11,11 +11,13 @@ return "
         <link rel='stylesheet' href='views/css/style_mobil.css' type='text/css' media='handheld, only screen and (max-device-width: 1023px)'/>
         <script src='js/basicPage.js'></script>
         <script src='js/ajax.js'></script>
+        <script src='js/calendar.js'></script>
         <title>$title</title>
         <style>
         </style>
     </head>
     <body onload='onload()'>
+    <div id='blackBackground'></div>
     <div id='header'><a href='index.php'><img src='images/view/tiary_header.png' id='header_logo'></a>$header</div>
     <div id='notice'></div>
     <nav>$navigation</nav>

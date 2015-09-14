@@ -12,6 +12,10 @@ $date = date("j. n. Y");
 $temperature = "36.0";
 $err = array();
 $blood = 0;
+$menstruace = 0;
+$timestampEntry = 0;
+$temperatureSelect = 36.0;
+$temperatureINPUT = 0;
 
 if(isset($_POST['date'])){
     /**
@@ -28,27 +32,49 @@ if(isset($_POST['date'])){
         $time[1] = trim ($time[1]);
         $time[2] = trim ($time[2]);
         $date = $time[0] . ". " . $time[1] . ". " .$time[2];
+
+
+        $timestampEntry = mktime(0, 0, 0, $time[1], $time[0], $time[2]);
     }
 
-    $temperature = $_POST['temperature'];
-    $temperature = str_replace(",", ".", $temperature);
-    $temperature = explode(".", $temperature);
-    if(!isset($temperature[1])){
-        $temperature[1] = "0";
+    $temperaturePOST = $_POST['temperatureINPUT'];
+    $temperatureINPUT = $_POST['temperatureINPUT'];
+    $temperatureSelect = $_POST['temperatureSelect'];
+    if($_POST['temperatureSelect'] != "other"){
+        $temperaturePOST = $_POST['temperatureSelect'];
     }
-    if(strlen($temperature[0]) > 2){
-        $temperature[1] = substr($temperature[0], 2, 2);
-        $temperature[0] = substr($temperature[0], 0, 2);
-    }elseif(strlen($temperature[0]) < 2){
+    $temperaturePOST = str_replace(",", ".", $temperaturePOST);
+    $temperaturePOST = explode(".", $temperaturePOST);
+    if(!isset($temperaturePOST[1])){
+        $temperaturePOST[1] = "0";
+    }
+    if(strlen($temperaturePOST[0]) > 2){
+        $temperaturePOST[1] = substr($temperaturePOST[0], 2, 2);
+        $temperaturePOST[0] = substr($temperaturePOST[0], 0, 2);
+    }elseif(strlen($temperaturePOST[0]) < 2){
        $err[] =  "Špatný formát teploty (TT.t)!";
     }
-    $temperature = $temperature[0].'.'.$temperature[1];
-    $timestamp = strtotime($date);
+    $temperaturePOST = $temperaturePOST[0].'.'.$temperaturePOST[1];
 
-    $blood = $_POST['blood'];
 
+    if(isset($_POST['menstruace'])){
+        $menstruace = 1;
+        $blood = $_POST['blood'];
+    }
+    if(empty($err)){
+        $diary = new IntimCalendar();
+        if(($diary->checkDay($profil->getId(), $timestampEntry)) == true) {
+            $diary->newEntry($profil->getId(), $timestampEntry, $temperaturePOST, $menstruace, $blood);
+            $err[] = "Záznam uložen";
+        }else{
+            $err[] = "Tento den již záznam má.";
+        }
+    }
 }
-
+$temperatureSelect = include_once('controllers/log/intim/temperature.php');
 $blood = include_once('controllers/log/intim/blood.php');
+
+
+$list = include_once('controllers/log/intim/list.php');
 $intimCalendarContainer = include_once('views/intim_calendar/calendar.php');
 return $intimCalendarContainer;
