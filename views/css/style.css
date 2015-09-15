@@ -230,7 +230,7 @@
 }
 .eventTable{
   vertical-align: top;
-  collapse: collapse;
+  border-collapse: collapse
 }
 .eventTable .eventTableDescription{
   width: 100px;
@@ -241,7 +241,7 @@
 }
 .intim_form_table{
   width: 60%;
-  collapse: collapse;
+  border-collapse: collapse
 }
 .intim_form_table td{
   vertical-align: top;

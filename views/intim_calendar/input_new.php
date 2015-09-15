@@ -20,7 +20,7 @@ if ($menstruace == 1) {
 $input .= "> Menstruace
                 <select name='blood' id='menstruace_select'>$blood</select><script>intimBlood()</script>
                 </td>";
-$input .= "<td class='intim_form_table_submit'><input type='submit' value='Uloit'></td>";
+$input .= "<td class='intim_form_table_submit'><input type='submit' value='UloÅ¾it'></td>";
 $input .= "</tr></table><script>issetTemperatur()</script>";
 
 return $input;
