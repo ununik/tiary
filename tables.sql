@@ -59,9 +59,10 @@ CREATE TABLE IF NOT EXISTS `user` (
   `lastname` varchar(255) NOT NULL,
   `club` text NOT NULL,
   `showMail` tinyint(1) NOT NULL,
-  `tel` varchar(25) NOT NULL,
+  `tel` int(20) NOT NULL,
   `showTel` tinyint(1) NOT NULL,
-  `gender` VARCHAR(1) NOT NULL,
+  `gender` varchar(1) NOT NULL,
+  `about_me` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ;
 
@@ -176,19 +177,14 @@ CREATE TABLE IF NOT EXISTS `enroll` (
   `message` text NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS `event` (
+CREATE TABLE IF NOT EXISTS `intim_calendar` (
   `id` int(15) NOT NULL AUTO_INCREMENT,
-  `timestamp1` int(20) NOT NULL,
-  `timestamp2` int(20) NOT NULL,
-  `author` int(15) NOT NULL,
-  `id_organisator` int(15) NOT NULL,
-  `organisator` varchar(255) COLLATE utf8_czech_ci NOT NULL,
-  `enroll` tinyint(1) NOT NULL,
-  `title` varchar(255) COLLATE utf8_czech_ci NOT NULL,
-  `subscription` text COLLATE utf8_czech_ci NOT NULL,
-  `place` text COLLATE utf8_czech_ci NOT NULL,
-  `timestampOfCreation` int(20) NOT NULL,
-  `access` varchar(255) COLLATE utf8_czech_ci NOT NULL,
-  `type` varchar(255) COLLATE utf8_czech_ci NOT NULL,
-  PRIMARY KEY (`id`)
-)
+  `user` int(15) NOT NULL,
+  `timestamp` int(20) NOT NULL,
+  `date` int(20) NOT NULL,
+  `temperature` float NOT NULL,
+  `menstruace` tinyint(1) NOT NULL,
+  `blood` int(2) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`)
+);

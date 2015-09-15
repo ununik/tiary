@@ -16,6 +16,7 @@ $menstruace = 0;
 $timestampEntry = 0;
 $temperatureSelect = 36.0;
 $temperatureINPUT = 0;
+$saved = 0;
 
 if(isset($_POST['date'])){
     /**
@@ -66,6 +67,7 @@ if(isset($_POST['date'])){
         if(($diary->checkDay($profil->getId(), $timestampEntry)) == true) {
             $diary->newEntry($profil->getId(), $timestampEntry, $temperaturePOST, $menstruace, $blood);
             $err[] = "Záznam uložen";
+            $saved = 1;
         }else{
             $err[] = "Tento den již záznam má.";
         }

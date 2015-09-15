@@ -72,8 +72,13 @@ class Contact extends Connection
     public function setNewRelationship($me, $user2){
         $db = parent::connect();
         $timestamp = time();
+        $user = new Profil();
+        $name = $user->getName();
+        $notice = "<a href='index.php?page=profil&profil=$me'>Máte novou žádost o přátelstí od $name</a>";
         $result = $db->prepare("INSERT INTO `relationship`(`user1`, `user2`, `timestamp`, `friends`) VALUES (?, ?, ?, ?)");
         $result->execute(array($me, $user2, $timestamp, 0));
+            $result = $db->prepare("INSERT INTO `notice`(`title`, `timestamp`, `user`) VALUES (?, ?, ?)");
+            $result->execute(array($notice, $timestamp, $user2));
     }
     public function confirmRelationship($me, $user2){
         $db = parent::connect();

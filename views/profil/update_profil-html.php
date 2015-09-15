@@ -48,6 +48,9 @@ $container .= ">Ukazovat telefon na profilu</div>";
 $container .= "<div class='textareaInput_div'>Klub(y):<br>
          <textarea name='club'  class='textarea'>{$club}</textarea></div>";
 
+$container .= "<div class='textareaInput_div'>O mně:<br>
+         <textarea name='about_me'  class='textarea'>{$about_me}</textarea></div>";
+
 $container .= "<input type='submit' value='Uložit'  class='submit'></form>";
 
 return $container;

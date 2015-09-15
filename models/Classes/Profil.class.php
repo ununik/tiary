@@ -21,6 +21,7 @@ class Profil extends Connection
     protected $tel;
     protected $showTel;
     protected $gender;
+    protected $aboutMe;
 
 
  public function __construct($id = 0, $login = "", $password = ""){
@@ -54,6 +55,7 @@ class Profil extends Connection
      $this->tel = $user['tel'];
      $this->gender = $user['gender'];
      $this->showTel = $user['showTel'];
+     $this->aboutMe = $user['about_me'];
  }
     public function isMyAccount(){
         return $this->myAccount;
@@ -123,9 +125,12 @@ class Profil extends Connection
     public function getId(){
         return $this->id;
     }
-    public function updateProfil($firstname, $middlename, $lastname, $club, $email, $showMail, $tel, $showTel, $gender){
+    public function getAboutMe(){
+        return $this->aboutMe;
+    }
+    public function updateProfil($firstname, $middlename, $lastname, $club, $email, $showMail, $tel, $showTel, $gender, $about_me){
         $db = parent::connect();
-        $result = $db->prepare("UPDATE `user` SET `firstname` = ?, `middlename` = ?, `lastname` = ?, `club` = ?, `showMail` = ?, `email` = ?, `tel` = ?, `showTel` = ?, `gender` = ? WHERE id = ?");
-        $result->execute(array($firstname, $middlename, $lastname, $club, $showMail, $email, $tel, $showTel , $gender, $this->id));
+        $result = $db->prepare("UPDATE `user` SET `firstname` = ?, `middlename` = ?, `lastname` = ?, `club` = ?, `showMail` = ?, `email` = ?, `tel` = ?, `showTel` = ?, `gender` = ?, `about_me` = ? WHERE id = ?");
+        $result->execute(array($firstname, $middlename, $lastname, $club, $showMail, $email, $tel, $showTel , $gender, $about_me, $this->id));
     }
 }

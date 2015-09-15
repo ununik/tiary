@@ -5,11 +5,7 @@
  * Date: 11.09.2015
  * Time: 15:45
  */
-$bloodContainer = "<option value='0'";
-if($blood == 0){
-    $bloodContainer .= " selected ";
-}
-$bloodContainer .= ">Žádné krvácení</option>
+$bloodContainer = ">Žádné krvácení</option>
                     <option value='1'";
 if($blood == 1){
     $bloodContainer = " selected ";

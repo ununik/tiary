@@ -13,6 +13,7 @@ $email = $profil->getEmail();
 $changeEmail = $profil->getEmailAdmin();
 $tel = $profil->getAdminTel();
 $showTel = $profil->getShowTel();
+$about_me = $profil->getAboutMe();
 if($email == false) {
   $showMail = 0;
 } else{
@@ -85,8 +86,10 @@ if(isset($_POST['firstname'])){
     $clubUpdate = str_replace("<br />","_;_",$clubUpdate);
   }
 
+  $about_me = safeText($_POST['about_me']);
+
   if(empty($err)){
-    $profil->updateProfil($_POST['firstname'], $_POST['middlename'], $_POST['lastname'], $clubUpdate, $email, $showMail, $tel, $showTel, $_POST['gender'] );
+    $profil->updateProfil($_POST['firstname'], $_POST['middlename'], $_POST['lastname'], $clubUpdate, $email, $showMail, $tel, $showTel, $_POST['gender'], $about_me );
     $err[] = "Změny byly úspěšně uloženy!";
   }
 }
