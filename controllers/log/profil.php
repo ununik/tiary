@@ -37,11 +37,11 @@ if(isset($_GET['profil']) && $_GET['profil']!=$profil->getId()){
     $relationships .= "<form action='index.php?page=message' method='post'><button name='id' value='{$profil->getId()}'>Odeslat zprávu</button></form>";
 }
 $clubs = $profil->getClubList();
-$club = "<ul>";
+$club = "";
 foreach ($clubs as $club_one){
-    $club .= "<li>$club_one</li>";
+    $club .= "$club_one<br>";
 }
-$club .= "</ul>";
+$club .= "";
 
 $entr = new Entry();
 $allEntries = $entr->showEntries($profil->getId());
