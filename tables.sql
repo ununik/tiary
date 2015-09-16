@@ -188,3 +188,14 @@ CREATE TABLE IF NOT EXISTS `intim_calendar` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 );
+
+CREATE TABLE IF NOT EXISTS `profile_image` (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_czech_ci NOT NULL,
+  `timestamp` int(20) NOT NULL,
+  `size` int(30) NOT NULL,
+  `user` int(15) NOT NULL,
+  `type` varchar(20) COLLATE utf8_czech_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`)
+);

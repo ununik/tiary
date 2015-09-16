@@ -13,7 +13,11 @@ if(!empty($err)) {
     };
     $container .= "</div>";
 }
-$container .= "<form action='' method='post'>";
+$container .= "<form action='' method='post'  enctype='multipart/form-data'>";
+$container .= "<div class='textInput_div'>Profilový obrázek<br>
+         <input type='file' name='profile_image' accept='image/*'><br>
+         $oldProfileImages
+         </div>";
 $container .= "<div class='textInput_div'>Křestní jméno:<br>
          <input type='text' name='firstname' value='{$firstname}'></div>";
 $container .= "<div class='textInput_div'>Prostřední jméno:<br>

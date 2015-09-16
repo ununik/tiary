@@ -14,6 +14,16 @@ $changeEmail = $profil->getEmailAdmin();
 $tel = $profil->getAdminTel();
 $showTel = $profil->getShowTel();
 $about_me = $profil->getAboutMe();
+$imageName = $profil->getProfilImage();
+$ProfileImages = new ProfileImage();
+$ProfileImages = $ProfileImages->getAllUserAvatars($profil->getId());
+$oldProfileImages = "";
+
+
+foreach($ProfileImages as $img){
+  $oldProfileImages .= "<button name='img' value='{$img['name']}' class='profil_oldimages'><img src='images/profile_images/small/{$img['name']}'></button>";
+}
+
 if($email == false) {
   $showMail = 0;
 } else{
@@ -88,8 +98,46 @@ if(isset($_POST['firstname'])){
 
   $about_me = safeText($_POST['about_me']);
 
+  if($_FILES['profile_image']['name'] != ""){
+    if($_FILES['profile_image']['error'] == ""){
+      $profile_image = $_FILES['profile_image'];
+      switch($profile_image['type']){
+        case "image/png":
+              $sufix = ".png";
+              break;
+        case "image/gif":
+          $sufix = ".gif";
+          break;
+        case "image/jpeg":
+          $sufix = ".jpg";
+          break;
+        case "image/jpg":
+          $sufix = ".jpg";
+          break;
+        default:
+              $sufix = "";
+          $err[] = "Neznámý typ souboru.";
+      }
+      $profileImage = new ProfileImage();
+      $profileImageNumber = $profileImage->getNumForNextImg();
+      $imageName = $profileImageNumber . $sufix;
+      $profileImage = $profileImage->setNewImg($imageName, $profile_image['size'], $profil->getId(), $profile_image['type']);
+      move_uploaded_file($profile_image['tmp_name'], 'images/profile_images/original/'.$imageName);
+      resizeImage(850, 'images/profile_images/large/'.$profileImageNumber, 'images/profile_images/original/'.$imageName);
+      resizeImage(100, 'images/profile_images/small/'.$profileImageNumber, 'images/profile_images/original/'.$imageName);
+
+    }else{
+      $err[] = "Problém s uložením profilového obrázku.";
+    }
+  }
+
+  if(isset($_POST['img'])){
+    $imageName = $_POST['img'];
+  }
+
+
   if(empty($err)){
-    $profil->updateProfil($_POST['firstname'], $_POST['middlename'], $_POST['lastname'], $clubUpdate, $email, $showMail, $tel, $showTel, $_POST['gender'], $about_me );
+    $profil->updateProfil($_POST['firstname'], $_POST['middlename'], $_POST['lastname'], $clubUpdate, $email, $showMail, $tel, $showTel, $_POST['gender'], $about_me, $imageName);
     $err[] = "Změny byly úspěšně uloženy!";
   }
 }

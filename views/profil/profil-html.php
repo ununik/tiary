@@ -5,10 +5,11 @@
  * Date: 19.08.2015
  * Time: 15:26
  */
+
 /**
  * Jmeno
  */
-$container = "<h1>{$profil->getName()}</h1>";
+$container = "<img src='images/profile_images/large/{$profil->getProfilImage()}' id='profil_image'><h1>{$profil->getName()}</h1>";
 
 /**
  * Vztah

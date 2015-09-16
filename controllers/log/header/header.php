@@ -18,8 +18,10 @@ if($notices > 0){
 }
 
 $headerName = "<span class='headerName'>{$profil->getName()}</span>";
-
+$head .= "<a href='index.php?page=profil'>";
 $head .= $headerName;
+$head .= "<img src='images/profile_images/small/{$profil->getProfilImage()}' id='header_profile_image'>";
+$head .= "</a>";
 $head .= '<span class="headerNotice" onclick="getUnseenNotices()">'.$headerNotice.'</span>';
 
 return $head;

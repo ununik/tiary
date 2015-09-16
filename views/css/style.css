@@ -335,6 +335,10 @@ h3{
   position:relative;
   z-index: 300;
 }
+#header a{
+  color: white;
+  text-decoration: none;
+}
 #header .headerName{
   float: right;
   margin: 17px 15px 0px 10px;
@@ -359,6 +363,14 @@ h3{
   top:0px;
   left: 0px;
   margin: 8px 0px 0px 20px;
+}
+#header_profile_image{
+  float: right;
+  max-height: 35px;
+  max-width: 100px;
+  margin: 13px 5px 0px 0px;
+  border: 1px solid black;
+  outline: 1px solid white;
 }
 #menstruace{
   width: 25px;
@@ -405,6 +417,14 @@ nav a:hover{
 p{
   margin: 7px 0px;
 }
+.profil_oldimages{
+  background-color: transparent;
+  border:none;
+  outline: none;
+  max-width: 100px;
+  max-height: 40px;
+  cursor: pointer;
+}
 .popis_profil{
   margin: 10px 0px 15px 0px;
 }
@@ -423,6 +443,14 @@ p{
   font-weight: bold;
   text-align: right;
   width: 200px;
+}
+#profil_image{
+  max-height: 150px;
+  max-width: 450px;
+  border: 2px solid #860D0A;
+  margin-bottom: 5px;
+  background-color: black;
+  padding: 10px;
 }
 .selectInput_div select{
   width: 60%;
