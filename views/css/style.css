@@ -10,6 +10,23 @@
   z-index: 500;
   display: none;
 }
+.button{
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #8C1914;
+  padding: 8px 10px;
+  width: 150px;
+  margin: 10px 0px 30px 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+}
+.button:hover{
+  background-color: #860D0A;
+}
 #categories{
   display:none;
 }
@@ -21,8 +38,8 @@
   background-color: white;
   width: 300px;
   padding: 15px 5px;
-  position:absolute;
-  z-index: 10000;
+  position:fixed;
+  z-index: 10012;
 }
 .calendar_js_close{
   float: right;
@@ -93,6 +110,9 @@
 }
 .calendar_month_day_active:hover .calendar_add_new{
   visibility: visible;
+}
+.calendar_term{
+  margin: 20px 10px;
 }
 .calendar_week{
   border-collapse: collapse;
@@ -249,7 +269,7 @@
    display: none;
  }
 .intim_form_table{
-  width: 60%;
+  width: 100%;
   border-collapse: collapse
 }
 .intim_form_table td{
@@ -319,8 +339,8 @@
   position: fixed;
   z-index: 1000;
   background-color: white;
-  width: 70%;
-  height: 350px;
+  width: 50%;
+  height: 70px;
   display: none;
   padding: 25px;
 }
@@ -520,6 +540,8 @@ p{
   font-size: 1.2em;
   font-weight: bold;
   cursor: pointer;
+  text-align: center;
+  text-decoration: none;
 }
 .submit:hover{
   background-color: #860D0A;

@@ -6,6 +6,7 @@
  * Time: 11:09
  */
 $container = "<h1>Kalendář</h1>";
+$container .= $calendar_term;
 $container .= "<table class='calendar_week'><th colspan='2'>{$days[0]['date']}</th><th>Událost</th>";
 foreach($days as $day){
     $container .= "<tr><td>{$day['date']}</td><td>{$day['name']}</td><td>";

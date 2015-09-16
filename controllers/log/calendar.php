@@ -52,9 +52,9 @@ $nextDate = strtotime($nextDate, $today);
 $previousDate = strtotime($previousDate, $today);
 $events = new Event();
 $eventsAll = $events->getEvents($today, $next);
-$calendar = "<a href='index.php?page=calendar&term=day&date=$today'>Den</a>
-             <a href='index.php?page=calendar&term=week&date=$today'>Týden</a>
-             <a href='index.php?page=calendar&term=month&date=$today'>Měsíc</a>";
+$calendar_term = "<div class='calendar_term'><a href='index.php?page=calendar&term=day&date=$today' class='button'>Den</a>
+             <a href='index.php?page=calendar&term=week&date=$today' class='button'>Týden</a>
+             <a href='index.php?page=calendar&term=month&date=$today' class='button'>Měsíc</a></div>";
 
 for($i=0; $i < $num; $i++){
     $days[$i]['name'] = $daysname[date("w", $today)];
@@ -72,6 +72,6 @@ for($i=0; $i < $num; $i++){
 
 
 
-$calendar .= include_once("views/calendar/$term.php");
+$calendar = include_once("views/calendar/$term.php");
 return  $calendar;
 
