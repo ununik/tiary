@@ -89,3 +89,38 @@ function seenNotice(id){
 
     })
 }
+
+function intimCalendarNew(){
+    ajaxCall('controllers/log/intim/new.php', function(xhr) {
+        document.getElementById('intimCalendarNew').innerHTML = xhr.responseText;
+        document.getElementById('intimCalendarNew').style.display = "block";
+        document.getElementById('blackBackground').style.display = "block";
+    })
+
+}
+
+function saveIntim(){
+    var date = document.getElementById('date').value;
+    var temperature = document.getElementById('intim_calendar_temperature').value;
+    var temperature2 = document.getElementById('intim_calendar_other').value;
+    var menstruace = document.getElementById('menstruace').value;
+    var menstruace2 = document.getElementById('menstruace_select').value;
+
+    ajaxCall('controllers/log/intim/new.php?date='+ date +'&temperatureSelect='+ temperature +'&temperatureINPUT='+ temperature2 +'&menstruace=' + menstruace+ '&blood='+ menstruace2, function(xhr) {
+        document.getElementById('intimCalendarNew').innerHTML = xhr.responseText;
+        if(document.getElementById('savedData').value == 0) {
+            document.getElementById('intimCalendarNew').style.display = "block";
+            document.getElementById('blackBackground').style.display = "block";
+        } else{
+            document.getElementById('grayBackground').style.display = "block";
+            location.reload();
+        }
+
+    })
+}
+
+function intime_close(){
+    document.getElementById('intimCalendarNew').innerHTML = "";
+    document.getElementById('intimCalendarNew').style.display = "none";
+    document.getElementById('blackBackground').style.display = "none";
+}

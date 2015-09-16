@@ -34,4 +34,12 @@ class IntimCalendar extends Connection
         $entry = $result->fetchAll();
         return $entry;
     }
+
+    public function getLastTemperatur($user){
+        $db = parent::connect();
+        $result = $db->prepare("SELECT * FROM `intim_calendar` WHERE `user` = ? ORDER BY id DESC LIMIT 1");
+        $result->execute(array($user));
+        $entry = $result->fetch();
+        return $entry['temperature'];
+    }
 }

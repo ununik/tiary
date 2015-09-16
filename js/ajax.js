@@ -22,7 +22,8 @@ function ajaxCall(url, callback) {
 
     function ensureReadiness() {
         if(xhr.readyState < 4) {
-            return;
+            document.getElementById('grayBackground').style.display = "block";
+            return
         }
 
         if(xhr.status !== 200) {
@@ -31,6 +32,7 @@ function ajaxCall(url, callback) {
 
         // all is well
         if(xhr.readyState === 4) {
+            document.getElementById('grayBackground').style.display = "none";
             callback(xhr);
         }
     }

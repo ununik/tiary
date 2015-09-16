@@ -13,11 +13,14 @@ if(!empty($err)) {
     };
     $container .= "</div>";
 }
+/*
 if($saved == 0) {
 $container .= include_once("views/intim_calendar/input_new.php");
 }else{
     $container .= "graf";
 }
-
+*/
+$container .= "<div id='intimCalendarNew'></div>";
+$container .= "<div onclick='intimCalendarNew()'>Zadat záznam</div>";
 $container .= $list;
 return $container;

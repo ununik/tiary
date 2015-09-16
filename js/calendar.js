@@ -91,6 +91,9 @@ function issetCalendar(){
     }else{
         div.innerHTML = ""
         div.style.display = "none";
-        document.getElementById('blackBackground').style.display = "none";
+        if(document.getElementById("intimCalendarNew").innerHTML=="") {
+            document.getElementById('blackBackground').style.display = "none";
+        }
     }
 }
+

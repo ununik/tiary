@@ -5,7 +5,14 @@
  * Date: 15.09.2015
  * Time: 9:12
  */
-$input = "<form action='' method='post'>";
+$input = "<div onclick='intime_close()'>x</div>";
+if(!empty($err)) {
+    $input .= "<div id='errors'>";
+    foreach ($err as $error) {
+        $input .= "<span>$error</span>";
+    };
+    $input .= "</div>";
+}
 $input .= "<table class='intim_form_table'><th>Datum:</th><th>Teplota:</th><th></th><th></th><tr>";
 $input .= "<td class='intim_form_table_date'>
          <input type='text' name='date' value='{$date}' id='date' onclick='issetCalendar()'><div id='calendar_js'></div></td>";
@@ -20,7 +27,8 @@ if ($menstruace == 1) {
 $input .= "> Menstruace
                 <select name='blood' id='menstruace_select'>$blood</select><script>intimBlood()</script>
                 </td>";
-$input .= "<td class='intim_form_table_submit'><input type='submit' value='Uložit'></td>";
-$input .= "</tr></table><script>issetTemperatur()</script>";
+$input .= "<td class='intim_form_table_submit'><input type='submit' onclick='saveIntim(); return false' value='Uložit'></td>";
+$input .= "</tr></table>";
+$input .= "<input hidden type='text' value='$saved' id='savedData'>";
 
 return $input;
