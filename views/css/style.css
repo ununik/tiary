@@ -248,6 +248,7 @@
 }
 .intim_form_table_date{
   width: 20%;
+  min-width: 100px;
 }
 .intim_form_table_date input{
   width: 100%;
@@ -261,6 +262,7 @@
 }
 .intim_form_table_temperatur{
   width: 17%;
+  min-width: 80px;
 }
 .intim_form_table_temperatur input{
   width: 100%;
@@ -281,6 +283,7 @@
 }
 .intim_form_table_blood{
   width: 50%;
+  min-width: 120px;
 }
 .intim_form_table_blood select{
   width: 100%;
@@ -349,7 +352,10 @@ h3{
   margin: 17px 15px 0px 10px;
   font-size: 25px;
   cursor: pointer;
-  padding: 2px 4px;
+  padding: 2px 7px;
+}
+#header .headerNotice:hover{
+  color: yellow;
 }
 #header .headerNotice .headerNoticeNum {
   vertical-align: bottom;
@@ -407,12 +413,13 @@ nav a:hover{
 }
 #notice{
    position:fixed;
-   top:75px;
+   top:70px;
    right: 0px;
    font-size: 15px;
-   background-color: black;
+   background-color: white;
    padding: 20px;
    display:none;
+  z-index: 1000;
  }
 p{
   margin: 7px 0px;

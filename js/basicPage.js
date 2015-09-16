@@ -73,13 +73,15 @@ function intimBlood(){
     }
 }
 function getUnseenNotices(){
-    if(document.getElementById('notice').style.display == "none"){
+    if(document.getElementById('notice').style.display != "block"){
     ajaxCall('controllers/log/header/ajaxNotice.php', function(xhr) {
         document.getElementById('notice').innerHTML = xhr.responseText;
         document.getElementById('notice').style.display = "block";
+        document.getElementById('blackBackground').style.display = "block";
     })
     } else{
         document.getElementById('notice').style.display = "none";
+        document.getElementById('blackBackground').style.display = "none";
     }
 }
 function seenNotice(id){

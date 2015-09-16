@@ -12,4 +12,3 @@ function __autoload($name){
 $profil = new Profil(0, $_SESSION['tiary']['login'], $_SESSION['tiary']['password']);
 $notices = new Notice();
 $notices = $notices->seenNotice($_GET['id'], $profil->getId());
-echo 'red0';
