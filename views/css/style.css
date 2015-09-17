@@ -1,3 +1,6 @@
+#sklikReklama_55033{
+  display: none !important;
+}
 *{
   font-family: 'Play', sans-serif;
   margin: 0px;
@@ -62,6 +65,9 @@
   vertical-align: middle;
   margin: 0px 8px;
 }
+.calendar_js_month a{
+  text-decoration: none;
+}
 .calendar_js_table{
   border-collapse: collapse;
   width: 100%;
@@ -91,16 +97,36 @@
 }
 .calendar_month th{
   height: 25px;
+  font-size: 1.3em;
 }
 .calendar_month td{
   vertical-align: top;
   border: 1px solid #860D0A;
+  width: 14.2%;
+  height: 50px !important;
 }
 .calendar_month_dayname{
   font-weight: bold;
   height: 25px;
   text-align: center;
   border: none;
+}
+.calendar_month_date{
+  border-right: 1px solid #860D0A;
+  border-bottom: 1px solid #860D0A;
+  background-color: rgba(134,13,10,0.1);
+  font-weight: bold;
+  margin: 0px;
+  height: 22px;
+  width: 22px;
+  text-align: center;
+  position:relative;
+  top:-1px;
+  left:-1px;
+  position:relative;
+  z-index: 5;
+  display: inline-block;
+  background-color: white;
 }
 .calendar_month_noDay{
   background-color: #f4f4f4;
@@ -111,6 +137,53 @@
 .calendar_month_day_active:hover .calendar_add_new{
   visibility: visible;
 }
+.calendar_month_temperature{
+  margin: 0px 2px 0px 15px;
+  height: 18px;
+  position:relative;
+  z-index: 5;
+}
+.calendar_month_mentruace0{
+  width:100%;
+  height:100%;
+  position:relative;
+  top:-23px;
+}
+.calendar_month_mentruace1{
+  width:100%;
+  height:100%;
+  position:relative;
+  background-color: #ffb2b2;
+  top:-23px;
+}
+.calendar_month_mentruace2{
+  width:100%;
+  height:100%;
+  position:relative;
+  background-color: #ff7f7f;
+  top:-23px;
+}
+.calendar_month_mentruace3{
+  width:100%;
+  height:100%;
+  position:relative;
+  background-color: #ff6666;
+  top:-23px;
+}
+.calendar_month_mentruace4{
+  width:100%;
+  height:100%;
+  position:relative;
+  background-color: #ff4c4c;
+  top:-23px;
+}
+.calendar_month_mentruace5{
+  width:100%;
+  height:100%;
+  position:relative;
+  background-color: #ff1919;
+  top:-23px;
+}
 .calendar_term{
   margin: 20px 10px;
 }
@@ -118,6 +191,7 @@
   border-collapse: collapse;
   width: 60%;
 }
+
 .calendar_week td{
   vertical-align: top;
   padding: 4px;
@@ -139,7 +213,7 @@
   width:auto;
 }
 #calendar_week_header_date{
-  width: auto;
+  width: 1.8em;
 }
 .comments_box_all{
   margin: 50px 0px 0px 0px;
@@ -340,9 +414,8 @@
   z-index: 1000;
   background-color: white;
   width: 50%;
-  height: 70px;
   display: none;
-  padding: 25px;
+  padding: 25px 15px;
 }
 #logo_homepage_unlog{
   margin: 5px 0px 10px 5px;
@@ -418,6 +491,32 @@ h3{
   margin: 13px 5px 0px 0px;
   border: 1px solid black;
   outline: 1px solid white;
+}
+#header_submit{
+  float: right;
+  margin: 10px 30px 0px 0px;
+  border: none;
+  outline: none;
+  color: #8C1914;
+  background-color: white;
+  padding: 8px 10px;
+  width: 150px;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+}
+.header_Input{
+  margin-top: 10px;
+  width: 150px;
+  height: 38px;
+  color: #8C1914;
+  outline: none;
+  border: 1px solid white;
+  padding: 5px 7px;
+  float: right;
+  border-right: 1px solid #8C1914;
 }
 #menstruace{
   width: 25px;

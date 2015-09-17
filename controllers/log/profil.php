@@ -43,6 +43,8 @@ foreach ($clubs as $club_one){
 }
 $club .= "";
 
+$aboutMe = nl2br ($profil->getAboutMe());
+
 $entr = new Entry();
 $allEntries = $entr->showEntries($profil->getId());
 $entries = "";

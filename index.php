@@ -20,7 +20,7 @@ $title = 'Tiary';
 if(!isset($_SESSION['tiary']['log']) || $_SESSION['tiary']['log'] !== true) {
     $navigation = include_once("controllers/unlog/navigation.php");
     $contetnt = include_once("controllers/unlog/$page.php");
-    $header = "";
+    $header = include_once("controllers/unlog/header/header.php");
 }else{
     $header = include_once("controllers/log/header/header.php");
     $navigation = include_once("controllers/log/navigation.php");

@@ -10,15 +10,17 @@ function __autoload($name){
     include_once("../../../models/Classes/$name.class.php");
 }
 $profil = new Profil(0, $_SESSION['tiary']['login'], $_SESSION['tiary']['password']);
+$id = $_GET['id'];
 $diary = new IntimCalendar();
-$date = date("j. n. Y");
-$temperature = "36.0";
+$entry = $diary->getEntry($profil->getId(), $id);
+$date = date("j. n. Y", $entry['date']);
+$temperature = $entry['temperature'];
 $err = array();
-$blood = 0;
-$menstruace = 0;
-$timestampEntry = 0;
-$temperatureSelect = $diary->getLastTemperatur($profil->getId());
-$temperatureINPUT = 0;
+$blood = $entry['blood'];
+$menstruace = $entry['menstruace'];
+$timestampEntry = $entry['date'];
+$temperatureSelect = $entry['temperature'];
+$temperatureINPUT = $entry['temperature'];
 $saved = 0;
 
 if(isset($_GET['date'])){
@@ -68,8 +70,8 @@ if(isset($_GET['date'])){
         $blood = 0;
     }
     if(empty($err)){
-        if(($diary->checkDay($profil->getId(), $timestampEntry)) == true) {
-            $diary->newEntry($profil->getId(), $timestampEntry, $temperaturePOST, $menstruace, $blood);
+        if(($diary->checkDayToday($profil->getId(), $timestampEntry, $id)) == true) {
+            $diary->updateEntry($id, $profil->getId(), $timestampEntry, $temperaturePOST, $menstruace, $blood);
             $err[] = "Záznam uložen";
             $saved = 1;
         }else{
@@ -78,10 +80,12 @@ if(isset($_GET['date'])){
     }
 }
 
+
+
 $temperatureSelect = include_once('../../../controllers/log/intim/temperature.php');
 $blood = include_once('../../../controllers/log/intim/blood.php');
 
 
-$intimCalendarContainer = include_once('../../../views/intim_calendar/input_new.php');
+$intimCalendarContainer = include_once('../../../views/intim_calendar/input_update.php');
 
 print $intimCalendarContainer;

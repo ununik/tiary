@@ -42,8 +42,8 @@ if($club != "" && $club != '<ul><li></li></ul>') {
 /**
  * O mne
  */
-if($profil->getAboutMe() != "") {
-    $container .= "<tr><td class='profil_headline'>O mně:</td><td>{$profil->getAboutMe()}</td></tr>";
+if($aboutMe != "") {
+    $container .= "<tr><td class='profil_headline'>O mně:</td><td>{$aboutMe}</td></tr>";
 }
 /**
  * Jak dlouho je uživatelem

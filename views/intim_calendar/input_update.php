@@ -27,7 +27,7 @@ if ($menstruace == 1) {
 $input .= "> Menstruace
                 <select name='blood' id='menstruace_select'>$blood</select><script>intimBlood()</script>
                 </td>";
-$input .= "<td class='intim_form_table_submit'><input type='submit' onclick='saveIntim(); return false' value='Uložit'></td>";
+$input .= "<td class='intim_form_table_submit'><input type='submit' onclick='updateIntim($id); return false' value='Upravit'></td>";
 $input .= "</tr></table>";
 $input .= "<input hidden type='text' value='$saved' id='savedData'>";
 

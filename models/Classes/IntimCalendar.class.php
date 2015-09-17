@@ -14,10 +14,27 @@ class IntimCalendar extends Connection
         $result = $db->prepare("INSERT INTO `intim_calendar`(`user`, `timestamp`, `date`, `temperature`, `menstruace`, `blood`) VALUES (?, ?, ?, ?, ?, ?)");
         $result->execute(array($user, $timestamp, $date, $temperatur, $menstruace, $blood));
     }
+    public function updateEntry($id, $user, $date, $temperatur, $menstruace, $blood){
+        $db = parent::connect();
+        $timestamp = time();
+        $result = $db->prepare("UPDATE `intim_calendar` SET `date`= ?,`temperature`=?,`menstruace`=?,`blood`=? WHERE id = ? && user = ?");
+        $result->execute(array($date, $temperatur, $menstruace, $blood, $id, $user));
+    }
     public function checkDay($user, $date){
         $db = parent::connect();
         $result = $db->prepare("SELECT * FROM `intim_calendar` WHERE (`user` = ? && `date` = ?) ");
         $result->execute(array($user, $date));
+        $entry = $result->fetchAll();
+        if(isset($entry[0])){
+            return false;
+        } else{
+            return true;
+        }
+    }
+    public function checkDayToday($user, $date, $id){
+        $db = parent::connect();
+        $result = $db->prepare("SELECT * FROM `intim_calendar` WHERE (`user` = ? && `date` = ? && `id` != ? ) ");
+        $result->execute(array($user, $date, $id));
         $entry = $result->fetchAll();
         if(isset($entry[0])){
             return false;
@@ -41,5 +58,19 @@ class IntimCalendar extends Connection
         $result->execute(array($user));
         $entry = $result->fetch();
         return $entry['temperature'];
+    }
+    public function getEntries($from, $to, $user){
+        $db = parent::connect();
+        $result = $db->prepare("SELECT * FROM `intim_calendar` WHERE ((date >= ? && date < ?) && user = ?) ORDER BY date");
+        $result->execute(array($from, $to, $user));
+        $events = $result->fetchAll();
+        return $events;
+    }
+    public function getEntry($user, $id){
+        $db = parent::connect();
+        $result = $db->prepare("SELECT * FROM `intim_calendar` WHERE `id` = ? && user = ?");
+        $result->execute(array($id, $user));
+        $entry = $result->fetch();
+        return $entry;
     }
 }
