@@ -8,17 +8,17 @@
  */
 class IntimCalendar extends Connection
 {
-    public function newEntry($user, $date, $temperatur, $menstruace, $blood){
+    public function newEntry($user, $date, $temperatur, $menstruace, $blood,  $factors, $phlegm, $suppository, $comment, $ovulation){
         $db = parent::connect();
         $timestamp = time();
-        $result = $db->prepare("INSERT INTO `intim_calendar`(`user`, `timestamp`, `date`, `temperature`, `menstruace`, `blood`) VALUES (?, ?, ?, ?, ?, ?)");
-        $result->execute(array($user, $timestamp, $date, $temperatur, $menstruace, $blood));
+        $result = $db->prepare("INSERT INTO `intim_calendar`(`user`, `timestamp`, `date`, `temperature`, `menstruace`, `blood`,  `factors`, `phlegm`, `suppository`, `comment`, `ovulation`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $result->execute(array($user, $timestamp, $date, $temperatur, $menstruace, $blood,  $factors, $phlegm, $suppository, $comment, $ovulation));
     }
-    public function updateEntry($id, $user, $date, $temperatur, $menstruace, $blood){
+    public function updateEntry($id, $user, $date, $temperatur, $menstruace, $blood,  $factors, $phlegm, $suppository, $comment, $ovulation){
         $db = parent::connect();
         $timestamp = time();
-        $result = $db->prepare("UPDATE `intim_calendar` SET `date`= ?,`temperature`=?,`menstruace`=?,`blood`=? WHERE id = ? && user = ?");
-        $result->execute(array($date, $temperatur, $menstruace, $blood, $id, $user));
+        $result = $db->prepare("UPDATE `intim_calendar` SET `date`= ?,`temperature`=?,`menstruace`=?,`blood`=? ,  `factors`=?, `phlegm`=?, `suppository`=?, `comment`=?, `ovulation`=? WHERE id = ? && user = ?");
+        $result->execute(array($date, $temperatur, $menstruace, $blood,  $factors, $phlegm, $suppository, $comment, $ovulation, $id, $user));
     }
     public function checkDay($user, $date){
         $db = parent::connect();

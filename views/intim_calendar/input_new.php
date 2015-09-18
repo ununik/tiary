@@ -13,7 +13,7 @@ if(!empty($err)) {
     };
     $input .= "</div>";
 }
-$input .= "<table class='intim_form_table'><th>Datum:</th><th>Teplota:</th><th></th><th></th><tr>";
+$input .= "<table class='intim_form_table'><th>Datum:</th><th>Teplota:</th><th></th><tr>";
 $input .= "<td class='intim_form_table_date'>
          <input type='text' name='date' value='{$date}' id='date' onclick='issetCalendar()'><div id='calendar_js'></div></td>";
 $input .= "<td class='intim_form_table_temperatur'>
@@ -24,11 +24,30 @@ $input .= "<td class='intim_form_table_blood'>
 if ($menstruace == 1) {
     $input .= "checked";
 }
-$input .= "> Menstruace
+$input .= "> <label for='menstruace'>Menstruace</label>
                 <select name='blood' id='menstruace_select'>$blood</select><script>intimBlood()</script>
                 </td>";
-$input .= "<td class='intim_form_table_submit'><input type='submit' onclick='saveIntim(); return false' value='Uložit'></td>";
 $input .= "</tr></table>";
+$input .= "<div  class='checkboxInput_div' id='ovulationDiv' ";
+if ($menstruace == 1) {
+    $input .= "style='display: none;' ";
+}
+$input .= ">
+         <input type='checkbox' id='ovulation' value='1' ";
+if($ovulation == 1){
+    $input .= "checked";
+}
+$input .= ">Ovulace</div>";
+$input .= "<div class='textarea_div_intim'>Ovlivňující faktory:<br>
+         <textarea id='factors'>{$factors}</textarea></div>";
+$input .= "<div class='textarea_div_intim'>Hlen:<br>
+         <textarea id='phlegm'>{$phlegm}</textarea></div>";
+$input .= "<div class='textarea_div_intim'>Čípek:<br>
+         <textarea id='suppository'>{$suppository}</textarea></div>";
+$input .= "<div class='textarea_div_intim'>Poznámka:<br>
+         <textarea id='comment'>{$comment}</textarea></div>";
 $input .= "<input hidden type='text' value='$saved' id='savedData'>";
+
+$input .= "<input type='submit' value='Uložit' onclick='saveIntim(); return false'  class='submit'>";
 
 return $input;

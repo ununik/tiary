@@ -65,11 +65,14 @@ function categoriesEnroll(){
 function intimBlood(){
     var checkbox = document.getElementById("menstruace")
     var select = document.getElementById("menstruace_select");
+    var ovulation = document.getElementById('ovulationDiv');
 
     if(checkbox.checked == 1){
         menstruace_select.style.display = "block";
+        ovulation.style.display = "none";
     }else{
         menstruace_select.style.display = "none";
+        ovulation.style.display = "block";
     }
 }
 function getUnseenNotices(){
@@ -90,8 +93,8 @@ function seenNotice(id){
     })
 }
 
-function intimCalendarNew(){
-    ajaxCall('controllers/log/intim/new.php', function(xhr) {
+function intimCalendarNew(timestamp){
+    ajaxCall('controllers/log/intim/new.php?timestamp='+timestamp, function(xhr) {
         document.getElementById('intimCalendarNew').innerHTML = xhr.responseText;
         document.getElementById('intimCalendarNew').style.display = "block";
         document.getElementById('blackBackground').style.display = "block";
@@ -118,8 +121,18 @@ function saveIntim(){
         menstruace = 0
     }
     var menstruace2 = document.getElementById('menstruace_select').value;
+    var factors = document.getElementById('factors').value;
+    var phlegm = document.getElementById('phlegm').value;
+    var suppository = document.getElementById('suppository').value;
+    var comment = document.getElementById('comment').value;
+    var ovulation = document.getElementById('ovulation')
+    if(ovulation.checked == true){
+        ovulation = 1
+    }else{
+        ovulation = 0
+    }
 
-    ajaxCall('controllers/log/intim/new.php?date='+ date +'&temperatureSelect='+ temperature +'&temperatureINPUT='+ temperature2 +'&menstruace=' + menstruace+ '&blood='+ menstruace2, function(xhr) {
+    ajaxCall('controllers/log/intim/new.php?date='+ date +'&temperatureSelect='+ temperature +'&temperatureINPUT='+ temperature2 +'&menstruace=' + menstruace+ '&blood='+ menstruace2 + '&factors='+factors+'&phlegm='+phlegm+'&suppository='+suppository+'&comment='+comment+'&ovulation='+ovulation, function(xhr) {
         document.getElementById('intimCalendarNew').innerHTML = xhr.responseText;
         if(document.getElementById('savedData').value == 0) {
             document.getElementById('intimCalendarNew').style.display = "block";
@@ -144,8 +157,18 @@ function updateIntim(id){
         menstruace = 0
     }
     var menstruace2 = document.getElementById('menstruace_select').value;
+    var factors = document.getElementById('factors').value;
+    var phlegm = document.getElementById('phlegm').value;
+    var suppository = document.getElementById('suppository').value;
+    var comment = document.getElementById('comment').value;
+    var ovulation = document.getElementById('ovulation')
+    if(ovulation.checked == true){
+        ovulation = 1
+    }else{
+        ovulation = 0
+    }
 
-    ajaxCall('controllers/log/intim/update.php?id='+id+'&date='+ date +'&temperatureSelect='+ temperature +'&temperatureINPUT='+ temperature2 +'&menstruace=' + menstruace+ '&blood='+ menstruace2, function(xhr) {
+    ajaxCall('controllers/log/intim/update.php?id='+id+'&date='+ date +'&temperatureSelect='+ temperature +'&temperatureINPUT='+ temperature2 +'&menstruace=' + menstruace+ '&blood='+ menstruace2 + '&factors='+factors+'&phlegm='+phlegm+'&suppository='+suppository+'&comment='+comment+'&ovulation='+ovulation, function(xhr) {
         document.getElementById('intimCalendarNew').innerHTML = xhr.responseText;
         if(document.getElementById('savedData').value == 0) {
             document.getElementById('intimCalendarNew').style.display = "block";

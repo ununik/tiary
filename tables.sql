@@ -185,10 +185,14 @@ CREATE TABLE IF NOT EXISTS `intim_calendar` (
   `temperature` float NOT NULL,
   `menstruace` tinyint(1) NOT NULL,
   `blood` int(2) NOT NULL,
+  `factors` text COLLATE utf8_czech_ci NOT NULL,
+  `phlegm` text COLLATE utf8_czech_ci NOT NULL,
+  `suppository` text COLLATE utf8_czech_ci NOT NULL,
+  `comment` text COLLATE utf8_czech_ci NOT NULL,
+  `ovulation` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 );
-
 CREATE TABLE IF NOT EXISTS `profile_image` (
   `id` int(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_czech_ci NOT NULL,

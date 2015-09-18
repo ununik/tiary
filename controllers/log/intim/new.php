@@ -12,6 +12,9 @@ function __autoload($name){
 $profil = new Profil(0, $_SESSION['tiary']['login'], $_SESSION['tiary']['password']);
 $diary = new IntimCalendar();
 $date = date("j. n. Y");
+if(isset($_GET['timestamp']) && $_GET['timestamp'] != 0){
+    $date = date("j. n. Y", $_GET['timestamp']);
+}
 $temperature = "36.0";
 $err = array();
 $blood = 0;
@@ -20,6 +23,11 @@ $timestampEntry = 0;
 $temperatureSelect = $diary->getLastTemperatur($profil->getId());
 $temperatureINPUT = 0;
 $saved = 0;
+$factors = "";
+$phlegm = "";
+$suppository = "";
+$comment = "";
+$ovulation = 0;
 
 if(isset($_GET['date'])){
     /**
@@ -67,9 +75,20 @@ if(isset($_GET['date'])){
     }else{
         $blood = 0;
     }
+
+    $factors = $_GET['factors'];
+    $phlegm = $_GET['phlegm'];
+    $suppository = $_GET['suppository'];
+    $comment = $_GET['comment'];
+    if($menstruace > 0){
+        $ovulation = 0;
+    }else {
+        $ovulation = $_GET['ovulation'];
+    }
+
     if(empty($err)){
         if(($diary->checkDay($profil->getId(), $timestampEntry)) == true) {
-            $diary->newEntry($profil->getId(), $timestampEntry, $temperaturePOST, $menstruace, $blood);
+            $diary->newEntry($profil->getId(), $timestampEntry, $temperaturePOST, $menstruace, $blood, $factors, $phlegm, $suppository, $comment, $ovulation);
             $err[] = "Záznam uložen";
             $saved = 1;
         }else{

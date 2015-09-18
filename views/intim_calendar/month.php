@@ -26,11 +26,18 @@ for($monthDay = 1; $monthDay <= $num; $monthDay++){
         $calendar .= "</tr><tr>";
         $NDay = 0;
     }
-    $calendar .= "<td class='calendar_month_day_active'><span class='calendar_month_date'>{$days[$monthDay-1]['day']}</span>";
-    if($days[$monthDay-1]['temperature'] != 0) {
-        $calendar .= '<span class="calendar_month_temperature" onclick="intimCalendarUpdate('.$days[$monthDay-1]['id'].')">' . $days[$monthDay - 1]['temperature'] . '°C</span>';
-        $calendar .= "<div class='calendar_month_mentruace{$days[$monthDay - 1]['blood']}'></div>";
+
+    if($days[$monthDay-1]['id'] != 0) {
+        $calendar .= "<td class='calendar_month_day_active calendar_month_day_active_empty' onclick='intimCalendarUpdate({$days[$monthDay-1]['id']})'><span class='calendar_month_date'>{$days[$monthDay-1]['day']}</span>";
+
+        $calendar .= '<span class="calendar_month_temperature">' . $days[$monthDay - 1]['temperature'] . '°C</span>';
+
+
+
+    }else {
+        $calendar .= "<td class='calendar_month_day_active calendar_month_day_active_empty' onclick='intimCalendarNew({$days[$monthDay - 1]['timestamp']})' title='Přidat záznam'><span class='calendar_month_date'>{$days[$monthDay-1]['day']}</span>";
     }
+    $calendar .= "<div class='calendar_month_mentruace{$days[$monthDay - 1]['blood']}'></div>";
     $calendar .= "</td>";
     $NDay++;
 }

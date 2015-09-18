@@ -21,6 +21,8 @@ $container .= include_once("views/intim_calendar/input_new.php");
 }
 */
 $container .= "<div id='intimCalendarNew'></div>";
-$container .= "<div onclick='intimCalendarNew()' class='button'>Zadat záznam</div>";
+if($term != "month") {
+    $container .= "<div onclick='intimCalendarNew(0)' class='button'>Zadat záznam</div>";
+}
 $container .= $list;
 return $container;

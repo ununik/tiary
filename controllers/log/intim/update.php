@@ -17,11 +17,21 @@ $date = date("j. n. Y", $entry['date']);
 $temperature = $entry['temperature'];
 $err = array();
 $blood = $entry['blood'];
-$menstruace = $entry['menstruace'];
+if($blood == 0){
+    $menstruace = 0;
+}
+else{
+    $menstruace = 1;
+}
 $timestampEntry = $entry['date'];
 $temperatureSelect = $entry['temperature'];
 $temperatureINPUT = $entry['temperature'];
 $saved = 0;
+$factors = $entry['factors'];
+$phlegm = $entry['phlegm'];
+$suppository = $entry['suppository'];
+$comment = $entry['comment'];
+$ovulation = $entry['ovulation'];
 
 if(isset($_GET['date'])){
     /**
@@ -63,15 +73,26 @@ if(isset($_GET['date'])){
     $temperaturePOST = $temperaturePOST[0].'.'.$temperaturePOST[1];
 
 
-    if(isset($_GET['menstruace']) && $_GET['menstruace']==1){
+    if(isset($_GET['menstruace']) && $_GET['menstruace'] == 1){
         $menstruace = 1;
         $blood = $_GET['blood'];
     }else{
         $blood = 0;
     }
+
+    $factors = $_GET['factors'];
+    $phlegm = $_GET['phlegm'];
+    $suppository = $_GET['suppository'];
+    $comment = $_GET['comment'];
+    if($blood > 0){
+        $ovulation = 0;
+    }else {
+        $ovulation = $_GET['ovulation'];
+    }
+
     if(empty($err)){
         if(($diary->checkDayToday($profil->getId(), $timestampEntry, $id)) == true) {
-            $diary->updateEntry($id, $profil->getId(), $timestampEntry, $temperaturePOST, $menstruace, $blood);
+            $diary->updateEntry($id, $profil->getId(), $timestampEntry, $temperaturePOST, $menstruace, $blood, $factors, $phlegm, $suppository, $comment, $ovulation);
             $err[] = "Záznam uložen";
             $saved = 1;
         }else{
