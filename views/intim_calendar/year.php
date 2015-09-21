@@ -27,7 +27,13 @@ for($month = 0; $month < 12; $month++){
             if ($days[$dayNum]['timestamp'] >= $now && $days[$dayNum]['timestamp'] < $now + 86400) {
                 $calendar .= " calendar_month_today ";
             }
-            $calendar .= "'></td>";
+            $calendar .= "' ";
+            if($days[$dayNum]['id'] != 0){
+                $calendar .= " onclick='intimCalendarUpdate({$days[$dayNum]['id']})' ";
+            }else{
+                $calendar .= " onclick='intimCalendarNew({$days[$dayNum]['timestamp']})' ";
+            }
+            $calendar .= "></td>";
         } else {
             $dayNum--;
             $calendar .= "<td class='intim_year_none'></td>";
