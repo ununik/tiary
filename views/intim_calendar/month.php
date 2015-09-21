@@ -8,7 +8,6 @@
 $calendar = "";
 
 $calendar .= $calendar_term;
-$calendar .= "";
 
 $calendar .= "<table class='calendar_month'><th colspan='7' id='calendar_week_header_date'><div class='calendar_js_month'><a href='index.php?page=intim_calendar&term=month&date=$previousDate'><span>{$month['month-1']}</span></a>{$month['month']}<a href='index.php?page=intim_calendar&term=month&date=$nextDate'><span>{$month['month+1']}</span></a></th><tr>";
 for($i=1; $i<8; $i++){
@@ -28,7 +27,12 @@ for($monthDay = 1; $monthDay <= $num; $monthDay++){
     }
 
     if($days[$monthDay-1]['id'] != 0) {
-        $calendar .= "<td class='calendar_month_day_active calendar_month_day_active_empty' onclick='intimCalendarUpdate({$days[$monthDay-1]['id']})'><span class='calendar_month_date'>{$days[$monthDay-1]['day']}</span>";
+        $calendar .= "<td class='calendar_month_day_active calendar_month_day_active_empty";
+        $calendar .= " ";
+        if($days[$monthDay-1]['timestamp'] >= $now && $days[$monthDay-1]['timestamp'] < $now+86400){
+            $calendar .= " calendar_month_today ";
+        }
+        $calendar .= " calendar_month_mentruace{$days[$monthDay - 1]['blood']}' onclick='intimCalendarUpdate({$days[$monthDay-1]['id']})'><span class='calendar_month_date'>{$days[$monthDay-1]['day']}</span>";
 
         $calendar .= '<span class="calendar_month_temperature">' . $days[$monthDay - 1]['temperature'] . '°C</span>';
 
@@ -37,7 +41,7 @@ for($monthDay = 1; $monthDay <= $num; $monthDay++){
     }else {
         $calendar .= "<td class='calendar_month_day_active calendar_month_day_active_empty' onclick='intimCalendarNew({$days[$monthDay - 1]['timestamp']})' title='Přidat záznam'><span class='calendar_month_date'>{$days[$monthDay-1]['day']}</span>";
     }
-    $calendar .= "<div class='calendar_month_mentruace{$days[$monthDay - 1]['blood']}'></div>";
+    $calendar .= "<div '></div>";
     $calendar .= "</td>";
     $NDay++;
 }

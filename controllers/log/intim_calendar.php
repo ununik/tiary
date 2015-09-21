@@ -16,12 +16,12 @@ if(!isset($_GET['term']) || $_GET['term']==""){
 }
 $today = strtotime('tomorrow');
 $daysname = array("Ne","Po", "Út", "St", "Čt", "Pá", "So", "Ne");
-$mesic = array("leden","únor", "březen", "duben", "květen", "červen", "červenec", "srpen", "září", "říjen", "listopad", "prosinec");
+$mesic = array("leden","únor", "březen", "duben", "květen", "červen", "červenec", "srpen", "září", "říjen", "listopad", "prosinec", "leden");
 $days = array();
 if(isset($_GET['date']) && is_numeric($_GET['date'])){
     $today =  $_GET['date'];
 }
-
+$now = strtotime(date("Y-m-d"));
 switch($term){
     case "week":
         $today = strtotime("-8 days", $today);
@@ -39,12 +39,16 @@ switch($term){
         $num = cal_days_in_month(CAL_GREGORIAN,date('m', $today),date('Y'));
         break;
     case "year":
-        $today = strtotime(date('Y-01-01', $today));
+        $num = 365;
+        $year = strtotime(date("Y", $today));
+        $yearDate = date("Y", $today);
+        $prevYear = $yearDate - 1;
+        $nextYear = $yearDate + 1;
+        $today = strtotime(date("Y-01-01", $today));
         $firstday_num = date('w', $today);
         $plus = "next year";
         $nextDate =  "next year";
         $previousDate = "last year";
-        $num = cal_days_in_month(CAL_GREGORIAN,date('d', $today),date('Y'));
         break;
     default:
         $today = strtotime("-8 days", $today);
@@ -62,17 +66,24 @@ $previousDate = strtotime($previousDate, $today);
 $entries = new IntimCalendar();
 $entriesAll = $entries->getEntries($today, $next, $profil->getId());
 $thisWeek = strtotime("+8 days",$today);
-
-
+$howLongBetweenMenstruation = $entries->howLongBetweenMenstruation($profil->getId());
+$howLongMenstruation = $entries->howLongMenstruation($profil->getId());
+$lastMenstruation = $entries->getLastMenstruation($profil->getId());
+$predictionTerm = 6;
 $calendar_term = "<div>
              <a href='index.php?page=intim_calendar&term=week&date=$thisWeek' class='button'>Týden</a>
              <a href='index.php?page=intim_calendar&term=month&date=$today' class='button'>Měsíc</a>
-             <a href='index.php?page=intim_calendar&term=year&date=$today' class='button'>Rok</a></div>";
+             <a href='index.php?page=intim_calendar&term=year&date=$today' class='button'>Rok</a></div>
+             <div><a href='index.php?page=intim_calendar&term={$_GET['term']}&date=$now' class='button'>Dnes</a></div>";
 
 if($term == "month") {
     $month['monthNum'] = date("n", $today);
     $month['month'] = $mesic[$month['monthNum'] - 1] . ' ' . date("Y", $today);
-    $month['month-1'] = $mesic[$month['monthNum'] - 2];
+    if($month['monthNum'] == 1){
+        $month['month-1'] = $mesic[11];
+    }else {
+        $month['month-1'] = $mesic[$month['monthNum'] - 2];
+    }
     $month['month+1'] = $mesic[$month['monthNum']];
 }
 for($i=0; $i < $num; $i++){
@@ -87,6 +98,19 @@ for($i=0; $i < $num; $i++){
     if(!isset($days[$i]['blood'])) {
         $days[$i]['blood'] = 0;
     }
+
+
+//forecast
+    for($pre = 1; $pre <= $predictionTerm; $pre ++) {
+        $forecast = strtotime(date('Y-m-d', $lastMenstruation + $pre * $howLongBetweenMenstruation));
+        if ($today == $forecast) {
+            $days[$i]['blood'] = "_forecast";
+            for ($n = 1; $n <= $howLongMenstruation; $n++) {
+                $days[$i + $n]['blood'] = "_forecast";
+            }
+        }
+    }
+
     foreach($entriesAll as $entry){
         if($entry['date'] > strtotime('-1 day', $today) && $entry['date']<=$today){
             $days[$i]['temperature'] = "{$entry['temperature']}";

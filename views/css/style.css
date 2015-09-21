@@ -150,60 +150,34 @@
   position:relative;
   z-index: 5;
 }
+.calendar_month_today{
+  border: 3px solid #860D0A !important;
+}
+.calendar_month_mentruace_forecast{
+  background-color: #ffe4b2;
+}
 .calendar_month_mentruace_1{
-  width:100%;
-  height:100%;
-  position:relative;
   background-color: #9dff9d;
-  top:-23px;
 }
 .calendar_month_mentruace_2{
-  width:100%;
-  height:100%;
-  position:relative;
   background-color: #008900;
-  top:-23px;
 }
 .calendar_month_mentruace0{
-  width:100%;
-  height:100%;
-  position:relative;
-  top:-23px;
 }
 .calendar_month_mentruace1{
-  width:100%;
-  height:100%;
-  position:relative;
   background-color: #ffb2b2;
-  top:-23px;
 }
 .calendar_month_mentruace2{
-  width:100%;
-  height:100%;
-  position:relative;
   background-color: #ff7f7f;
-  top:-23px;
 }
 .calendar_month_mentruace3{
-  width:100%;
-  height:100%;
-  position:relative;
   background-color: #ff6666;
-  top:-23px;
 }
 .calendar_month_mentruace4{
-  width:100%;
-  height:100%;
-  position:relative;
   background-color: #ff4c4c;
-  top:-23px;
 }
 .calendar_month_mentruace5{
-  width:100%;
-  height:100%;
-  position:relative;
   background-color: #ff1919;
-  top:-23px;
 }
 .calendar_term{
   margin: 20px 10px;
@@ -447,6 +421,50 @@
 #intim_calendar_other{
   display: none;
 }
+
+.intim_year_blood_forecast{
+  background-color: #ffe4b2;
+}
+.intim_year_blood_1{
+  background-color: #9dff9d;
+}
+.intim_year_blood_2{
+  background-color: #008900;
+}
+.intim_year_blood0{
+}
+.intim_year_blood1{
+  background-color: #ffb2b2;
+}
+.intim_year_blood2{
+  background-color: #ff7f7f;
+}
+.intim_year_blood3{
+  background-color: #ff6666;
+}
+.intim_year_blood4{
+  background-color: #ff4c4c;
+}
+.intim_year_blood5{
+  background-color: #ff1919;
+}
+#intim_year_table{
+  width: 60%;
+  border-collapse: collapse;
+}
+#intim_year_table td{
+  text-align: center;
+  vertical-align: middle;
+  width: 3%;
+  border: 1px dotted lightgray;
+}
+.intim_year_none{
+  background-color: lightgray;
+}
+.intim_year_headTable{
+  font-weight: bold;
+}
+
 h1{
   pading: 25px 10px 13px 10px;
   margin: 0px 0px 10px 0px;
