@@ -94,6 +94,10 @@ for($i=0; $i < $num; $i++){
     $days[$i]['timestamp'] = $today;
     $days[$i]['temperature'] = 0;
     $days[$i]['id'] = 0;
+    $days[$i]['factors'] = "";
+    $days[$i]['phlegm'] = "";
+    $days[$i]['suppository'] = "";
+    $days[$i]['comment'] = "";
     $days[$i]['ovulation'] = 0;
     if(!isset($days[$i]['blood'])) {
         $days[$i]['blood'] = 0;
@@ -118,6 +122,10 @@ for($i=0; $i < $num; $i++){
                 $days[$i]['blood'] = "{$entry['blood']}";
             }
             $days[$i]['id'] = "{$entry['id']}";
+            $days[$i]['factors'] = $entry['factors'];
+            $days[$i]['phlegm'] = $entry['phlegm'];
+            $days[$i]['suppository'] = $entry['suppository'];
+            $days[$i]['comment'] = $entry['comment'];
             $days[$i]['ovulation'] = $entry['ovulation'];
         }
     }

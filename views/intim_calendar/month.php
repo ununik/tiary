@@ -37,6 +37,22 @@ for($monthDay = 1; $monthDay <= $num; $monthDay++){
         $calendar .= '<span class="calendar_month_temperature">' . $days[$monthDay - 1]['temperature'] . '°C</span>';
 
 
+        $calendar .= "<div>";
+        if($days[$monthDay - 1]['factors'] != ""){
+            $calendar .= "<span>F</span>";
+        }
+        if($days[$monthDay - 1]['phlegm'] != ""){
+            $calendar .= "<span>H</span>";
+        }
+        if($days[$monthDay - 1]['suppository'] != ""){
+            $calendar .= "<span>Č</span>";
+        }
+        if($days[$monthDay - 1]['comment'] != ""){
+            $calendar .= "<span>P</span>";
+        }
+        $calendar .= "</div>";
+
+
 
     }else {
         $calendar .= "<td class='calendar_month_day_active calendar_month_day_active_empty' onclick='intimCalendarNew({$days[$monthDay - 1]['timestamp']})' title='Přidat záznam'><span class='calendar_month_date'>{$days[$monthDay-1]['day']}</span>";
