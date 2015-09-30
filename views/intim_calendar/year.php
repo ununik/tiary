@@ -23,7 +23,7 @@ for($month = 0; $month < 12; $month++){
 
 
         if ($day <= $dayInMonth) {
-            $calendar .= "<td class='intim_year_blood{$days[$dayNum]['blood']}";
+            $calendar .= "<td class='intimeYearActiveDay intim_year_blood{$days[$dayNum]['blood']}";
             if ($days[$dayNum]['timestamp'] >= $now && $days[$dayNum]['timestamp'] < $now + 86400) {
                 $calendar .= " calendar_month_today ";
             }

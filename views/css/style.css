@@ -413,6 +413,10 @@
   padding: 25px 15px;
   margin: 0px 0px 50px 0px;
 }
+.intimeYearActiveDay:hover{
+  cursor:pointer;
+  background-color: rgba(134,13,10,0.2);
+}
 #logo_homepage_unlog{
   margin: 5px 0px 10px 5px;
   max-width: 500px;
