@@ -36,6 +36,12 @@ if(isset($_GET['profil']) && $_GET['profil']!=$profil->getId()){
 
     $relationships .= "<form action='index.php?page=message' method='post'><button name='id' value='{$profil->getId()}'>Odeslat zprávu</button></form>";
 }
+$gender = "";
+if($profil->getGender() == "m"){
+    $gender = "muž";
+}elseif($profil->getGender() == "f"){
+    $gender = "žena";
+}
 $clubs = $profil->getClubList();
 $club = "";
 foreach ($clubs as $club_one){

@@ -132,7 +132,7 @@
   background-color: #f4f4f4;
 }
 .calendar_month_day_active:hover{
-  background-color: rgba(134,13,10,0.1);
+  background-color: rgba(134,13,10,0.2);
 }
 .calendar_month_day_active:hover .calendar_add_new{
   visibility: visible;

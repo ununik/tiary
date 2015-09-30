@@ -19,6 +19,13 @@ $container = "<img src='images/profile_images/large/{$profil->getProfilImage()}'
     $container .= "<table class='profil_tables'>";
 
 /**
+ * Gender
+ */
+if($gender != "") {
+    $container .= "<tr><td class='profil_headline'>Pohlaví:</td><td>{$gender}</td></tr>";
+}
+
+/**
  * Mail
  */
 if($profil->getEmail() != false) {
