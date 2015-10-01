@@ -39,16 +39,16 @@ for($monthDay = 1; $monthDay <= $num; $monthDay++){
 
         $calendar .= "<div>";
         if($days[$monthDay - 1]['factors'] != ""){
-            $calendar .= "<span>F</span>";
+            $calendar .= "<span title='{$days[$monthDay - 1]['factors']}'>F</span>";
         }
         if($days[$monthDay - 1]['phlegm'] != ""){
-            $calendar .= "<span>H</span>";
+            $calendar .= "<span title='{$days[$monthDay - 1]['phlegm']}'>H</span>";
         }
         if($days[$monthDay - 1]['suppository'] != ""){
-            $calendar .= "<span>Č</span>";
+            $calendar .= "<span title='{$days[$monthDay - 1]['suppository']}'>Č</span>";
         }
         if($days[$monthDay - 1]['comment'] != ""){
-            $calendar .= "<span>P</span>";
+            $calendar .= "<span title='{$days[$monthDay - 1]['comment']}'>P</span>";
         }
         $calendar .= "</div>";
 
