@@ -6,7 +6,7 @@
  * Time: 16:05
  */
 if(!isset($_GET['term']) || $_GET['term']==""){
-    $term = "week";
+    $term = "month";
 }else{
     $term = $_GET['term'];
 }
@@ -39,11 +39,13 @@ switch($term){
         $num = cal_days_in_month(CAL_GREGORIAN,date('m', $today),date('Y'));
         break;
     default:
-        $plus = "+8 days";
-        $nextDate =  "+8 days";
-        $previousDate = "-8 days";
-        $num = 8;
-        $term = "week";
+        $today = strtotime(date('Y-m-01', $today));
+        $firstday_num = date('w', $today);
+        $plus = "next months";
+        $nextDate =  "next months";
+        $previousDate = "last month";
+        $num = cal_days_in_month(CAL_GREGORIAN,date('m', $today),date('Y'));
+        $term = "month";
         break;
 }
 
