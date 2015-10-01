@@ -10,6 +10,9 @@ $container .= "<form action='' method='post'><input type='text' hidden name='for
 $container .= "<h3>Spuštění přihlášek:</h3>";
 $container .= "<div class='textInput_div'>Datum:<br>
                 <input type='text' value='$date' placeholder='DD. MM. RRRR' name='date' id='date' onclick='issetCalendar()'><div id='calendar_js'></div></div>";
+$container .= "<div class='textInput_div'>Email pro přihlášky:<br>
+                <input type='text' value='$mailAdmin'name='mailAdmin'></div>";
+
 $container .= "<h3>Ze kterých polí se bude skládat přihláška:</h3>";
 
 $container .= "<div  class='checkboxInput_div' id='eventEnrollSystem'><input type='checkbox' name='gender' value='1'";

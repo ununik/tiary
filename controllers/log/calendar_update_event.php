@@ -15,7 +15,7 @@ $timestamp = $event['timestamp1'];
 $err = array();
 $mainTitle = $event['title'];
 $headlineTitle = $event['title'];
-if($event['id_organisator'] == 1){
+if($event['id_organisator'] == $profil->getId()){
     $meOrganisator = 1;
 }else{
     $meOrganisator = 0;

@@ -79,7 +79,7 @@ if(isset($_POST['title'])){
         $database = new Event();
         if($isSaved == 0) {
             $isSaved = $database->setEvent($timestampEntry, 0, $profil->getId(), $profil->getId(), $organisator, $enrollSystem, $mainTitle, $subsciption, $place, $accessPost, $typePost);
-            $database->setEnroll($profil->getId(), $isSaved);
+            $database->setEnroll($profil->getId(), $isSaved, $profil->getEmailAdmin());
             $err[] = "Úspěšně vytvořená událost!";
         }else{
             $database->updateEvent($timestampEntry, 0, $meOrganisator, $organisator, $enrollSystem, $mainTitle, $subsciption, $place, $accessPost, $typePost, $isSaved);

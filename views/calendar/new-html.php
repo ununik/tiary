@@ -23,7 +23,7 @@ $container .= "<div class='textInput_div'>Nadpis:<br>
 $container .= "<div class='textInput_div'>Pořadatel:<br>";
 $container .= "<input type='text' name='organisator' value='{$organisator}' id='eventOrganisator'></div>";
 $container .= "<div  class='checkboxInput_div'><input type='checkbox' name='meOrganisator' value='1' id='eventOrganisatorCheckbox' onclick='organisatorFCE()'";
-if($meOrganisator == 1){
+if($meOrganisator != 0){
     $container .= "checked";
 }
 $container .= "> Já jsem pořadatel<br></div>";

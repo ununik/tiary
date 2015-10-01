@@ -150,7 +150,7 @@ INSERT INTO `event_category` (`id`, `gender`, `cz`, `age`, `sport`, `title`) VAL
 (18, 'f', 'Ženy C', 41, 'biatlon', 'ZC');
 
 CREATE TABLE IF NOT EXISTS `event_enroll` (
-`id` int(15) NOT NULL,
+`id` int(15) NOT NULL AUTO_INCREMENT,
   `author` int(15) NOT NULL,
   `event` int(15) NOT NULL,
   `starttimestamp` int(20) NOT NULL,
@@ -161,10 +161,11 @@ CREATE TABLE IF NOT EXISTS `event_enroll` (
   `club` tinyint(1) NOT NULL,
   `adress` tinyint(1) NOT NULL,
   `category` text NOT NULL
+  `email_author` VARCHAR(255) NOT NULL ;
 );
 
 CREATE TABLE IF NOT EXISTS `enroll` (
-`id` int(15) NOT NULL,
+`id` int(15) NOT NULL AUTO_INCREMENT,
   `event` int(15) NOT NULL,
   `timestamp` int(20) NOT NULL,
   `gender` varchar(1) NOT NULL,

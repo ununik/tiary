@@ -37,16 +37,16 @@ class Event extends Connection
         $result = $db->prepare("UPDATE `event` SET `timestamp1`=?,`timestamp2`=?,`id_organisator`=?,`organisator`=?,`enroll`=?,`title`=?,`subscription`=?,`place`=?,`access`=?,`type`=? WHERE id = ?");
         $result->execute(array($date1, $date2, $idOrganisator, $organisator, $enroll, $title, $subscription, $place, $access, $type, $id));
     }
-    public function setEnroll($author, $event){
+    public function setEnroll($author, $event, $email){
     $db = parent::connect();
         $timestamp = time();
-        $result = $db->prepare("INSERT INTO `event_enroll`(`author`, `event`, `starttimestamp`, `gender`, `name`, `email`, `age`, `club`, `adress`, `category`) VALUES (?, ?, ?, 1, 1, 1, 1, 1, 0, ?)");
-        $result->execute(array($author, $event, $timestamp, ""));
+        $result = $db->prepare("INSERT INTO `event_enroll`(`author`, `event`, `starttimestamp`, `gender`, `name`, `email`, `age`, `club`, `adress`, `category`, `email_author`) VALUES (?, ?, ?, 1, 1, 1, 1, 1, 0, ?, ?)");
+        $result->execute(array($author, $event, $timestamp, "", $email));
     }
-    public function updateEnroll($author, $event, $time, $gender, $name, $email, $age, $club, $adress, $category){
+    public function updateEnroll($author, $event, $time, $gender, $name, $email, $age, $club, $adress, $category, $emailAuthor){
     $db = parent::connect();
-        $result = $db->prepare("UPDATE `event_enroll` SET `starttimestamp`=?,`gender`=?,`name`=?,`email`=?,`age`=?,`club`=?,`adress`=?,`category`=? WHERE `author`=? &&`event`=?");
-        $result->execute(array($time, $gender, $name, $email, $age, $club, $adress, $category, $author, $event));
+        $result = $db->prepare("UPDATE `event_enroll` SET `starttimestamp`=?,`gender`=?,`name`=?,`email`=?,`age`=?,`club`=?,`adress`=?,`category`=? , `email_author` = ? WHERE `author`=? &&`event`=?");
+        $result->execute(array($time, $gender, $name, $email, $age, $club, $adress, $category, $emailAuthor, $author, $event));
         return "test";
     }
     public function getEnroll($event, $author){
@@ -55,6 +55,13 @@ class Event extends Connection
         $result->execute(array($event, $author));
         $event = $result->fetch();
         return $event;
+    }
+    public function getEnrollMail($event){
+        $db = parent::connect();
+        $result = $db->prepare("SELECT `mail` FROM `event_enroll` WHERE event = ? ");
+        $result->execute(array($event));
+        $event = $result->fetch();
+        return $event['email_enroll'];
     }
 
     public function getAccessOptions(){

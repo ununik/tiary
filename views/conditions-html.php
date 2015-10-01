@@ -10,6 +10,9 @@ $cont = "<h1>Podmínky</h1>";
 $cont .= '<h2>Články</h2>';
 $cont .= '<div class="content">Články jsou po sdílení přístupné všem, nezávisle na užívání služeb Tiary. Autor článku je zodpovědný za vlastnictví textu i dalších materiálů s článkem souvisejících. Tiary si vyhrazuje právo na stažení příspěvku z důvodů jako jsou urážlivé či hanlivé texty a podobné.</div>';
 
+$cont .= '<h2>Intimní deníček</h2>';
+$cont .= '<div class="content">Pokud si ve změně profilu nastaví uživatel ženské pohlaví, dostane přístup do speciální intimního deníčku (kalendáře), do kterého si může psát své intimnosti, jako je menstruace a ovulace. Tiary vypočítá následující menstruace a ovulace. Tyto údaje mohou pomoci při plánování tréninků.</div>';
+
 $cont .= '<h2>Heslo</h2>';
 $cont .= '<div class="content">Heslo je druhým přihlašovacím údajem. Hesla nejsou v databázi viditelně uložená, nýbrž jsou zašifrovaná. V případě ztráty hesla vám bude k původnímu přihlašovacímu jménu vygenerováno nové heslo, které vám bude zaslané na uvedený email. Délka hesla musí být mezi 4 a 40 znaky.</div>';
 

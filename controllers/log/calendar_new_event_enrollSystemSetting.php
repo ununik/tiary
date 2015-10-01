@@ -6,17 +6,18 @@
  * Time: 14:44
  */
  $OptionsAll = new Event();
-
+$option = $OptionsAll->getEnroll($_GET['id'], $profil->getId());
 $options = "";
-$gender = 1;
-$name = 1;
-$email = 1;
-$year = 1;
-$club = 1;
-$adress = 0;
-$category = 0;
+$gender = $option['gender'];
+$name = $option['name'];
+$email = $option['email'];
+$year = $option['age'];
+$club = $option['club'];
+$adress = $option['adress'];
+$category = $option['category'];
 $link = "";
-$date = date("j. n. Y");
+$date = date("j. n. Y", $option['starttimestamp']);
+$mailAdmin = $option['email_author'];
 $event = $OptionsAll->getEvent($_GET['id']);
 
 $categories = include_once("controllers/log/calendar/enroll-setting-category.php");
@@ -64,6 +65,12 @@ if(isset($_POST['form'])){
         $category = 0;
     }
 
+    if(isset($_POST['mailAdmin'])){
+        if(validateEMAIL($_POST['mailAdmin'])) {
+            $mailAdmin = safeText($_POST['mailAdmin']);
+        }
+    }
+
     $time = $_POST['date'];
     $time = str_replace(",", ".", $time);
     $time = str_replace("-", ".", $time);
@@ -81,7 +88,7 @@ if(isset($_POST['form'])){
     }
 
 
-  $OptionsAll->updateEnroll($event['author'], $event['id'], $timestampEntry, $gender, "1", $email, $year, $club, $adress, $categoriesPOST);
+  $OptionsAll->updateEnroll($event['author'], $event['id'], $timestampEntry, $gender, "1", $email, $year, $club, $adress, $categoriesPOST, $mailAdmin);
   
 }
 
