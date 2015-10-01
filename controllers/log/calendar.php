@@ -59,6 +59,7 @@ $calendar_term = "<div class='calendar_term'><a href='index.php?page=calendar&te
 for($i=0; $i < $num; $i++){
     $days[$i]['name'] = $daysname[date("w", $today)];
     $days[$i]['date'] = date("j. n. Y", $today);
+    $days[$i]['day'] = date("j", $today);
     $days[$i]['timestamp'] = $today;
     foreach($eventsAll as $event){
         if($event['timestamp1'] >= $today && $event['timestamp1']<strtotime('+1 day', $today)){

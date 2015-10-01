@@ -8,6 +8,6 @@
 return "<div id='navHeadline'  onclick='showANDhideMenu(this)'>MENU</div>
         <a href='index.php?page=home'>Domů</a>
         <a href='index.php?page=calendar'>Kalendář</a>
-        <a href='index.php?page=login'>Přihlášení a registrace</a>
+        <a href='index.php?page=login'>Přihlášení</a>
         <a href='index.php?page=conditions'>Podmínky</a>
         ";

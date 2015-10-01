@@ -26,7 +26,7 @@ for($monthDay = 1; $monthDay <= $num; $monthDay++){
     $container .= "</tr><tr>";
     $NDay = 0;
   }
-  $container .= "<td class='calendar_month_day_active'><a href='index.php?page=calendar&term=day&date={$days[$monthDay-1]['timestamp']}'>{$days[$monthDay-1]['date']}</a>";
+  $container .= "<td class='calendar_month_day_active calendar_month_day_active_empty'><a href='index.php?page=calendar&term=day&date={$days[$monthDay-1]['timestamp']}'><span class='calendar_month_date'>{$days[$monthDay-1]['day']}</span></a>";
   foreach($days[$monthDay-1]['events'] as $event){
         $container .= "<div>$event</div>";
     }

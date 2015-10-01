@@ -103,11 +103,11 @@
   vertical-align: top;
   border: 1px solid #860D0A;
   width: 14.2%;
-  height: 50px !important;
+  height: 50px;
 }
 .calendar_month_dayname{
   font-weight: bold;
-  height: 25px;
+  height: 10px !important;
   text-align: center;
   border: none;
 }
@@ -127,6 +127,7 @@
   z-index: 5;
   display: inline-block;
   background-color: white;
+  color: black;
 }
 .calendar_month_noDay{
   background-color: #f4f4f4;
