@@ -69,6 +69,7 @@ $thisWeek = strtotime("+8 days",$today);
 $howLongBetweenMenstruation = $entries->howLongBetweenMenstruation($profil->getId());
 $howLongMenstruation = $entries->howLongMenstruation($profil->getId());
 $lastMenstruation = $entries->getLastMenstruation($profil->getId());
+$lastOvulation = $entries->getLastOvulation($profil->getId());
 $predictionTerm = 6;
 $calendar_term = "<div>
              <a href='index.php?page=intim_calendar&term=week&date=$thisWeek' class='button'>Týden</a>
@@ -107,10 +108,16 @@ for($i=0; $i < $num; $i++){
 //forecast
     for($pre = 1; $pre <= $predictionTerm; $pre ++) {
         $forecast = strtotime(date('Y-m-d', $lastMenstruation + $pre * $howLongBetweenMenstruation));
+        $forecastOvulationFuture = strtotime(date('Y-m-d', $lastOvulation + $pre * $howLongBetweenMenstruation));
         if ($today == $forecast) {
             $days[$i]['blood'] = "_forecast";
             for ($n = 1; $n <= $howLongMenstruation; $n++) {
                 $days[$i + $n]['blood'] = "_forecast";
+            }
+        }elseif($today == $forecastOvulationFuture){
+            $days[$i]['blood'] = "_forecastOvulation";
+            for ($n = -2; $n <= 1; $n++) {
+                $days[$i + $n]['blood'] = "_forecastOvulation";
             }
         }
     }

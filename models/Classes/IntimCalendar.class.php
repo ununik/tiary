@@ -134,4 +134,19 @@ class IntimCalendar extends Connection
         }
         return (int) $last;
     }
+
+    public function getLastOvulation($user){
+        $db = parent::connect();
+        $result = $db->prepare("SELECT * FROM `intim_calendar` WHERE  `user` = ? && `ovulation` > ? ORDER BY `date`");
+        $result->execute(array($user, 0));
+        $events = $result->fetchAll();
+        $date0 = 0;
+        foreach ($events as $day) {
+            if(($day['date'] - $date0) > 5*86400){
+                $last = (int) $day['date'];
+            }
+            $date0 = $day['date'];
+        }
+        return (int) $last;
+    }
 }
