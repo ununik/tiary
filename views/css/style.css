@@ -188,7 +188,9 @@
   width: 60%;
   margin-top: 35px;
 }
-
+.calendar_week th{
+  background-color: white;
+}
 .calendar_week td{
   vertical-align: top;
   padding: 4px;
@@ -434,11 +436,15 @@
 	text-align: center;
 	padding: 15px 0px;
 }
+.intim_week_nextANDprevious{
+	background-color: white;
+}
 .intim_week_nextANDprevious a{
-	margin: 5px 10px;
+	margin: 15px 10px;
 	text-decoration: none;
 	color: gray;
 	font-weight: bold;
+	display: inline-block;
 }
 .intim_week_nextANDprevious a:hover{
 	text-decoration: underline;

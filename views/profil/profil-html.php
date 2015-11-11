@@ -56,7 +56,7 @@ if($aboutMe != "") {
  * Web
  */
 if($web != "") {
-	$container .= "<tr><td class='profil_headline'>Web:</td><td>{$web}</td></tr>";
+	$container .= "<tr><td class='profil_headline'>Web:</td><td><a href='{$web}' target='_blank'>{$web}</a></td></tr>";
 }
 /**
  * Jak dlouho je uživatelem

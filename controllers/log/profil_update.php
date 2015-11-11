@@ -50,6 +50,10 @@ if(isset($_POST['firstname'])){
 
   //Kontrola web
   $web = safeText($_POST['web']);
+  	if ((!(substr($web, 0, 7) == 'http://')) && (!(substr($web, 0, 8) == 'https://'))) { 
+  		$web = 'http://' . $web;
+  	}
+
   
   //kontrola prijmeni
   $lastname = safeText($_POST['lastname']);

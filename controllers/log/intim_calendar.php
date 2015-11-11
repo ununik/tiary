@@ -28,7 +28,7 @@ switch($term){
         $today = strtotime("last monday", $today);
         $plus = "+8 days";
         $nextDate =  "+8 days";
-        $previousDate = "+1 days";
+        $previousDate = "-1 days";
         $num = 8;
         break;
     case "month":
@@ -127,7 +127,7 @@ for($i=0; $i < $num; $i++){
     foreach($entriesAll as $entry){
         if($entry['date'] > strtotime('-1 day', $today) && $entry['date']<=$today){
             $days[$i]['temperature'] = "{$entry['temperature']}";
-            if($days[$i]['blood'] == "0") {
+            if($days[$i]['blood'] == "0" || $days[$i]['blood'] == "") {
                 $days[$i]['blood'] = "{$entry['blood']}";
             }
             $days[$i]['id'] = "{$entry['id']}";
