@@ -76,8 +76,8 @@ $predictionTerm = 6;
 $calendar_term = "<div>
              <a href='index.php?page=intim_calendar&term=week&date=$thisWeek' class='button'>Týden</a>
              <a href='index.php?page=intim_calendar&term=month&date=$today' class='button'>Měsíc</a>
-             <a href='index.php?page=intim_calendar&term=year&date=$today' class='button'>Rok</a></div>
-             <div><a href='index.php?page=intim_calendar&term={$term}&date=$now' class='button'>Dnes</a></div>";
+             <a href='index.php?page=intim_calendar&term=year&date=$today' class='button'>Rok</a>
+             <a href='index.php?page=intim_calendar&term={$term}&date=$now' class='button'>Dnes</a></div>";
 
 if($term == "month") {
     $month['monthNum'] = date("n", $today);

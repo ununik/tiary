@@ -186,6 +186,7 @@
 .calendar_week{
   border-collapse: collapse;
   width: 60%;
+  margin-top: 35px;
 }
 
 .calendar_week td{
@@ -429,8 +430,21 @@
 .intim_week_blood{
 	width: 40px !important;
 }
+.intim_week_nextANDprevious{
+	text-align: center;
+	padding: 15px 0px;
+}
+.intim_week_nextANDprevious a{
+	margin: 5px 10px;
+	text-decoration: none;
+	color: gray;
+	font-weight: bold;
+}
+.intim_week_nextANDprevious a:hover{
+	text-decoration: underline;
+}
 .intim_week_temperatur{
-	width: 40px !important;
+	width: auto;
 }
 .intim_year_blood_forecast{
   background-color: #ffe4b2;

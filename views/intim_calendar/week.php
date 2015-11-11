@@ -7,8 +7,8 @@
  */
 $calendar = "";
 $calendar .= $calendar_term;
-$calendar .= "<a href='index.php?page=intim_calendar&term=week&date=$previousDate'>P?edchozí týden</a><a href='index.php?page=intim_calendar&term=week&date=$nextDate'>Následující týden</a>";
-$calendar .= "<table class='calendar_week'><th colspan='2' id='calendar_week_header_date'>{$days[0]['date']} - {$days[7]['date']}</th><th>Teplota</th><th>Mentruace / Ovulace</th><th>Poznámka</th>";
+$calendar .= "<table class='calendar_week'><tr><td colspan='5' class='intim_week_nextANDprevious'><a href='index.php?page=intim_calendar&term=week&date=$previousDate'>Předchozí týden</a><a href='index.php?page=intim_calendar&term=week&date=$nextDate'>Následující týden</a></td></tr>";
+$calendar .= "<th colspan='2' id='calendar_week_header_date'>{$days[0]['date']} - {$days[7]['date']}</th><th>Teplota</th><th>Mentruace / Ovulace</th><th>Poznámka</th>";
 foreach($days as $day){
 	if($day['id'] != 0){
 		$calendar .= "<tr class='week_row' onclick='intimCalendarUpdate({$day['id']})'>";
