@@ -55,6 +55,9 @@ $container .= "<div class='textareaInput_div'>Klub(y):<br>
 $container .= "<div class='textareaInput_div'>O mně:<br>
          <textarea name='about_me'  class='textarea'>{$about_me}</textarea></div>";
 
+$container .= "<div class='textInput_div'>Web:<br>
+<input type='text' name='web' value='{$web}'></div>";
+
 $container .= "<input type='submit' value='Uložit'  class='submit'></form>";
 
 return $container;

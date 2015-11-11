@@ -15,6 +15,9 @@ for($i=1; $i<8; $i++){
 }
 $calendar .= "</tr><tr>";
 $NDay = 0;
+if($firstday_num == 0){
+$firstday_num = 7;
+}
 for($i=0; $i<$firstday_num-1; $i++){
     $calendar .= "<td class='calendar_month_noDay'></td>";
     $NDay++ ;
@@ -33,8 +36,9 @@ for($monthDay = 1; $monthDay <= $num; $monthDay++){
             $calendar .= " calendar_month_today ";
         }
         $calendar .= " calendar_month_mentruace{$days[$monthDay - 1]['blood']}' onclick='intimCalendarUpdate({$days[$monthDay-1]['id']})'><span class='calendar_month_date'>{$days[$monthDay-1]['day']}</span>";
-
-        $calendar .= '<span class="calendar_month_temperature">' . $days[$monthDay - 1]['temperature'] . '°C</span>';
+        if($days[$monthDay - 1]['temperature'] != 0) {
+            $calendar .= '<span class="calendar_month_temperature">' . $days[$monthDay - 1]['temperature'] . '°C</span>';
+        }
 
 
         $calendar .= "<div>";

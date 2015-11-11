@@ -14,6 +14,7 @@ if(!isset($_GET['term']) || $_GET['term']==""){
 }else{
     $term = $_GET['term'];
 }
+
 $today = strtotime('tomorrow');
 $daysname = array("Ne","Po", "Út", "St", "Čt", "Pá", "So", "Ne");
 $mesic = array("leden","únor", "březen", "duben", "květen", "červen", "červenec", "srpen", "září", "říjen", "listopad", "prosinec", "leden");
@@ -24,9 +25,9 @@ if(isset($_GET['date']) && is_numeric($_GET['date'])){
 $now = strtotime(date("Y-m-d"));
 switch($term){
     case "week":
-        $today = strtotime("-8 days", $today);
-        $plus = "+15 days";
-        $nextDate =  "+15 days";
+        $today = strtotime("last monday", $today);
+        $plus = "+8 days";
+        $nextDate =  "+8 days";
         $previousDate = "+1 days";
         $num = 8;
         break;
@@ -64,6 +65,7 @@ $next = strtotime($plus, $today);
 $nextDate = strtotime($nextDate, $today);
 $previousDate = strtotime($previousDate, $today);
 $entries = new IntimCalendar();
+$temperatureSelect = $entries->getLastTemperatur($profil->getId());
 $entriesAll = $entries->getEntries($today, $next, $profil->getId());
 $thisWeek = strtotime("+8 days",$today);
 $howLongBetweenMenstruation = $entries->howLongBetweenMenstruation($profil->getId());

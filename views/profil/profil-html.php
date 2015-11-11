@@ -53,6 +53,12 @@ if($aboutMe != "") {
     $container .= "<tr><td class='profil_headline'>O mně:</td><td>{$aboutMe}</td></tr>";
 }
 /**
+ * Web
+ */
+if($web != "") {
+	$container .= "<tr><td class='profil_headline'>Web:</td><td>{$web}</td></tr>";
+}
+/**
  * Jak dlouho je uživatelem
  */
 $container .= "<tr><td class='profil_headline'>Jak dlouho jsem na Tiary:</td><td>{$profil->getHowLongUser()}</td></tr>";

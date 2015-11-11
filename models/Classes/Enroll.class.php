@@ -30,14 +30,14 @@ class Enroll extends Connection
     protected function sendRegistrationMail($eventMail, $event, $gender, $name, $email, $age, $club, $adress, $category, $message){
         $ev = new Event();
         $eve = $ev->getEvent($event);
-        $content = "<h1>{$eve['title']} - nov√° p≈ôihl√°≈°ka</h1>";
+        $content = "<h1>{$eve['title']} - nov· p?ihl·öka</h1>";
 
-        $content .= "Jm√©no: $name";
+        $content .= "JmÈno: $name";
         if($gender != ""){
-            $content .= "Pohlav√≠: $gender<br>";
+            $content .= "PohlavÌ: $gender<br>";
         }
         if($age != ""){
-            $content .= "Roƒçn√≠k: $age<br>";
+            $content .= "Ro?nÌk: $age<br>";
         }
         if($club != ""){
             $content .= "Klub: $club<br>";
@@ -49,18 +49,18 @@ class Enroll extends Connection
             $content .= "Kategorie: $category<br>";
         }
         if($message != ""){
-            $content .= "Zpr√°va: $message<br>";
+            $content .= "Zpr·va: $message<br>";
         }
-        $content .= "<a href='".$_SERVER['HTTP_HOST']."/index.php?page=calendar_enroll_admin&id=$event'>Zobrazit p≈ôihl√°≈°ky</a>";
+        $content .= "<a href='".$_SERVER['HTTP_HOST']."/index.php?page=calendar_enroll_admin&id=$event'>Zobrazit p?ihl·öky</a>";
 
 
         //Email information
         $admin_email = $eventMail;
-        $subject = "Tiary - Nov√° p≈ôihl√°≈°ka";
+        $subject = "Tiary - Nov· p?ihl·öka";
         $comment = $content;
         $header = "From: ununik@gmail.com\r\n";
         $header.= "MIME-Version: 1.0\r\n";
-        $header.= "Content-Type: text/html; charset=UTF-8\r\n";
+        $header.= "Content-Type: text/html; charset=ISO-8859-1\r\n";
         $header.= "X-Priority: 1\r\n";
 
         //send email

@@ -426,7 +426,12 @@
 #intim_calendar_other{
   display: none;
 }
-
+.intim_week_blood{
+	width: 40px !important;
+}
+.intim_week_temperatur{
+	width: 40px !important;
+}
 .intim_year_blood_forecast{
   background-color: #ffe4b2;
 }
@@ -767,4 +772,7 @@ p{
   margin: 20px 0px 10px 0px;
   font-size: 0.8em;
   padding: 5px 0px;
+}
+.week_row{
+	cursor: pointer;
 }

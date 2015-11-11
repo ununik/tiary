@@ -16,7 +16,7 @@ for($t = 36.0; $t <= 38.0; $t = $t + 0.1){
     $temp .= ">$temperatur</option>";
 }
 $temp .= "<option value='other'";
-if('other' == $temperatureSelect ||  $temperatureINPUT < 36 || $temperatureINPUT >= 38 ){
+if('other' == $temperatureSelect && ($temperatureINPUT < 36 || $temperatureINPUT >= 38 )){
     $temp .= " selected ";
 }
 $temp .= ">Jiná</option>";

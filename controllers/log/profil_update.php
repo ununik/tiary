@@ -15,6 +15,7 @@ $tel = $profil->getAdminTel();
 $showTel = $profil->getShowTel();
 $about_me = $profil->getAboutMe();
 $imageName = $profil->getProfilImage();
+$web = $profil->getProfilWeb();
 $ProfileImages = new ProfileImage();
 $ProfileImages = $ProfileImages->getAllUserAvatars($profil->getId());
 $oldProfileImages = "";
@@ -47,6 +48,9 @@ if(isset($_POST['firstname'])){
     $err[] = "Příliš dlouhé prostřední jméno!";
   }
 
+  //Kontrola web
+  $web = safeText($_POST['web']);
+  
   //kontrola prijmeni
   $lastname = safeText($_POST['lastname']);
   if(strlen($lastname) > 255){
@@ -66,7 +70,7 @@ if(isset($_POST['firstname'])){
   }else{
     $err[] = "Email není vyplněný!";
   }
-  $email = $_POST['email'];
+  $email = safeText($_POST['email']);
   //show mail
   if(isset($_POST['showMail'])){
     $showMail = 1;
@@ -87,7 +91,7 @@ if(isset($_POST['firstname'])){
   }
 
 
-  $club = $_POST['club'];
+  $club = safeText($_POST['club']);
   $clubUpdate = "";
   if($_POST['club'] != ""){
     $clubUpdate = nl2br (safeText($_POST['club']));
@@ -137,7 +141,7 @@ if(isset($_POST['firstname'])){
 
 
   if(empty($err)){
-    $profil->updateProfil($_POST['firstname'], $_POST['middlename'], $_POST['lastname'], $clubUpdate, $email, $showMail, $tel, $showTel, $_POST['gender'], $about_me, $imageName);
+    $profil->updateProfil($_POST['firstname'], $_POST['middlename'], $_POST['lastname'], $clubUpdate, $email, $showMail, $tel, $showTel, $_POST['gender'], $about_me, $imageName, $web);
     $err[] = "Změny byly úspěšně uloženy!";
   }
 }
