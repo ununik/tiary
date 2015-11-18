@@ -61,7 +61,7 @@ if($web != "") {
 /**
  * Jak dlouho je uživatelem
  */
-$container .= "<tr><td class='profil_headline'>Jak dlouho jsem na Tiary:</td><td>{$profil->getHowLongUser()}</td></tr>";
+$container .= "<tr><td colspan='2'><b>Jak dlouho jsem na Tiary:</b> {$profil->getHowLongUser()}</td></tr>";
 
 if($entries != "") {
     $container .= "<tr><td class='profil_headline'>Články:</td><td>$entries</td></tr></table>";

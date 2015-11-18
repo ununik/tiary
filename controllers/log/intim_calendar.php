@@ -113,12 +113,12 @@ for($i=0; $i < $num; $i++){
         $forecastOvulationFuture = strtotime(date('Y-m-d', $lastOvulation + $pre * $howLongBetweenMenstruation));
         if ($today == $forecast) {
             $days[$i]['blood'] = "_forecast";
-            for ($n = 1; $n <= $howLongMenstruation; $n++) {
+            for ($n = 1; $n < $howLongMenstruation-1; $n++) {
                 $days[$i + $n]['blood'] = "_forecast";
             }
         }elseif($today == $forecastOvulationFuture){
             $days[$i]['blood'] = "_forecastOvulation";
-            for ($n = -2; $n <= 1; $n++) {
+            for ($n = -1; $n <= 1; $n++) {
                 $days[$i + $n]['blood'] = "_forecastOvulation";
             }
         }

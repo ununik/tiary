@@ -647,6 +647,7 @@ p{
   max-width: 100px;
   max-height: 40px;
   cursor: pointer;
+  margin: 0px 0px 20px 0px;
 }
 .popis_profil{
   margin: 10px 0px 15px 0px;
