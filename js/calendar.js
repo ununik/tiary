@@ -1,6 +1,6 @@
 function setDatumFromCalendar(datum){
     document.getElementById('date').value = datum;
-    issetCalendar()
+    issetCalendar();
 }
 function calendar(mesic, rok){
     var div = document.getElementById("calendar_js")
@@ -45,7 +45,11 @@ function calendar(mesic, rok){
 
     var calendar = "<table class='calendar_js_table'><th>Po</th><th>Út</th><th>St</th><th>Čt</th><th>Pá</th><th>So</th><th>Ne</th><tr>"
     var row = 0;
-    for(row = 0; row < firstDayInMonth(month, year)-1; row++)
+    var noday = firstDayInMonth(month, year)-1;
+    if(noday == -1){
+    	noday = 6;
+    }
+    for(row = 0; row < noday; row++)
     {
         calendar += "<td class='calendar_js_table_noDay'></td>";
     }
@@ -91,6 +95,7 @@ function issetCalendar(){
     }else{
         div.innerHTML = ""
         div.style.display = "none";
+        document.getElementById('blackBackground').style.display = "none";
         if(document.getElementById("intimCalendarNew").innerHTML=="") {
             document.getElementById('blackBackground').style.display = "none";
         }

@@ -8,6 +8,7 @@
 $navContainer = "<div id='navHeadline' onclick='showANDhideMenu(this)'>MENU $headerName<span class='headerNotice'  onclick='getUnseenNotices()'>$headerNotice</span></div>
         <a href='index.php?page=home'>Domů</a>
         <a href='index.php?page=profil'>Profil</a>
+        <a href='index.php?page=training_diary'>Tréninkový deník</a>
         <a href='index.php?page=calendar'>Kalendář</a>";
 if($profil->getGender() == "f"){
       $navContainer .= "<a href='index.php?page=intim_calendar'>Intimní deníček</a>";

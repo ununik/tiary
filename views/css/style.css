@@ -591,6 +591,10 @@ h3{
   float: right;
   border-right: 1px solid #8C1914;
 }
+.left_part{
+	float: left;
+	width: 50%;
+}
 #menstruace{
   width: 25px;
   height: 34px;
@@ -675,6 +679,10 @@ p{
   margin-bottom: 5px;
   background-color: black;
   padding: 10px;
+}
+.right_part{
+	float: right;
+	width: 50%;
 }
 .selectInput_div select{
   width: 60%;
