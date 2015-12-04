@@ -7,8 +7,9 @@ $training .= "<form action='' method='post'>
 		<div>
 			Náplň:<br>
 			<ul id='napln'>
-				<li>+ Přidat</li>
+				
 			</ul>
+		<div onclick='addNewTraining()'>+ Přidat</div>
 		</div>
 		<div class='textareaInput_div'>Popis:<br>
          <textarea name='club'  class='textarea'></textarea></div>
@@ -18,5 +19,26 @@ $training .= "<form action='' method='post'>
 		<input type='text' name='email' value=''>
 		</div>
 		<input type='submit' value='registrovat' class='submit'>
-		</form>";
+		</form>
+		<div id='napln_content'><table id='sport_table'>";
+$n = 4;
+foreach ($allSports as $sport){
+	if($n > 3){
+		$n = 0;
+		$training .= "<tr>";
+	}
+	$training .= "<td>{$sport['nazev']}</td>";
+	if($n == 3){
+		$training .= "</tr>";
+	}
+	$n++;
+}
+
+if($n < 3){
+	for($n; $n < 3; $n++){
+	 	$training .= "<td></td>";	
+	}
+	$training .= "</tr>";
+}
+$training .= "</table><div id='sport_detail'></div></div>";
 return $training;

@@ -12,6 +12,7 @@ return "
         <script src='js/basicPage.js'></script>
         <script src='js/ajax.js'></script>
         <script src='js/calendar.js'></script>
+        <script src='js/training.js'></script>
         <script src='js/jquery-1.11.3.min.js'></script>
         <title>$title</title>
         <style>
