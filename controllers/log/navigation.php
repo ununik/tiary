@@ -5,7 +5,7 @@
  * Date: 19.08.2015
  * Time: 14:04
  */
-$navContainer = "<div id='navHeadline' onclick='showANDhideMenu(this)'>MENU $headerName<span class='headerNotice'  onclick='getUnseenNotices()'>$headerNotice</span></div>
+$navContainer = "<div id='navHeadline' onclick='showANDhideMenu(this)'><span class='header_menu_headline'>MENU</span> $headerName<span class='headerNotice'  onclick='getUnseenNotices()'>$headerNotice</span></div>
         <a href='index.php?page=home'>Domů</a>
         <a href='index.php?page=profil'>Profil</a>
         <a href='index.php?page=training_diary'>Tréninkový deník</a>

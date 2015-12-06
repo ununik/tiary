@@ -29,7 +29,7 @@ switch($term){
         $plus = "+8 days";
         $nextDate =  "+8 days";
         $previousDate = "-1 days";
-        $num = 8;
+        $num = 7;
         break;
     case "month":
         $today = strtotime(date('Y-m-01', $today));
@@ -52,12 +52,11 @@ switch($term){
         $previousDate = "last year";
         break;
     default:
-        $today = strtotime("-8 days", $today);
-        $plus = "+15 days";
-        $nextDate =  "+15 days";
-        $previousDate = "+1 days";
-        $num = 8;
-        $term = "week";
+        $today = strtotime("last monday", $today);
+        $plus = "+7 days";
+        $nextDate =  "+8 days";
+        $previousDate = "-1 days";
+        $num = 7;
         break;
 }
 
@@ -73,11 +72,6 @@ $howLongMenstruation = $entries->howLongMenstruation($profil->getId());
 $lastMenstruation = $entries->getLastMenstruation($profil->getId());
 $lastOvulation = $entries->getLastOvulation($profil->getId());
 $predictionTerm = 6;
-$calendar_term = "<div>
-             <a href='index.php?page=intim_calendar&term=week&date=$thisWeek' class='button'>Týden</a>
-             <a href='index.php?page=intim_calendar&term=month&date=$today' class='button'>Měsíc</a>
-             <a href='index.php?page=intim_calendar&term=year&date=$today' class='button'>Rok</a>
-             <a href='index.php?page=intim_calendar&term={$term}&date=$now' class='button'>Dnes</a></div>";
 
 if($term == "month") {
     $month['monthNum'] = date("n", $today);

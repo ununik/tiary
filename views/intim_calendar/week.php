@@ -6,8 +6,7 @@
  * Time: 16:11
  */
 $calendar = "";
-$calendar .= $calendar_term;
-$calendar .= "<table class='calendar_week'><tr><td colspan='5' class='intim_week_nextANDprevious'><a href='index.php?page=intim_calendar&term=week&date=$previousDate'>Předchozí týden</a><a href='index.php?page=intim_calendar&term=week&date=$nextDate'>Následující týden</a></td></tr>";
+$calendar .= "<table class='calendar_week'><tr><td colspan='5' class='intim_week_nextANDprevious'><span class='left_side'><a href='index.php?page=intim_calendar&term={$term}&date=$now' class='button'>Dnes</a></span><a href='index.php?page=intim_calendar&term=week&date=$previousDate' class='previousANDnext_headline'><</a><a href='index.php?page=intim_calendar&term=week&date=$nextDate' class='previousANDnext_headline'>></a><span class='right_side'><a href='index.php?page=intim_calendar&term=week&date=$thisWeek' class='button'>Týden</a><a href='index.php?page=intim_calendar&term=month&date=$today' class='button'>Měsíc</a><a href='index.php?page=intim_calendar&term=year&date=$today' class='button'>Rok</a></span></td></tr>";
 $calendar .= "<th colspan='2' id='calendar_week_header_date'></th><th>Teplota</th><th>Poznámka</th>";
 foreach($days as $day){
 	if($day['id'] != 0){
@@ -24,7 +23,7 @@ foreach($days as $day){
    
     $calendar .= "'>";
     if($day['temperature'] != 0){
-    	$calendar .= $day['temperature'] . '°C';
+    	$calendar .= '<b>' . $day['temperature'] . '</b>°C';
     }
     $calendar .= "</td>";
     $calendar .= "<td  class='intim_week_blood ";

@@ -1,5 +1,6 @@
 .button{
-	font-size: 90%;
+	font-size: 100%;
+    width: 43px;
 }
 .calendar_add_new{
     visibility: visible;
@@ -24,8 +25,11 @@
 	font-size: 0.8em;
 }
 .calendar_week_date{
-	font-size: 0.75em;
 	width: 80px;
+    font-size: 0.85em;
+    vertical-align: middle !important;
+    text-align: right;
+    padding-right: 9px !important;
 }
 #contentbox{
     width: 100%;
@@ -47,9 +51,10 @@
 }
 .intim_week_nextANDprevious{
 	margin: 0px;
+    font-size: 0.9em;
 }
-.intim_week_nextANDprevious a{
-	margin: 5px 5px;
+h1{
+    font-size: 1.80em;
 }
 h2{
     width: 100%;
@@ -60,6 +65,13 @@ h2{
 .headerName{
     float: right;
     padding: 2px 15px 0px 0px;
+    background-color: #8C1914;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.05em;
+}
+.header_menu_headline{
     background-color: #8C1914;
     color: white;
     font-weight: bold;
