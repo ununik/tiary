@@ -15,7 +15,7 @@ if(!isset($_GET['term']) || $_GET['term']==""){
     $term = $_GET['term'];
 }
 
-$today = strtotime('tomorrow');
+$today = strtotime('today');
 $daysname = array("Ne","Po", "Út", "St", "Čt", "Pá", "So", "Ne");
 $mesic = array("leden","únor", "březen", "duben", "květen", "červen", "červenec", "srpen", "září", "říjen", "listopad", "prosinec", "leden");
 $days = array();
@@ -25,10 +25,10 @@ if(isset($_GET['date']) && is_numeric($_GET['date'])){
 $now = strtotime(date("Y-m-d"));
 switch($term){
     case "week":
-        $today = strtotime("last monday", $today);
-        $plus = "+8 days";
-        $nextDate =  "+8 days";
-        $previousDate = "-1 days";
+        $today = strtotime("this monday", $today);
+        $plus = "+7 days";
+        $nextDate =  "+7 days";
+        $previousDate = "last monday";
         $num = 7;
         break;
     case "month":
@@ -40,7 +40,7 @@ switch($term){
         $num = cal_days_in_month(CAL_GREGORIAN,date('m', $today),date('Y'));
         break;
     case "year":
-        $num = 365;
+        $num = 366;
         $year = strtotime(date("Y", $today));
         $yearDate = date("Y", $today);
         $prevYear = $yearDate - 1;
@@ -52,14 +52,14 @@ switch($term){
         $previousDate = "last year";
         break;
     default:
-        $today = strtotime("last monday", $today);
+        $today = strtotime("this monday", $today);
         $plus = "+7 days";
-        $nextDate =  "+8 days";
-        $previousDate = "-1 days";
+        $nextDate =  "+7 days";
+        $previousDate = "last monday";
         $num = 7;
         break;
 }
-
+$today_const = $today;
 $next = strtotime($plus, $today);
 $nextDate = strtotime($nextDate, $today);
 $previousDate = strtotime($previousDate, $today);

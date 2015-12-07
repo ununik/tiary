@@ -7,9 +7,8 @@
  */
 
 $calendar = "";
-$calendar .= $calendar_term;
 $dayNum = 0;
-$calendar .= "<table id='intim_year_table'><th colspan='32'><div class='calendar_js_month'><a href='index.php?page=intim_calendar&term=year&date=$previousDate'><span>$prevYear</span></a>$yearDate<a href='index.php?page=intim_calendar&term=year&date=$nextDate'><span>$nextYear</span></a></div></th><tr><td></td>";
+$calendar .= "<table id='intim_year_table'><th colspan='32'><div class='calendar_js_month'><span class='left_side'><a href='index.php?page=intim_calendar&term={$term}&date=$now' class='button'>Dnes</a></span><a href='index.php?page=intim_calendar&term=year&date=$previousDate'><span>$prevYear</span></a>$yearDate<a href='index.php?page=intim_calendar&term=year&date=$nextDate'><span>$nextYear</span></a><span class='right_side'><a href='index.php?page=intim_calendar&term=week&date=$today_const' class='button'>Týden</a><a href='index.php?page=intim_calendar&term=month&date=$today_const' class='button'>Měsíc</a><a href='index.php?page=intim_calendar&term=year&date=$today_const' class='button'>Rok</a></span></div></th><tr><td></td>";
 for($day = 1; $day < 32; $day++){
     $calendar .= "<td class='intim_year_headTable'>$day</td>";
 }

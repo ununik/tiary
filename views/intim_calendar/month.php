@@ -7,7 +7,7 @@
  */
 $calendar = "";
 
-$calendar .= "<table class='calendar_month'><th colspan='7' id='calendar_week_header_date'><div class='calendar_js_month'><span class='left_side'><a href='index.php?page=intim_calendar&term={$term}&date=$now' class='button'>Dnes</a></span><a href='index.php?page=intim_calendar&term=month&date=$previousDate'><span>{$month['month-1']}</span></a>{$month['month']}<a href='index.php?page=intim_calendar&term=month&date=$nextDate'><span>{$month['month+1']}</span></a><a href='index.php?page=intim_calendar&term=week&date=$thisWeek' class='button'>Týden</a><a href='index.php?page=intim_calendar&term=month&date=$today' class='button'>Měsíc</a><a href='index.php?page=intim_calendar&term=year&date=$today' class='button'>Rok</a></span></th><tr>";
+$calendar .= "<table class='calendar_month'><th colspan='7' id='calendar_week_header_date'><div class='calendar_js_month'><span class='left_side'><a href='index.php?page=intim_calendar&term={$term}&date=$now' class='button'>Dnes</a></span><a href='index.php?page=intim_calendar&term=month&date=$previousDate'><span>{$month['month-1']}</span></a>{$month['month']}<a href='index.php?page=intim_calendar&term=month&date=$nextDate'><span>{$month['month+1']}</span></a><span class='right_side'><a href='index.php?page=intim_calendar&term=week&date=$today_const' class='button'>Týden</a><a href='index.php?page=intim_calendar&term=month&date=$today_const' class='button'>Měsíc</a><a href='index.php?page=intim_calendar&term=year&date=$today_const' class='button'>Rok</a></span></th><tr>";
 for($i=1; $i<8; $i++){
     $calendar .= "<td class='calendar_month_dayname'>{$daysname[$i]}</td>";
 }
