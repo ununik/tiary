@@ -30,7 +30,7 @@ for($monthDay = 1; $monthDay <= $num; $monthDay++){
     if($days[$monthDay-1]['id'] != 0) {
         $calendar .= "<td class='calendar_month_day_active calendar_month_day_active_empty";
         $calendar .= " ";
-        if($days[$monthDay-1]['timestamp'] >= $now && $days[$monthDay-1]['timestamp'] < $now+86400){
+        if($days[$monthDay-1]['timestamp'] >= $now && $days[$monthDay-1]['timestamp'] < ($now+86400)){
             $calendar .= " calendar_month_today ";
         }
         $calendar .= " calendar_month_mentruace{$days[$monthDay - 1]['blood']}' onclick='intimCalendarUpdate({$days[$monthDay-1]['id']})'><span class='calendar_month_date'>{$days[$monthDay-1]['day']}</span>";
@@ -41,16 +41,16 @@ for($monthDay = 1; $monthDay <= $num; $monthDay++){
 
         $calendar .= "<div>";
         if($days[$monthDay - 1]['factors'] != ""){
-            $calendar .= "<span title='{$days[$monthDay - 1]['factors']}'>F</span>";
+            $calendar .= "<span title='{$days[$monthDay - 1]['factors']}'><img src='images/view/intim_calendar/factors.png' class='intim_calendar_others_img'></span>";
         }
         if($days[$monthDay - 1]['phlegm'] != ""){
-            $calendar .= "<span title='{$days[$monthDay - 1]['phlegm']}'>H</span>";
+            $calendar .= "<span title='{$days[$monthDay - 1]['phlegm']}'><img src='images/view/intim_calendar/phlegm.png' class='intim_calendar_others_img'></span>";
         }
         if($days[$monthDay - 1]['suppository'] != ""){
             $calendar .= "<span title='{$days[$monthDay - 1]['suppository']}'>Č</span>";
         }
         if($days[$monthDay - 1]['comment'] != ""){
-            $calendar .= "<span title='{$days[$monthDay - 1]['comment']}'>P</span>";
+            $calendar .= "<span title='{$days[$monthDay - 1]['comment']}'><img src='images/view/intim_calendar/comment.png' class='intim_calendar_others_img'></span>";
         }
         $calendar .= "</div>";
 

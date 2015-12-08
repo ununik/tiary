@@ -34,16 +34,16 @@ for($i = 0; $i < 7; $i++){
      
     $calendar .= "'>";
     if($day['factors'] != ""){
-    	$calendar .= "<span title='{$day['factors']}'>F</span>";
+    	$calendar .= "<span title='{$day['factors']}'><img src='images/view/intim_calendar/factors.png' class='intim_calendar_others_img'></span>";
     }
     if($day['phlegm'] != ""){
-    	$calendar .= "<span title='{$day['phlegm']}'>H</span>";
+    	$calendar .= "<span title='{$day['phlegm']}'><img src='images/view/intim_calendar/phlegm.png' class='intim_calendar_others_img'></span>";
     }
     if($day['suppository'] != ""){
     	$calendar .= "<span title='{$day['suppository']}'>Č</span>";
     }
     if($day['comment'] != ""){
-    	$calendar .= "<span title='{$day['comment']}'>P</span>";
+    	$calendar .= "<span title='{$day['comment']}'><img src='images/view/intim_calendar/comment.png' class='intim_calendar_others_img'></span>";
     }
     $calendar .= "</td></tr>";
 }

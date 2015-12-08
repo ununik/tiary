@@ -9,8 +9,14 @@ session_start();
 function __autoload($name){
     include_once("models/Classes/$name.class.php");
 }
+$html = new Html();
+$html->addCss("<link rel='stylesheet' href='views/css/page.css' type='text/css' media='screen'/>");
+$html->addCss("<link rel='stylesheet' href='views/css/page_mobil.css' type='text/css' media='handheld, only screen and (max-device-width: 1023px)'/>");
+$html->addCss("<link href='https://fonts.googleapis.com/css?family=Play:400,700&subset=latin,latin-ext,greek,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>");
+
+
 header('Content-type: text/html; charset=utf-8');
-$title = 'Tiary';
+
     include_once("models/function.php");
     if (isset($_GET['page'])) {
         $page = $_GET['page'];
@@ -18,12 +24,13 @@ $title = 'Tiary';
         $page = "home";
     }
 if(!isset($_SESSION['tiary']['log']) || $_SESSION['tiary']['log'] !== true) {
-    $navigation = include_once("controllers/unlog/navigation.php");
-    $contetnt = include_once("controllers/unlog/$page.php");
-    $header = include_once("controllers/unlog/header/header.php");
+    include("controllers/unlog/navigation.php");
+    $html->setContent(include("controllers/unlog/$page.php"));
+    include("controllers/unlog/header/header.php");
 }else{
-    $header = include_once("controllers/log/header/header.php");
-    $navigation = include_once("controllers/log/navigation.php");
-    $contetnt = include_once("controllers/log/$page.php");
+    include("controllers/log/header/header.php");
+    include("controllers/log/navigation.php");
+    $html->setContent(include("controllers/log/$page.php"));
 }
+
 print include_once('views/page.php');

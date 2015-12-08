@@ -1,10 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ununik
- * Date: 11.09.2015
- * Time: 10:54
- */
+$html->addCss("<link rel='stylesheet' href='views/css/intim_calendar/screen.css' type='text/css' media='screen'/>");
+$html->addTitle('Můj intimní deníček');
 if($profil->getGender() != "f"){
     return '<h3>Pro užívání této funkce musíte mít v profilu označené, že jste žena!';
 }
@@ -25,10 +21,10 @@ if(isset($_GET['date']) && is_numeric($_GET['date'])){
 $now = strtotime(date("Y-m-d"));
 switch($term){
     case "week":
-        $today = strtotime("this monday", $today);
-        $plus = "+7 days";
-        $nextDate =  "+7 days";
-        $previousDate = "last monday";
+        $today = strtotime("last monday", $today);
+        $plus = "+8 days";
+        $nextDate =  "+8 days";
+        $previousDate = "monday";
         $num = 7;
         break;
     case "month":
@@ -51,11 +47,11 @@ switch($term){
         $nextDate =  "next year";
         $previousDate = "last year";
         break;
-    default:
-        $today = strtotime("this monday", $today);
-        $plus = "+7 days";
-        $nextDate =  "+7 days";
-        $previousDate = "last monday";
+    default:	
+        $today = strtotime("last monday", $today);
+        $plus = "+8 days";
+        $nextDate =  "+8 days";
+        $previousDate = "monday";
         $num = 7;
         break;
 }

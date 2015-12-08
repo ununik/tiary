@@ -1,22 +1,14 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ununik
- * Date: 19.08.2015
- * Time: 14:04
- */
-$navContainer = "<div id='navHeadline' onclick='showANDhideMenu(this)'><span class='header_menu_headline'>MENU</span> $headerName<span class='headerNotice'  onclick='getUnseenNotices()'>$headerNotice</span></div>
-        <a href='index.php?page=home'>Domů</a>
-        <a href='index.php?page=profil'>Profil</a>
-        <a href='index.php?page=training_diary'>Tréninkový deník</a>
-        <a href='index.php?page=calendar'>Kalendář</a>";
+
+$html->addToNavigation("<div id='navHeadline' onclick='showANDhideMenu(this)'><span class='header_menu_headline'>MENU</span> $headerName<span class='headerNotice'  onclick='getUnseenNotices()'>$headerNotice</span></div>");
+$html->addToNavigation("<a href='index.php?page=home'>Domů</a>");
+$html->addToNavigation("<a href='index.php?page=profil'>Profil</a>");
+$html->addToNavigation("<a href='index.php?page=training_diary'>Tréninkový deník</a>");
+$html->addToNavigation("<a href='index.php?page=calendar'>Kalendář</a>");
 if($profil->getGender() == "f"){
-      $navContainer .= "<a href='index.php?page=intim_calendar'>Intimní deníček</a>";
+	$html->addToNavigation("<a href='index.php?page=intim_calendar'>Intimní deníček</a>");
 }
 
-$navContainer .= "<a href='index.php?page=entries'>Mé články</a>
-        <a href='index.php?page=contacts'>Kontakty</a>
-        <a href='index.php?page=logout'>Odhlásit se</a>
-        ";
-
-return $navContainer;
+$html->addToNavigation("<a href='index.php?page=entries'>Mé články</a>");
+$html->addToNavigation("<a href='index.php?page=contacts'>Kontakty</a>");
+$html->addToNavigation("<a href='index.php?page=logout'>Odhlásit se</a>");

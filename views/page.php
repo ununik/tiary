@@ -6,27 +6,25 @@ return "
         <meta charset='utf-8'>
         <meta name='viewport' content='width=device-width; initial-scale=1.0'>
         <script src='js/tinymce/js/tinymce/tinymce.min.js'></script>
-        <link href='https://fonts.googleapis.com/css?family=Play:400,700&subset=latin,latin-ext,greek,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
-        <link rel='stylesheet' href='views/css/style.css' type='text/css' media='screen'/>
-        <link rel='stylesheet' href='views/css/style_mobil.css' type='text/css' media='handheld, only screen and (max-device-width: 1023px)'/>
+        {$html->getCss()}
         <script src='js/basicPage.js'></script>
         <script src='js/ajax.js'></script>
         <script src='js/calendar.js'></script>
         <script src='js/training.js'></script>
         <script src='js/jquery-1.11.3.min.js'></script>
-        <title>$title</title>
+        <title>{$html->getTitle()}</title>
         <style>
         </style>
     </head>
     <body onload='onload()'>
     <div id='blackBackground'></div>
     <div id='grayBackground'></div>
-    <div id='header'><a href='index.php'><img src='images/view/tiary_header.png' id='header_logo'></a>$header</div>
+    <div id='header'>{$html->getHeader()}</div>
     <div id='notice'></div>
-    <nav>$navigation</nav>
+    <nav>{$html->getNavigation()}</nav>
     <div id='contentbox'>
         <div id='content'>
-            $contetnt
+        {$html->getContent()}
         </div>
     </div>
     </body>
