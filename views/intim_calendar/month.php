@@ -47,7 +47,7 @@ for($monthDay = 1; $monthDay <= $num; $monthDay++){
             $calendar .= "<span title='{$days[$monthDay - 1]['phlegm']}'><img src='images/view/intim_calendar/phlegm.png' class='intim_calendar_others_img'></span>";
         }
         if($days[$monthDay - 1]['suppository'] != ""){
-            $calendar .= "<span title='{$days[$monthDay - 1]['suppository']}'>Č</span>";
+            $calendar .= "<span title='{$days[$monthDay - 1]['suppository']}'><img src='images/view/intim_calendar/suppository.png' class='intim_calendar_others_img'></span>";
         }
         if($days[$monthDay - 1]['comment'] != ""){
             $calendar .= "<span title='{$days[$monthDay - 1]['comment']}'><img src='images/view/intim_calendar/comment.png' class='intim_calendar_others_img'></span>";

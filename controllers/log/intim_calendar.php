@@ -1,5 +1,7 @@
 <?php
 $html->addCss("<link rel='stylesheet' href='views/css/intim_calendar/screen.css' type='text/css' media='screen'/>");
+$html->addCss("<link rel='stylesheet' href='views/css/intim_calendar/mobile.css' type='text/css' media='handheld, only screen and (max-device-width: 1023px)'/>");
+
 $html->addTitle('Můj intimní deníček');
 if($profil->getGender() != "f"){
     return '<h3>Pro užívání této funkce musíte mít v profilu označené, že jste žena!';

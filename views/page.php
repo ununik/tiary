@@ -5,13 +5,11 @@ return "
     <head>
         <meta charset='utf-8'>
         <meta name='viewport' content='width=device-width; initial-scale=1.0'>
-        <script src='js/tinymce/js/tinymce/tinymce.min.js'></script>
+        {$html->getIcon()}
+
         {$html->getCss()}
-        <script src='js/basicPage.js'></script>
-        <script src='js/ajax.js'></script>
-        <script src='js/calendar.js'></script>
-        <script src='js/training.js'></script>
-        <script src='js/jquery-1.11.3.min.js'></script>
+        {$html->getScripts()}
+
         <title>{$html->getTitle()}</title>
         <style>
         </style>

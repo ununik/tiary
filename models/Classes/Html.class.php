@@ -7,6 +7,13 @@ class Html
     private $header = "<a href='index.php'><img src='images/view/tiary_header.png' id='header_logo'></a>";
     private $navigation = "";
     private $content = "";
+	private $icon = "tiary.ico";
+	private $script = "";
+
+// ICON
+	public function getIcon(){
+		return "<link rel='shortcut icon' href='{$this->icon}'/>";
+	}
     
 // CSS    
     public function addCss($new){
@@ -61,5 +68,19 @@ class Html
 	}
 	public function getContent() {
 		return $this->content;
+	}
+
+// SCRIPT
+	public function clearScript(){
+		$this->script = "";
+	}
+	public function setScript($new){
+		$this->script = $new;
+	}
+	public function addScript($new){
+		$this->script .= $new;
+	}
+	public function getScripts(){
+		return $this->script;
 	}
 }

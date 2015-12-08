@@ -1,0 +1,10 @@
+.intim_form_table{
+    width: 100%;
+}
+#intimCalendarNew{
+    width: 77% !important;
+}
+.intim_week_nextANDprevious{
+    margin: 0px;
+    font-size: 0.9em;
+}

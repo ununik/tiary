@@ -40,7 +40,7 @@ for($i = 0; $i < 7; $i++){
     	$calendar .= "<span title='{$day['phlegm']}'><img src='images/view/intim_calendar/phlegm.png' class='intim_calendar_others_img'></span>";
     }
     if($day['suppository'] != ""){
-    	$calendar .= "<span title='{$day['suppository']}'>Č</span>";
+    	$calendar .= "<span title='{$day['suppository']}'><img src='images/view/intim_calendar/suppository.png' class='intim_calendar_others_img'></span>";
     }
     if($day['comment'] != ""){
     	$calendar .= "<span title='{$day['comment']}'><img src='images/view/intim_calendar/comment.png' class='intim_calendar_others_img'></span>";
