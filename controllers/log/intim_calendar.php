@@ -57,6 +57,7 @@ switch($term){
         $num = 7;
         break;
 }
+
 $today_const = $today;
 $next = strtotime($plus, $today);
 $nextDate = strtotime($nextDate, $today);
@@ -70,7 +71,9 @@ $howLongMenstruation = $entries->howLongMenstruation($profil->getId());
 $lastMenstruation = $entries->getLastMenstruation($profil->getId());
 $lastOvulation = $entries->getLastOvulation($profil->getId());
 $predictionTerm = 6;
-
+//IMAGE
+$First_day_of_menstraution_img = $entries->getAllFirstDayMenstruation($profil->getId());
+//IMAGE end
 if($term == "month") {
     $month['monthNum'] = date("n", $today);
     $month['month'] = $mesic[$month['monthNum'] - 1] . ' ' . date("Y", $today);

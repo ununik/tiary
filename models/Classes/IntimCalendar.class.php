@@ -118,7 +118,8 @@ class IntimCalendar extends Connection
         }
         $average = (int) array_sum($length) / count($length);
         return (int) ($average/86400);
-    }
+    } 
+    
 
     public function getLastMenstruation($user){
         $db = parent::connect();
@@ -133,6 +134,21 @@ class IntimCalendar extends Connection
             $date0 = $day['date'];
         }
         return (int) $last;
+    }
+    
+    public function getAllFirstDayMenstruation($user){
+    	$db = parent::connect();
+    	$result = $db->prepare("SELECT * FROM `intim_calendar` WHERE  `user` = ? && `blood` > ? ORDER BY `date`");
+    	$result->execute(array($user, 0));
+    	$events = $result->fetchAll();
+    	$date0 = 0;
+    	foreach ($events as $day) {
+    		if(($day['date'] - $date0) > 5*86400 && ($day['date'] - $date0) < 45*86400){
+    			$last[] = $day['date'];
+    		}
+    		$date0 = $day['date'];
+    	}
+    	return $last;
     }
 
     public function getLastOvulation($user){

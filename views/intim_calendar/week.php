@@ -49,5 +49,10 @@ for($i = 0; $i < 7; $i++){
 }
 $calendar .= "</table>";
 
+foreach($First_day_of_menstraution_img as $time){
+	$calendar .= "<img src='controllers/log/intim/intim_calendar_graf.php?first_day=$time' class='intim_calendar_graf'>";	
+}
+
+
 
 return $calendar;
