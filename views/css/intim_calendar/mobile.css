@@ -9,5 +9,15 @@
 }
 .intim_week_nextANDprevious{
     margin: 0px;
-    font-size: 0.9em;
+    font-size: 14px !important;
+}
+.calendar_month .intim_month_nextANDprevious{
+	margin: 0px;
+	font-size: 14px;
+}
+.calendar_month{
+	font-size: 14px;
+}
+.button{
+	font-size: 14px;
 }

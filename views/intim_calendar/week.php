@@ -6,6 +6,8 @@
  * Time: 16:11
  */
 $calendar = "";
+//menu
+$calendar .= "<span>NASTAVENI</span><span>Grafy</span>";
 $calendar .= "<table class='calendar_week'><tr><td colspan='5' class='intim_week_nextANDprevious'><span class='left_side'><a href='index.php?page=intim_calendar&term={$term}&date=$now' class='button'>Dnes</a></span><a href='index.php?page=intim_calendar&term=week&date=$previousDate' class='previousANDnext_headline'><</a><a href='index.php?page=intim_calendar&term=week&date=$nextDate' class='previousANDnext_headline'>></a><span class='right_side'><a href='index.php?page=intim_calendar&term=week&date=$today_const' class='button'>Týden</a><a href='index.php?page=intim_calendar&term=month&date=$today_const' class='button'>Měsíc</a><a href='index.php?page=intim_calendar&term=year&date=$today_const' class='button'>Rok</a></span></td></tr>";
 $calendar .= "<th colspan='2' id='calendar_week_header_date'></th><th>Teplota</th><th>Poznámka</th>";
 for($i = 0; $i < 7; $i++){
@@ -16,12 +18,12 @@ for($i = 0; $i < 7; $i++){
     	$calendar .= "<tr class='week_row' onclick='intimCalendarNew({$day['timestamp']})'>";
 	}
     $calendar .= "<td class='calendar_week_date'>{$day['date']}</td><td  class='calendar_week_dayname'>{$day['name']}</td>";
-    
+
     $calendar .= "<td  class='intim_week_blood ";
     if($day['blood'] != "0"){
         $calendar .= 'calendar_month_mentruace'.$day['blood'];
     }
-   
+
     $calendar .= "'>";
     if($day['temperature'] != 0){
     	$calendar .= '<b>' . $day['temperature'] . '</b>°C';
@@ -31,7 +33,7 @@ for($i = 0; $i < 7; $i++){
     if($day['blood'] != "0"){
     	$calendar .= 'calendar_month_mentruace'.$day['blood'];
     }
-     
+
     $calendar .= "'>";
     if($day['factors'] != ""){
     	$calendar .= "<span title='{$day['factors']}'><img src='images/view/intim_calendar/factors.png' class='intim_calendar_others_img'></span>";
@@ -50,7 +52,7 @@ for($i = 0; $i < 7; $i++){
 $calendar .= "</table>";
 
 foreach($First_day_of_menstraution_img as $time){
-	$calendar .= "<img src='controllers/log/intim/intim_calendar_graf.php?first_day=$time' class='intim_calendar_graf'>";	
+	$calendar .= "<img src='controllers/log/intim/intim_calendar_graf.php?first_day=$time' class='intim_calendar_graf'>";
 }
 
 

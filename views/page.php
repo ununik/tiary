@@ -25,5 +25,6 @@ return "
         {$html->getContent()}
         </div>
     </div>
+    <div id='div'>
     </body>
 </html>";

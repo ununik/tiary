@@ -5,6 +5,9 @@
   font-family: 'Play', sans-serif;
   margin: 0px;
 }
+#div *{
+	width: 100% !important;
+}
 #blackBackground{
   position: fixed;
   width: 100%;
@@ -94,7 +97,6 @@
 .calendar_month{
   border-collapse: collapse;
   width: 60%;
-  height: 75%;
 }
 .calendar_month th{
   height: 25px;

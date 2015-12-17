@@ -30,12 +30,12 @@ for($i = 0; $i < $pocet_dnu; $i++){
 		}
 	}
 	$days[$i]['date'] = date("j. n.", $actualDay);
-	
+
 	$actualDay = $actualDay + 86400;
 }
 header("Content-Type: image/png");
 $max_temperatur = 37.4;
-$max_days = 31;
+$max_days = 35;
 
 if($pocet_dnu > $max_days){
 	$pocet_dnu = $max_days;
@@ -49,7 +49,7 @@ $x0 = 50;
 $image = @imagecreate(1024, $height);
 $background_color = imagecolorallocate($image, 255, 255, 255);
 //sit
-$color_black = imagecolorallocate($image, 0, 0, 0);	
+$color_black = imagecolorallocate($image, 0, 0, 0);
 $color_red = imagecolorallocate($image, 255, 0, 0);
 $color_green = imagecolorallocate($image, 0, 255, 0);
 $color_dark_blue = imagecolorallocate($image, 0, 0, 80);
@@ -69,7 +69,7 @@ $color_dark_blue = imagecolorallocate($image, 0, 0, 80);
 			$i = 0;
 		}
 	}
-	
+
 	//dny
 	$lastPositionTemperatur = 0;
 	$last_temperatur = 0;
@@ -88,14 +88,14 @@ $color_dark_blue = imagecolorallocate($image, 0, 0, 80);
 		}elseif($days[$den-1]['menstruace'] == 5){
 			imagefilledrectangle ( $image , $x0 + (($den * 31) - 30) , $y0 - 1, $x0 + (($den * 31) - 1) , $y0 - 125 , $color_red );
 		}
-		
+
 		//Ovulace
 		if($days[$den-1]['ovulation'] == 1){
-			imagefilledrectangle ( $image , $x0 + (($den * 31) - 30) , $y0 - 1, $x0 + (($den * 31) - 1) , $y0 - 50 , $color_green );
+			imagefilledrectangle ( $image , $x0 + (($den * 31) - 30) , $y0 - 1, $x0 + (($den * 31) - 1) , $y0 - 24 , $color_green );
 		}elseif($days[$den-1]['ovulation'] == 2){
-			imagefilledrectangle ( $image , $x0 + (($den * 31) - 30) , $y0 - 1, $x0 + (($den * 31) - 1) , $y0 - 20 , $color_green );
+			imagefilledrectangle ( $image , $x0 + (($den * 31) - 30) , $y0 - 1, $x0 + (($den * 31) - 1) , $y0 - 12 , $color_green );
 		}
-		
+
 		//Teplota
 		if($days[$den-1]['temperature'] != 0){
 			if($last_temperatur != 0){

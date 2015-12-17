@@ -71,8 +71,25 @@
 .intim_form_table_blood select:focus{
   background-color: rgba(134,13,10,0.1);
 }
-.intim_week_blood{
+.intim_month_blood{
 	width: 40px !important;
+}
+.intim_month_nextANDprevious{
+	text-align: center;
+	padding: 15px 0px;
+	background-color: white;
+}
+.intim_month_nextANDprevious a{
+	text-decoration: none;
+	color: gray;
+	font-weight: bold;
+	display: inline-block;
+}
+.intim_month_nextANDprevious a:hover{
+	text-decoration: underline;
+}
+.intim_month_nextANDprevious .button{
+  	color: white;
 }
 .intim_week_nextANDprevious{
 	text-align: center;
@@ -167,11 +184,16 @@
 .textarea_div_intim textarea:focus{
   height: 75px !important;
 }
-
-
-
-
-
+.calendar_month .calendar_month_temperature{
+	display: block;
+	font-size: 10px !important;
+    margin: 0px 0px 0px 0px;
+    position: absolute;
+    z-index: 5;
+}
+.intim_others_icon{
+	margin-top: 12px;
+}
 
 
 

@@ -7,7 +7,8 @@
  */
 $calendar = "";
 
-$calendar .= "<table class='calendar_month'><th colspan='7' id='calendar_week_header_date'><div class='calendar_js_month'><span class='left_side'><a href='index.php?page=intim_calendar&term={$term}&date=$now' class='button'>Dnes</a></span><a href='index.php?page=intim_calendar&term=month&date=$previousDate'><span>{$month['month-1']}</span></a>{$month['month']}<a href='index.php?page=intim_calendar&term=month&date=$nextDate'><span>{$month['month+1']}</span></a><span class='right_side'><a href='index.php?page=intim_calendar&term=week&date=$today_const' class='button'>Týden</a><a href='index.php?page=intim_calendar&term=month&date=$today_const' class='button'>Měsíc</a><a href='index.php?page=intim_calendar&term=year&date=$today_const' class='button'>Rok</a></span></th><tr>";
+$calendar .= "<table class='calendar_month'><th colspan='7' id='calendar_week_header_date' class='intim_week_nextANDprevious'><div class='calendar_js_month'><span class='left_side'><a href='index.php?page=intim_calendar&term={$term}&date=$now' class='button'>Dnes</a></span><a href='index.php?page=intim_calendar&term=month&date=$previousDate' class='previousANDnext_headline'><</a><a href='index.php?page=intim_calendar&term=month&date=$nextDate' class='previousANDnext_headline'>></a><span class='right_side'><a href='index.php?page=intim_calendar&term=week&date=$today_const' class='button'>Týden</a><a href='index.php?page=intim_calendar&term=month&date=$today_const' class='button'>Měsíc</a><a href='index.php?page=intim_calendar&term=year&date=$today_const' class='button'>Rok</a></span></th><tr>";
+$calendar .= "<tr><th colspan='7'>{$month['month']}</th></tr>";
 for($i=1; $i<8; $i++){
     $calendar .= "<td class='calendar_month_dayname'>{$daysname[$i]}</td>";
 }
@@ -39,7 +40,7 @@ for($monthDay = 1; $monthDay <= $num; $monthDay++){
         }
 
 
-        $calendar .= "<div>";
+        $calendar .= "<div class='intim_others_icon'>";
         if($days[$monthDay - 1]['factors'] != ""){
             $calendar .= "<span title='{$days[$monthDay - 1]['factors']}'><img src='images/view/intim_calendar/factors.png' class='intim_calendar_others_img'></span>";
         }
